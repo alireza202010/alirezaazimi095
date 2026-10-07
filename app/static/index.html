@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لینک‌پلنر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --surface-2: #f0f2f5; --border: #e2e5ea;
+    --text: #1d2330; --muted: #667085; --accent: #2f6bff; --accent-soft: #e8efff;
+    --ok: #12805c; --warn: #b54708; --warn-soft: #fff4e5; --danger: #c4320a;
+    --radius: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11141a; --surface: #1a1e26; --surface-2: #232834; --border: #2e3442;
+      --text: #e7eaf0; --muted: #9aa3b5; --accent: #6b95ff; --accent-soft: #1f2a45;
+      --ok: #4cc79a; --warn: #f5a35c; --warn-soft: #3a2a17; --danger: #ff7a59;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: Vazirmatn, Tahoma, sans-serif; font-size: 15px; line-height: 1.7;
+  }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; flex-wrap: wrap; }
+  .logo { font-weight: 700; font-size: 20px; }
+  .logo span { color: var(--accent); }
+  nav { display: flex; gap: 4px; }
+  nav button, .tabs button {
+    border: 0; background: transparent; color: var(--muted); padding: 8px 14px; border-radius: 8px;
+    font: inherit; cursor: pointer;
+  }
+  nav button.active, .tabs button.active { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+  main { padding: 24px 0 64px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; }
+  h2 { font-size: 17px; margin: 0 0 16px; }
+  h3 { font-size: 15px; margin: 0 0 10px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  input[type=text], input[type=url], select {
+    width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 8px;
+    background: var(--surface); color: var(--text); font: inherit;
+  }
+  input:focus, select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  .ltr { direction: ltr; text-align: left; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; font-size: 14px; }
+  .chip:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+  .chip input { accent-color: var(--accent); margin: 0; }
+  .kw-row { display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 8px; margin-bottom: 8px; }
+  .btn { border: 0; background: var(--accent); color: #fff; padding: 10px 22px; border-radius: 8px; font: inherit; font-weight: 500; cursor: pointer; }
+  .btn:disabled { opacity: .6; cursor: wait; }
+  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--border); }
+  .btn.small { padding: 6px 12px; font-size: 13px; }
+  .icon-btn { border: 1px solid var(--border); background: transparent; color: var(--muted); border-radius: 8px; width: 38px; cursor: pointer; font-size: 18px; }
+  .hint { font-size: 13px; color: var(--muted); }
+  .section-gap { margin-top: 18px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .stat { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; }
+  .stat .v { font-size: 20px; font-weight: 700; }
+  .stat .k { font-size: 12px; color: var(--muted); }
+  .warn { background: var(--warn-soft); color: var(--warn); border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; font-size: 14px; }
+  .tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .bars div.row { display: grid; grid-template-columns: 130px 1fr 32px; gap: 8px; align-items: center; font-size: 13px; margin-bottom: 6px; }
+  .bars .track { background: var(--surface-2); border-radius: 4px; height: 8px; overflow: hidden; }
+  .bars .fill { background: var(--accent); height: 100%; }
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { padding: 9px 10px; text-align: right; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--surface-2); color: var(--muted); font-weight: 500; white-space: nowrap; position: sticky; top: 0; }
+  tr.month td { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+  .tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); white-space: nowrap; }
+  .tag.ok { color: var(--ok); }
+  .tag.bad { color: var(--danger); }
+  .score { font-weight: 700; }
+  details summary { cursor: pointer; color: var(--accent); font-size: 12.5px; }
+  details ul { margin: 6px 0 0; padding-right: 18px; font-size: 12.5px; }
+  .muted { color: var(--muted); }
+  .hidden { display: none !important; }
+  .notes li { color: var(--muted); font-size: 13px; }
+  .err { color: var(--danger); font-size: 14px; white-space: pre-wrap; }
+  @media (max-width: 640px) {
+    .kw-row { grid-template-columns: 1fr auto; }
+    .kw-row input.url { grid-column: 1 / -1; grid-row: 2; }
+    .bars div.row { grid-template-columns: 100px 1fr 28px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="logo">لینک<span>‌پلنر</span> <span class="hint">پیشنهاد هوشمند بک‌لینک و رپورتاژ</span></div>
+    <nav>
+      <button class="active" data-view="planner">ساخت پلن</button>
+      <button data-view="publishers">دیتابیس ناشران</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="view-planner">
+    <form id="plan-form" class="card" novalidate>
+      <h2>۱. اطلاعات سایت و بودجه</h2>
+      <div class="grid">
+        <div><label for="site_url">آدرس سایت *</label><input id="site_url" type="url" class="ltr" placeholder="https://example.ir" required></div>
+        <div><label for="brand_name">نام برند</label><input id="brand_name" type="text" placeholder="مثلاً دیجی‌شاپ"></div>
+        <div><label for="budget">بودجه کل (تومان) *</label><input id="budget" type="text" inputmode="numeric" class="ltr" placeholder="50,000,000" required></div>
+        <div><label for="months">مدت کمپین *</label>
+          <select id="months">
+            <option value="1">۱ ماه</option><option value="2">۲ ماه</option><option value="3" selected>۳ ماه</option>
+            <option value="6">۶ ماه</option><option value="12">۱۲ ماه</option>
+          </select></div>
+        <div><label for="category">حوزه فعالیت *</label><select id="category"></select></div>
+      </div>
+
+      <h2 class="section-gap">۲. کلمات کلیدی و صفحات هدف</h2>
+      <div id="kw-list"></div>
+      <button type="button" class="btn ghost small" id="add-kw">+ افزودن کلمه کلیدی</button>
+      <p class="hint">برای هر کلمه کلیدی، صفحه‌ای از سایت را که می‌خواهید در آن کلمه رتبه بگیرد وارد کنید (حداکثر ۲۰).</p>
+
+      <h2 class="section-gap">۳. هدف و ترجیحات</h2>
+      <label>هدف اصلی</label><div class="chips" id="goals"></div>
+      <label class="section-gap">ریسک‌پذیری</label><div class="chips" id="risks"></div>
+      <label class="section-gap">نوع سایت‌های مجاز</label><div class="chips" id="types"></div>
+      <div class="chips section-gap">
+        <label class="chip"><input type="checkbox" id="dofollow_only"> فقط لینک فالو</label>
+        <label class="chip"><input type="checkbox" id="permanent_only"> فقط لینک دائمی</label>
+      </div>
+
+      <div class="section-gap" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <button class="btn" id="submit">ساخت پلن پیشنهادی</button>
+        <span id="form-error" class="err"></span>
+      </div>
+    </form>
+
+    <div id="results" class="hidden"></div>
+  </section>
+
+  <section id="view-publishers" class="hidden">
+    <div class="card">
+      <h2>دیتابیس ناشران</h2>
+      <p class="hint">داده‌های فعلی <b>نمونه و ساختگی</b> هستند (دامنه‌های ‎.example). فایل CSV ناشران واقعی را با همین ستون‌ها وارد کنید؛ جایگزین داده‌های فعلی می‌شود.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+        <input type="text" id="pub-search" placeholder="جستجو در نام، دامنه یا دسته..." style="max-width:320px">
+        <a class="btn ghost small" href="/api/publishers.csv">دانلود CSV</a>
+        <label class="btn ghost small" style="margin:0;color:var(--accent)">ورود CSV<input type="file" id="pub-file" accept=".csv,text/csv" hidden></label>
+        <span id="pub-msg" class="hint"></span>
+      </div>
+      <div class="table-wrap" style="max-height:70vh">
+        <table>
+          <thead><tr><th>نام</th><th>دامنه</th><th>نوع</th><th>محصول</th><th>دسته‌ها</th><th>قیمت (تومان)</th><th>اعتبار</th><th>ترافیک ماهانه</th><th>رپورتاژ/ماه</th><th>ایندکس</th><th>لینک</th></tr></thead>
+          <tbody id="pub-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const META = {};
+const fa = n => Number(n).toLocaleString('fa-IR');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = id => document.getElementById(id);
+const toLatinDigits = s => s.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+
+function chips(container, name, options, type, checked) {
+  $(container).innerHTML = Object.entries(options).map(([k, v]) =>
+    `<label class="chip"><input type="${type}" name="${name}" value="${k}" ${checked(k) ? 'checked' : ''}> ${esc(v)}</label>`).join('');
+}
+
+function addKeyword(kw = '', url = '') {
+  const row = document.createElement('div');
+  row.className = 'kw-row';
+  row.innerHTML = `<input type="text" class="kw" placeholder="کلمه کلیدی، مثلاً خرید گوشی">
+    <input type="url" class="url ltr" placeholder="https://example.ir/page">
+    <button type="button" class="icon-btn" title="حذف">×</button>`;
+  row.querySelector('.kw').value = kw;
+  row.querySelector('.url').value = url;
+  row.querySelector('button').onclick = () => { if ($('kw-list').children.length > 1) row.remove(); };
+  $('kw-list').appendChild(row);
+}
+
+async function init() {
+  Object.assign(META, await (await fetch('/api/meta')).json());
+  $('category').innerHTML = Object.entries(META.categories).map(([k, v]) => `<option value="${k}">${esc(v)}</option>`).join('');
+  chips('goals', 'goal', META.goals, 'radio', k => k === 'ranking');
+  chips('risks', 'risk', META.risks, 'radio', k => k === 'balanced');
+  chips('types', 'types', META.publisher_types, 'checkbox', () => true);
+  addKeyword();
+}
+
+$('add-kw').onclick = () => { if ($('kw-list').children.length < 20) addKeyword(); };
+
+$('budget').addEventListener('input', e => {
+  const digits = toLatinDigits(e.target.value).replace(/\D/g, '');
+  e.target.value = digits ? Number(digits).toLocaleString('en-US') : '';
+});
+
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('nav button').forEach(x => x.classList.toggle('active', x === b));
+  $('view-planner').classList.toggle('hidden', b.dataset.view !== 'planner');
+  $('view-publishers').classList.toggle('hidden', b.dataset.view !== 'publishers');
+  if (b.dataset.view === 'publishers') loadPublishers();
+});
+
+function normalizeUrl(u) {
+  u = u.trim();
+  return u && !/^https?:\/\//i.test(u) ? 'https://' + u : u;
+}
+
+$('plan-form').onsubmit = async e => {
+  e.preventDefault();
+  $('form-error').textContent = '';
+  const keywords = [...document.querySelectorAll('.kw-row')].map(r => ({
+    keyword: r.querySelector('.kw').value.trim(), url: normalizeUrl(r.querySelector('.url').value),
+  })).filter(k => k.keyword);
+  const site = normalizeUrl($('site_url').value);
+  keywords.forEach(k => { if (!k.url) k.url = site; });
+  const budget = Number(toLatinDigits($('budget').value).replace(/\D/g, ''));
+  const types = [...document.querySelectorAll('input[name=types]:checked')].map(i => i.value);
+
+  const errors = [];
+  if (!site) errors.push('آدرس سایت را وارد کنید.');
+  if (!budget) errors.push('بودجه را وارد کنید.');
+  if (!keywords.length) errors.push('حداقل یک کلمه کلیدی وارد کنید.');
+  if (!types.length) errors.push('حداقل یک نوع سایت انتخاب کنید.');
+  if (errors.length) { $('form-error').textContent = errors.join('\n'); return; }
+
+  const body = {
+    site_url: site, brand_name: $('brand_name').value.trim() || null, budget,
+    months: Number($('months').value), category: $('category').value, keywords,
+    goal: document.querySelector('input[name=goal]:checked').value,
+    risk: document.querySelector('input[name=risk]:checked').value,
+    allowed_types: types, dofollow_only: $('dofollow_only').checked, permanent_only: $('permanent_only').checked,
+  };
+  $('submit').disabled = true; $('submit').textContent = 'در حال محاسبه...';
+  try {
+    const res = await fetch('/api/plan', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) });
+    const data = await res.json();
+    if (!res.ok) throw new Error((data.detail || []).map?.(d => `${d.loc?.slice(1).join('.')}: ${d.msg}`).join('\n') || 'خطا در ساخت پلن');
+    renderResults(data);
+  } catch (err) {
+    $('form-error').textContent = err.message;
+  } finally {
+    $('submit').disabled = false; $('submit').textContent = 'ساخت پلن پیشنهادی';
+  }
+};
+
+let PLAN = null;
+function renderResults(data) {
+  PLAN = data;
+  const excluded = Object.entries(data.excluded).map(([k, v]) => `${esc(k)}: ${fa(v)}`).join('، ');
+  $('results').classList.remove('hidden');
+  $('results').innerHTML = `
+    <div class="card">
+      <h2>نتیجه تحلیل</h2>
+      <p class="hint">از ${fa(data.total_offers)} پیشنهاد موجود، ${fa(data.eligible_offers)} مورد با شرایط شما سازگار بود.
+        ${excluded ? 'حذف‌شده‌ها — ' + excluded : ''}</p>
+      <div class="tabs" id="sc-tabs">${data.scenarios.map((s, i) =>
+        `<button class="${i === 1 ? 'active' : ''}" data-i="${i}">سناریوی ${esc(s.title)}</button>`).join('')}</div>
+      <div id="sc-body"></div>
+      <ul class="notes section-gap">${data.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>
+    </div>`;
+  document.querySelectorAll('#sc-tabs button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('#sc-tabs button').forEach(x => x.classList.toggle('active', x === b));
+    renderScenario(data.scenarios[b.dataset.i]);
+  });
+  renderScenario(data.scenarios[1]);
+  $('results').scrollIntoView({ behavior: 'smooth' });
+}
+
+function bars(obj) {
+  const max = Math.max(1, ...Object.values(obj));
+  return Object.entries(obj).sort((a, b) => b[1] - a[1]).map(([k, v]) =>
+    `<div class="row"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${v / max * 100}%"></div></div><span>${fa(v)}</span></div>`).join('')
+    || '<p class="hint">—</p>';
+}
+
+function renderScenario(s) {
+  const linkTag = it => it.link_type === 'dofollow' ? '<span class="tag ok">فالو</span>'
+    : `<span class="tag bad">${esc(META.link_types[it.link_type])}</span>`;
+  let rows = '', month = 0;
+  for (const it of s.items) {
+    if (it.month !== month) {
+      month = it.month;
+      const m = s.monthly[month - 1];
+      rows += `<tr class="month"><td colspan="7">ماه ${fa(month)} — ${esc(m.label)} · ${fa(m.count)} لینک · ${fa(m.cost)} تومان</td></tr>`;
+    }
+    const why = [...it.reasons.map(r => `<li>${esc(r)}</li>`), ...it.cautions.map(c => `<li style="color:var(--warn)">${esc(c)}</li>`)].join('');
+    rows += `<tr>
+      <td><b>${esc(it.publisher_name)}</b><div class="muted ltr" style="font-size:12px">${esc(it.domain)}</div>
+        <span class="tag">${esc(it.type_label)}</span> <span class="tag">${esc(it.product_label)}</span> ${linkTag(it)}
+        ${it.permanent ? '' : '<span class="tag bad">موقت</span>'}</td>
+      <td>${fa(it.price)}</td>
+      <td><span class="score">${fa(Math.round(it.quality))}</span><div class="muted" style="font-size:12px">اعتبار ${fa(it.authority)} · ${fa(it.monthly_traffic)} بازدید</div></td>
+      <td><b>${esc(it.anchor_text)}</b><div><span class="tag">${esc(it.anchor_type_label)}</span></div></td>
+      <td class="ltr" style="font-size:12px;word-break:break-all">${esc(it.target_url)}</td>
+      <td>${esc(it.brief_title)}</td>
+      <td>${why ? `<details><summary>چرا این سایت؟</summary><ul>${why}</ul></details>` : ''}</td>
+    </tr>`;
+  }
+  $('sc-body').innerHTML = `
+    <p class="hint">${esc(s.description)}</p>
+    <div class="stats">
+      <div class="stat"><div class="v">${fa(s.total_cost)}</div><div class="k">هزینه کل (از ${fa(s.budget)} تومان)</div></div>
+      <div class="stat"><div class="v">${fa(s.item_count)}</div><div class="k">تعداد لینک</div></div>
+      <div class="stat"><div class="v">${fa(s.avg_quality)}</div><div class="k">میانگین امتیاز کیفیت (از ۱۰۰)</div></div>
+      <div class="stat"><div class="v">${fa(s.remaining)}</div><div class="k">باقی‌مانده بودجه (تومان)</div></div>
+    </div>
+    ${s.warnings.map(w => `<div class="warn">${esc(w)}</div>`).join('')}
+    <div class="two">
+      <div><h3>ترکیب منابع</h3><div class="bars">${bars(s.type_breakdown)}</div></div>
+      <div><h3>توزیع انکرتکست</h3><div class="bars">${bars(s.anchor_breakdown)}</div></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px;flex-wrap:wrap">
+      <h3 style="margin:0">برنامه زمان‌بندی خرید</h3>
+      <button class="btn ghost small" id="export">دانلود اکسل (CSV)</button>
+    </div>
+    ${s.items.length ? `<div class="table-wrap"><table>
+      <thead><tr><th>ناشر</th><th>قیمت (تومان)</th><th>امتیاز</th><th>انکرتکست</th><th>صفحه هدف</th><th>موضوع پیشنهادی محتوا</th><th></th></tr></thead>
+      <tbody>${rows}</tbody></table></div>` : '<p class="hint">موردی برای نمایش وجود ندارد.</p>'}`;
+  const btn = $('export');
+  if (btn) btn.onclick = () => exportCsv(s);
+}
+
+function exportCsv(s) {
+  const head = ['ماه', 'ناشر', 'دامنه', 'نوع', 'محصول', 'قیمت (تومان)', 'نوع لینک', 'دائمی', 'امتیاز کیفیت', 'کلمه کلیدی', 'انکرتکست', 'نوع انکر', 'صفحه هدف', 'موضوع محتوا'];
+  const rows = s.items.map(it => [it.month_label, it.publisher_name, it.domain, it.type_label, it.product_label, it.price,
+    META.link_types[it.link_type], it.permanent ? 'بله' : 'خیر', it.quality, it.keyword, it.anchor_text, it.anchor_type_label, it.target_url, it.brief_title]);
+  const cell = v => /^[=+\-@]/.test(String(v)) ? `"'${String(v).replace(/"/g, '""')}"` : `"${String(v).replace(/"/g, '""')}"`;
+  const csv = '﻿' + [head, ...rows].map(r => r.map(cell).join(',')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = `link-plan-${s.key}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+let PUBS = [];
+async function loadPublishers() {
+  PUBS = await (await fetch('/api/publishers')).json();
+  renderPublishers();
+}
+function renderPublishers() {
+  const q = $('pub-search').value.trim().toLowerCase();
+  const list = PUBS.filter(p => !q || [p.name, p.domain, ...p.categories.map(c => META.categories[c])].join(' ').toLowerCase().includes(q));
+  $('pub-body').innerHTML = list.map(p => `<tr>
+    <td>${esc(p.name)}</td><td class="ltr">${esc(p.domain)}</td><td>${esc(META.publisher_types[p.type])}</td>
+    <td>${esc(META.products[p.product])}</td><td>${p.categories.map(c => `<span class="tag">${esc(META.categories[c])}</span>`).join(' ')}</td>
+    <td>${fa(p.price)}</td><td>${fa(p.authority)}</td><td>${fa(p.monthly_traffic)}</td><td>${fa(p.outbound_per_month)}</td>
+    <td>${fa(Math.round(p.index_rate * 100))}٪</td><td>${esc(META.link_types[p.link_type])}${p.permanent ? '' : ' · موقت'}</td></tr>`).join('');
+  $('pub-msg').textContent = `${fa(list.length)} مورد`;
+}
+$('pub-search').oninput = renderPublishers;
+$('pub-file').onchange = async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const res = await fetch('/api/publishers/import', { method: 'POST', headers: {'Content-Type': 'text/csv'}, body: await file.text() });
+  const data = await res.json();
+  $('pub-msg').textContent = res.ok ? `${fa(data.imported)} ناشر وارد شد.` : 'خطا: ' + (data.detail?.errors || [data.detail]).join(' | ');
+  e.target.value = '';
+  if (res.ok) loadPublishers();
+};
+
+init();
+</script>
+</body>
+</html>

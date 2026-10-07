@@ -1,0 +1,151 @@
+id,name,domain,type,categories,product,price,authority,monthly_traffic,outbound_per_month,index_rate,link_type,permanent
+P0001,خبرگزاری برتر 1,agency-bartar1.example,news_agency,general,news_reportage,65000000,83,4212011,58,0.95,dofollow,true
+P0002,خبرگزاری نوین 2,agency-novin2.example,news_agency,general,news_reportage,71300000,91,75108,468,0.87,dofollow,true
+P0003,خبرگزاری آنلاین 3,agency-online3.example,news_agency,general,reportage,31700000,84,17731561,119,0.98,dofollow,true
+P0004,خبرگزاری برتر 4,agency-bartar4.example,news_agency,general|lifestyle,news_reportage,77000000,71,10258099,35,0.72,dofollow,false
+P0005,خبرگزاری سبز 5,agency-sabz5.example,news_agency,general|food,reportage,74750000,66,13479406,35,0.93,nofollow,true
+P0006,خبرگزاری مرجع 6,agency-marja6.example,news_agency,general|lifestyle|education,news_reportage,53000000,65,5450001,56,0.63,dofollow,true
+P0007,خبرگزاری پارس 7,agency-pars7.example,news_agency,general|automotive,news_reportage,35950000,82,9037612,117,0.56,dofollow,true
+P0008,خبرگزاری پلاس 8,agency-plus8.example,news_agency,general|sports|education,reportage,27000000,66,11800099,80,0.61,dofollow,true
+P0009,خبرگزاری سبز 9,agency-sabz9.example,news_agency,general|food,news_reportage,64700000,72,5330535,47,0.94,dofollow,true
+P0010,خبرگزاری پارس 10,agency-pars10.example,news_agency,general|business|travel,news_reportage,60200000,72,10042669,89,0.6,nofollow,true
+P0011,اخبار روز 11,news-rooz11.example,news,general,news_reportage,20250000,78,8774,196,0.89,dofollow,true
+P0012,اخبار آنلاین 12,news-online12.example,news,general|ecommerce|food,reportage,10900000,47,168175,58,0.77,dofollow,true
+P0013,اخبار آنلاین 13,news-online13.example,news,general,reportage,11550000,38,226880,46,0.92,sponsored,true
+P0014,اخبار امروز 14,news-emrooz14.example,news,general,news_reportage,18200000,65,2503861,20,0.97,dofollow,true
+P0015,اخبار آنلاین 15,news-online15.example,news,general|automotive,reportage,6700000,58,443738,43,0.7,dofollow,true
+P0016,اخبار پلاس 16,news-plus16.example,news,general,reportage,13200000,39,1110623,13,0.58,dofollow,true
+P0017,اخبار پلاس 17,news-plus17.example,news,general|finance|sports,reportage,5150000,65,228526,40,0.85,dofollow,true
+P0018,اخبار نوین 18,news-novin18.example,news,general|automotive|lifestyle,reportage,6050000,41,122894,56,0.64,dofollow,true
+P0019,اخبار آنلاین 19,news-online19.example,news,general|health,reportage,18150000,64,9027,220,0.97,nofollow,true
+P0020,اخبار مرجع 20,news-marja20.example,news,general|health,news_reportage,7400000,60,2152868,20,0.9,dofollow,true
+P0021,اخبار هوشمند 21,news-hoosh21.example,news,general|sports|real_estate,reportage,12450000,44,190766,23,0.58,dofollow,true
+P0022,اخبار هوشمند 22,news-hoosh22.example,news,general,reportage,9950000,38,2625348,15,0.85,dofollow,true
+P0023,اخبار سبز 23,news-sabz23.example,news,general,news_reportage,13800000,37,822056,36,0.64,dofollow,true
+P0024,اخبار پارس 24,news-pars24.example,news,general,reportage,9700000,54,473561,58,1.0,sponsored,true
+P0025,اخبار پلاس 25,news-plus25.example,news,general|beauty|finance,reportage,9650000,57,2000521,25,0.79,dofollow,false
+P0026,اخبار هوشمند 26,news-hoosh26.example,news,general,reportage,9550000,95,5536,248,0.95,dofollow,true
+P0027,اخبار آنلاین 27,news-online27.example,news,general|health|sports,news_reportage,7000000,56,199865,50,0.96,dofollow,true
+P0028,اخبار آنلاین 28,news-online28.example,news,general,news_reportage,4700000,35,310959,18,0.75,dofollow,true
+P0029,اخبار برتر 29,news-bartar29.example,news,general,reportage,8500000,44,639591,33,0.57,dofollow,false
+P0030,اخبار نوین 30,news-novin30.example,news,general|health,news_reportage,16150000,50,966365,32,0.89,sponsored,true
+P0031,اخبار امروز 31,news-emrooz31.example,news,general,news_reportage,15300000,61,108795,57,0.94,dofollow,true
+P0032,اخبار برتر 32,news-bartar32.example,news,general|lifestyle,news_reportage,7000000,37,1854583,24,0.92,nofollow,true
+P0033,اخبار پلاس 33,news-plus33.example,news,general|education,news_reportage,12500000,52,1891272,59,0.93,dofollow,true
+P0034,اخبار آنلاین 34,news-online34.example,news,general,news_reportage,9150000,51,113896,48,0.99,dofollow,false
+P0035,اخبار پلاس 35,news-plus35.example,news,general|technology,reportage,9000000,62,100576,44,0.58,dofollow,true
+P0036,مجله ورزش روز,sports-rooz36.example,niche,sports,guest_post,5800000,39,92278,23,0.8,dofollow,true
+P0037,مجله غذا و آشپزی پارس,food-pars37.example,niche,food,guest_post,3050000,64,1185,152,0.9,dofollow,true
+P0038,مجله خودرو مرجع,automotive-marja38.example,niche,automotive|health,backlink,2450000,52,79527,30,0.59,dofollow,true
+P0039,مجله سبک زندگی روز,lifestyle-rooz39.example,niche,lifestyle,reportage,1100000,35,190717,9,0.66,dofollow,false
+P0040,مجله گردشگری و سفر برتر,travel-bartar40.example,niche,travel|automotive,reportage,1850000,32,232850,14,0.86,nofollow,false
+P0041,مجله سلامت و پزشکی برتر,health-bartar41.example,niche,health|finance,reportage,4750000,53,76573,19,0.91,dofollow,false
+P0042,مجله خانه و دکوراسیون سبز,home-sabz42.example,niche,home|real_estate,reportage,6950000,52,64882,19,0.76,dofollow,true
+P0043,مجله خودرو آنلاین,automotive-online43.example,niche,automotive|health,guest_post,3250000,37,68725,24,0.95,dofollow,true
+P0044,مجله ورزش پارس,sports-pars44.example,niche,sports,guest_post,3650000,33,13250,15,0.64,dofollow,false
+P0045,مجله سبک زندگی سبز,lifestyle-sabz45.example,niche,lifestyle,guest_post,7250000,44,80860,13,0.98,dofollow,true
+P0046,مجله املاک و ساختمان هوشمند,real-estate-hoosh46.example,niche,real_estate,guest_post,6750000,59,661,108,0.91,dofollow,false
+P0047,مجله گردشگری و سفر امروز,travel-emrooz47.example,niche,travel,guest_post,1850000,21,14446,15,0.67,dofollow,true
+P0048,مجله زیبایی و آرایشی روز,beauty-rooz48.example,niche,beauty|home,backlink,5050000,46,30206,4,1.0,dofollow,true
+P0049,مجله سلامت و پزشکی نوین,health-novin49.example,niche,health,reportage,3950000,32,395483,21,0.6,sponsored,true
+P0050,مجله مالی و ارز دیجیتال آنلاین,finance-online50.example,niche,finance|food,reportage,4400000,27,302139,7,0.97,dofollow,false
+P0051,مجله ورزش پارس,sports-pars51.example,niche,sports|health,reportage,4950000,24,133910,28,0.69,dofollow,false
+P0052,مجله آموزش سبز,education-sabz52.example,niche,education,backlink,4700000,79,1306,92,0.93,nofollow,true
+P0053,مجله ورزش روز,sports-rooz53.example,niche,sports|finance,guest_post,5700000,47,21637,18,0.96,dofollow,true
+P0054,مجله آموزش سبز,education-sabz54.example,niche,education|health,guest_post,4250000,25,33948,16,0.85,dofollow,true
+P0055,مجله املاک و ساختمان روز,real-estate-rooz55.example,niche,real_estate,backlink,5500000,33,47343,10,0.67,dofollow,false
+P0056,مجله ورزش برتر,sports-bartar56.example,niche,sports,guest_post,5850000,46,85076,26,0.77,dofollow,true
+P0057,مجله ورزش پلاس,sports-plus57.example,niche,sports|health,backlink,3350000,39,183474,13,1.0,dofollow,true
+P0058,مجله زیبایی و آرایشی مرجع,beauty-marja58.example,niche,beauty|lifestyle,backlink,4450000,34,16967,8,0.89,dofollow,true
+P0059,مجله ورزش مرجع,sports-marja59.example,niche,sports|food,guest_post,2950000,53,136693,5,0.63,dofollow,true
+P0060,مجله فناوری و دیجیتال آنلاین,technology-online60.example,niche,technology,guest_post,2000000,55,35971,6,0.56,dofollow,true
+P0061,مجله فناوری و دیجیتال روز,technology-rooz61.example,niche,technology,reportage,4600000,61,12358,108,0.58,dofollow,true
+P0062,مجله کسب‌وکار و اقتصاد امروز,business-emrooz62.example,niche,business|health,backlink,2250000,27,115362,15,0.79,dofollow,true
+P0063,مجله زیبایی و آرایشی سبز,beauty-sabz63.example,niche,beauty|food,reportage,5800000,48,2892,140,0.67,dofollow,true
+P0064,مجله مالی و ارز دیجیتال هوشمند,finance-hoosh64.example,niche,finance,guest_post,1000000,20,59902,24,0.68,dofollow,false
+P0065,مجله زیبایی و آرایشی برتر,beauty-bartar65.example,niche,beauty,reportage,6750000,32,64428,19,0.92,dofollow,true
+P0066,مجله املاک و ساختمان آنلاین,real-estate-online66.example,niche,real_estate|business,guest_post,4900000,49,204463,24,0.77,dofollow,true
+P0067,مجله غذا و آشپزی پارس,food-pars67.example,niche,food|beauty,backlink,4150000,21,14921,23,0.56,dofollow,false
+P0068,مجله خانه و دکوراسیون سبز,home-sabz68.example,niche,home,guest_post,2050000,31,78596,22,0.81,dofollow,true
+P0069,مجله آموزش برتر,education-bartar69.example,niche,education|travel,guest_post,3900000,41,40832,5,0.77,dofollow,true
+P0070,مجله املاک و ساختمان هوشمند,real-estate-hoosh70.example,niche,real_estate,guest_post,7750000,50,793,88,0.92,dofollow,false
+P0071,مجله فناوری و دیجیتال مرجع,technology-marja71.example,niche,technology|health,guest_post,7150000,53,48808,26,0.64,dofollow,false
+P0072,مجله کسب‌وکار و اقتصاد مرجع,business-marja72.example,niche,business|technology,backlink,3650000,35,224274,11,0.65,nofollow,true
+P0073,مجله املاک و ساختمان برتر,real-estate-bartar73.example,niche,real_estate,guest_post,7700000,38,92988,10,0.66,dofollow,true
+P0074,مجله سبک زندگی سبز,lifestyle-sabz74.example,niche,lifestyle,guest_post,6350000,24,33552,27,0.78,nofollow,true
+P0075,مجله سبک زندگی آنلاین,lifestyle-online75.example,niche,lifestyle|finance,backlink,3950000,48,105917,13,0.97,nofollow,false
+P0076,مجله سلامت و پزشکی پلاس,health-plus76.example,niche,health|home,guest_post,3900000,46,12107,25,0.85,nofollow,false
+P0077,مجله مالی و ارز دیجیتال مرجع,finance-marja77.example,niche,finance,guest_post,1900000,52,687313,12,0.96,dofollow,true
+P0078,مجله املاک و ساختمان امروز,real-estate-emrooz78.example,niche,real_estate,reportage,6700000,36,44087,24,0.93,nofollow,true
+P0079,مجله سبک زندگی روز,lifestyle-rooz79.example,niche,lifestyle|ecommerce,guest_post,6550000,22,149651,9,0.89,dofollow,true
+P0080,مجله مالی و ارز دیجیتال برتر,finance-bartar80.example,niche,finance|sports,reportage,3000000,39,523958,3,0.72,dofollow,true
+P0081,مجله مالی و ارز دیجیتال سبز,finance-sabz81.example,niche,finance,backlink,2450000,31,14134,29,0.96,dofollow,true
+P0082,مجله زیبایی و آرایشی آنلاین,beauty-online82.example,niche,beauty|automotive,backlink,3850000,20,513693,16,0.58,sponsored,false
+P0083,مجله ورزش آنلاین,sports-online83.example,niche,sports|beauty,guest_post,1900000,49,406152,8,0.72,dofollow,true
+P0084,مجله سبک زندگی آنلاین,lifestyle-online84.example,niche,lifestyle,backlink,8200000,45,33293,20,0.96,dofollow,false
+P0085,مجله غذا و آشپزی آنلاین,food-online85.example,niche,food,backlink,6400000,42,26108,8,0.9,dofollow,true
+P0086,مجله زیبایی و آرایشی برتر,beauty-bartar86.example,niche,beauty,reportage,7950000,48,11574,13,0.7,dofollow,true
+P0087,مجله فروشگاهی و خرید هوشمند,ecommerce-hoosh87.example,niche,ecommerce|lifestyle,guest_post,7550000,37,380595,10,0.68,nofollow,false
+P0088,مجله مالی و ارز دیجیتال مرجع,finance-marja88.example,niche,finance,guest_post,7300000,34,433435,25,0.91,dofollow,true
+P0089,مجله فروشگاهی و خرید نوین,ecommerce-novin89.example,niche,ecommerce|business,backlink,4000000,49,50286,25,0.84,dofollow,true
+P0090,مجله غذا و آشپزی مرجع,food-marja90.example,niche,food,reportage,6250000,55,42094,21,0.76,dofollow,true
+P0091,مجله فناوری و دیجیتال برتر,technology-bartar91.example,niche,technology,reportage,7700000,47,759,108,0.61,dofollow,true
+P0092,مجله غذا و آشپزی هوشمند,food-hoosh92.example,niche,food|sports,guest_post,6050000,54,9683,128,0.97,dofollow,true
+P0093,مجله املاک و ساختمان پلاس,real-estate-plus93.example,niche,real_estate|health,backlink,3600000,43,15455,23,0.73,dofollow,true
+P0094,مجله خودرو مرجع,automotive-marja94.example,niche,automotive,reportage,6050000,33,166426,21,0.66,dofollow,true
+P0095,مجله غذا و آشپزی برتر,food-bartar95.example,niche,food,reportage,6050000,33,352624,9,0.82,dofollow,false
+P0096,مجله خانه و دکوراسیون امروز,home-emrooz96.example,niche,home|finance,guest_post,5700000,27,181155,2,0.66,dofollow,true
+P0097,مجله ورزش نوین,sports-novin97.example,niche,sports,guest_post,8450000,71,2005,140,0.78,dofollow,true
+P0098,مجله ورزش سبز,sports-sabz98.example,niche,sports,reportage,9050000,53,37499,22,0.93,dofollow,true
+P0099,مجله کسب‌وکار و اقتصاد مرجع,business-marja99.example,niche,business,backlink,5450000,40,143762,4,0.8,dofollow,false
+P0100,مجله املاک و ساختمان هوشمند,real-estate-hoosh100.example,niche,real_estate|ecommerce,backlink,7350000,72,500,136,0.9,dofollow,true
+P0101,مجله گردشگری و سفر مرجع,travel-marja101.example,niche,travel,reportage,3200000,41,375537,14,0.69,dofollow,false
+P0102,مجله کسب‌وکار و اقتصاد مرجع,business-marja102.example,niche,business,guest_post,5700000,25,15046,5,0.8,dofollow,true
+P0103,مجله گردشگری و سفر روز,travel-rooz103.example,niche,travel,backlink,1400000,42,459783,26,0.68,dofollow,true
+P0104,مجله مالی و ارز دیجیتال هوشمند,finance-hoosh104.example,niche,finance,backlink,3950000,50,26715,5,0.89,dofollow,false
+P0105,مجله غذا و آشپزی هوشمند,food-hoosh105.example,niche,food,guest_post,7250000,37,11352,10,0.71,dofollow,true
+P0106,وبلاگ مالی و ارز دیجیتال پارس,finance-pars106.example,blog,finance,guest_post,1100000,58,500,44,0.75,dofollow,true
+P0107,وبلاگ فناوری و دیجیتال روز,technology-rooz107.example,blog,technology,guest_post,750000,39,500,120,0.85,dofollow,true
+P0108,وبلاگ خانه و دکوراسیون آنلاین,home-online108.example,blog,home,backlink,1350000,51,500,96,0.69,dofollow,false
+P0109,وبلاگ سلامت و پزشکی نوین,health-novin109.example,blog,health,backlink,700000,19,62955,5,0.55,dofollow,true
+P0110,وبلاگ فروشگاهی و خرید پارس,ecommerce-pars110.example,blog,ecommerce,guest_post,1150000,52,770,88,0.76,dofollow,true
+P0111,وبلاگ ورزش پارس,sports-pars111.example,blog,sports|automotive,backlink,650000,48,500,92,0.98,dofollow,true
+P0112,وبلاگ گردشگری و سفر روز,travel-rooz112.example,blog,travel,guest_post,700000,13,2904,19,0.69,dofollow,true
+P0113,وبلاگ فروشگاهی و خرید امروز,ecommerce-emrooz113.example,blog,ecommerce,backlink,800000,30,1648,17,0.98,dofollow,true
+P0114,وبلاگ زیبایی و آرایشی برتر,beauty-bartar114.example,blog,beauty,guest_post,450000,16,2138,5,0.9,dofollow,true
+P0115,وبلاگ خودرو سبز,automotive-sabz115.example,blog,automotive|food,backlink,500000,30,16181,20,0.58,dofollow,true
+P0116,وبلاگ آموزش آنلاین,education-online116.example,blog,education,guest_post,800000,26,1384,15,0.68,dofollow,false
+P0117,وبلاگ املاک و ساختمان برتر,real-estate-bartar117.example,blog,real_estate|food,guest_post,750000,27,65461,2,0.76,dofollow,true
+P0118,وبلاگ ورزش برتر,sports-bartar118.example,blog,sports|business,backlink,1700000,26,16968,2,0.79,dofollow,true
+P0119,وبلاگ گردشگری و سفر آنلاین,travel-online119.example,blog,travel|home,backlink,350000,20,19588,2,0.59,dofollow,true
+P0120,وبلاگ آموزش سبز,education-sabz120.example,blog,education,backlink,1400000,12,12853,5,0.86,dofollow,true
+P0121,وبلاگ فروشگاهی و خرید برتر,ecommerce-bartar121.example,blog,ecommerce|travel,guest_post,1250000,30,32107,5,0.74,dofollow,true
+P0122,وبلاگ آموزش امروز,education-emrooz122.example,blog,education,guest_post,400000,34,8422,8,0.93,dofollow,true
+P0123,وبلاگ خودرو هوشمند,automotive-hoosh123.example,blog,automotive,backlink,450000,20,46542,20,0.63,dofollow,true
+P0124,وبلاگ فناوری و دیجیتال امروز,technology-emrooz124.example,blog,technology|travel,backlink,1300000,21,19372,8,0.9,dofollow,true
+P0125,وبلاگ آموزش مرجع,education-marja125.example,blog,education,backlink,1500000,31,63456,15,0.78,dofollow,true
+P0126,وبلاگ سبک زندگی پلاس,lifestyle-plus126.example,blog,lifestyle,guest_post,1200000,18,1256,16,0.78,dofollow,true
+P0127,وبلاگ املاک و ساختمان امروز,real-estate-emrooz127.example,blog,real_estate|ecommerce,guest_post,1250000,14,38155,3,0.95,sponsored,true
+P0128,وبلاگ سلامت و پزشکی پارس,health-pars128.example,blog,health|travel,guest_post,1250000,12,5170,1,0.84,dofollow,true
+P0129,وبلاگ ورزش آنلاین,sports-online129.example,blog,sports|finance,guest_post,300000,34,22013,15,0.65,dofollow,false
+P0130,وبلاگ کسب‌وکار و اقتصاد سبز,business-sabz130.example,blog,business|home,backlink,1450000,44,500,56,0.83,dofollow,false
+P0131,وبلاگ خودرو مرجع,automotive-marja131.example,blog,automotive,guest_post,1150000,26,12427,5,0.66,dofollow,true
+P0132,وبلاگ کسب‌وکار و اقتصاد برتر,business-bartar132.example,blog,business|ecommerce,backlink,1550000,27,9236,17,0.57,dofollow,true
+P0133,وبلاگ خانه و دکوراسیون نوین,home-novin133.example,blog,home|business,backlink,450000,21,2876,4,0.71,dofollow,true
+P0134,وبلاگ خودرو مرجع,automotive-marja134.example,blog,automotive|finance,guest_post,450000,60,500,100,0.64,dofollow,false
+P0135,وبلاگ سبک زندگی هوشمند,lifestyle-hoosh135.example,blog,lifestyle|ecommerce,guest_post,1500000,25,3034,7,0.7,dofollow,true
+P0136,نیازمندی گردشگری و سفر پارس,travel-pars136.example,directory,travel|education,backlink,450000,10,3118,147,0.88,dofollow,true
+P0137,نیازمندی آموزش امروز,education-emrooz137.example,directory,education|business,backlink,150000,7,1676,95,0.75,dofollow,true
+P0138,نیازمندی زیبایی و آرایشی روز,beauty-rooz138.example,directory,beauty|automotive,backlink,300000,30,16503,39,0.91,dofollow,false
+P0139,نیازمندی فناوری و دیجیتال امروز,technology-emrooz139.example,directory,technology|finance,backlink,500000,7,1194,185,0.56,dofollow,true
+P0140,نیازمندی املاک و ساختمان روز,real-estate-rooz140.example,directory,real_estate|home,backlink,350000,7,4153,155,0.66,dofollow,true
+P0141,نیازمندی فروشگاهی و خرید مرجع,ecommerce-marja141.example,directory,ecommerce|business,backlink,450000,13,8719,200,1.0,dofollow,true
+P0142,نیازمندی مالی و ارز دیجیتال برتر,finance-bartar142.example,directory,finance|sports,backlink,450000,19,19799,194,0.87,dofollow,true
+P0143,نیازمندی ورزش آنلاین,sports-online143.example,directory,sports,backlink,400000,27,15296,183,0.6,dofollow,true
+P0144,نیازمندی آموزش مرجع,education-marja144.example,directory,education,directory_listing,450000,22,4128,139,0.59,dofollow,false
+P0145,نیازمندی خانه و دکوراسیون مرجع,home-marja145.example,directory,home|travel,backlink,350000,23,656,101,0.78,dofollow,false
+P0146,نیازمندی خانه و دکوراسیون هوشمند,home-hoosh146.example,directory,home,directory_listing,200000,9,2466,34,0.62,sponsored,true
+P0147,نیازمندی سبک زندگی هوشمند,lifestyle-hoosh147.example,directory,lifestyle|business,backlink,400000,13,1031,161,0.59,dofollow,true
+P0148,نیازمندی مالی و ارز دیجیتال سبز,finance-sabz148.example,directory,finance,directory_listing,600000,26,5005,174,0.56,dofollow,true
+P0149,نیازمندی خودرو سبز,automotive-sabz149.example,directory,automotive|health,backlink,650000,29,4126,178,0.8,dofollow,true
+P0150,نیازمندی زیبایی و آرایشی پلاس,beauty-plus150.example,directory,beauty|real_estate,backlink,300000,7,6341,60,0.7,dofollow,false
