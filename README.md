@@ -7,6 +7,8 @@
 
 پلن کامل محصول: [docs/PLAN.md](docs/PLAN.md)
 
+> این ریپو یک محصول دوم هم دارد: **سفرپلنر** (پیشنهاددهنده سفر) در پوشه [`travel_planner/`](travel_planner/README.md).
+
 ## اجرا
 
 ```bash

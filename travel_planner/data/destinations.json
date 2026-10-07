@@ -1,0 +1,3036 @@
+{
+ "version": 1,
+ "prices_note": "Rough estimates in USD; edit to match current prices.",
+ "destinations": [
+  {
+   "id": "kish",
+   "name": "کیش",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "جزیره‌ای آرام با سواحل مرجانی، مراکز خرید و تفریحات آبی.",
+   "tags": {
+    "beach": 1,
+    "shopping": 0.9,
+    "relaxation": 0.9,
+    "entertainment": 0.7,
+    "adventure": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends"
+   ],
+   "season": [
+    5,
+    5,
+    5,
+    4,
+    3,
+    2,
+    1,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 30,
+    "standard": 60,
+    "luxury": 150
+   },
+   "daily_usd": {
+    "economy": 15,
+    "standard": 30,
+    "luxury": 60
+   },
+   "transport_usd": 70,
+   "transport_mode": "flight",
+   "travel_hours": 2,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "ساحل مرجان",
+     "tag": "beach"
+    },
+    {
+     "name": "کشتی یونانی",
+     "tag": "nature"
+    },
+    {
+     "name": "شهر زیرزمینی کاریز",
+     "tag": "history"
+    },
+    {
+     "name": "مراکز خرید پردیس و مریم",
+     "tag": "shopping"
+    },
+    {
+     "name": "پارک دلفین‌ها",
+     "tag": "entertainment"
+    },
+    {
+     "name": "غواصی و ورزش‌های آبی",
+     "tag": "adventure"
+    },
+    {
+     "name": "دوچرخه‌سواری در جاده ساحلی",
+     "tag": "relaxation"
+    }
+   ],
+   "tips": [
+    "در تابستان هوا بسیار گرم و شرجی است؛ برنامه بیرون را صبح زود یا عصر بچینید."
+   ]
+  },
+  {
+   "id": "qeshm",
+   "name": "قشم و هرمز",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "بزرگ‌ترین جزیره خلیج فارس با ژئوپارک، جنگل حرا و جزیره رنگی هرمز.",
+   "tags": {
+    "nature": 1,
+    "adventure": 0.9,
+    "beach": 0.7,
+    "relaxation": 0.5,
+    "food": 0.5
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    5,
+    5,
+    4,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 25,
+    "standard": 50,
+    "luxury": 110
+   },
+   "daily_usd": {
+    "economy": 15,
+    "standard": 25,
+    "luxury": 50
+   },
+   "transport_usd": 70,
+   "transport_mode": "flight",
+   "travel_hours": 2,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "دره ستارگان",
+     "tag": "nature"
+    },
+    {
+     "name": "جنگل‌های حرا",
+     "tag": "nature"
+    },
+    {
+     "name": "غار نمکدان",
+     "tag": "adventure"
+    },
+    {
+     "name": "تنگه چاهکوه",
+     "tag": "nature"
+    },
+    {
+     "name": "جزیره هرمز: ساحل سرخ و دره رنگین‌کمان",
+     "tag": "nature"
+    },
+    {
+     "name": "جزیره هنگام و تماشای دلفین‌ها",
+     "tag": "adventure"
+    },
+    {
+     "name": "بازار و غذاهای دریایی محلی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "اقامت در خانه‌های بوم‌گردی تجربه بهتری از قشم می‌دهد.",
+    "برای هرمز و هنگام یک روز کامل در نظر بگیرید."
+   ]
+  },
+  {
+   "id": "isfahan",
+   "name": "اصفهان",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "نصف جهان؛ میدان نقش جهان، پل‌های تاریخی و معماری صفوی.",
+   "tags": {
+    "history": 1,
+    "shopping": 0.7,
+    "food": 0.7,
+    "relaxation": 0.3
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    3,
+    4,
+    5,
+    5,
+    3,
+    2,
+    2,
+    4,
+    5,
+    4,
+    3
+   ],
+   "min_days": 2,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 20,
+    "standard": 45,
+    "luxury": 110
+   },
+   "daily_usd": {
+    "economy": 12,
+    "standard": 22,
+    "luxury": 45
+   },
+   "transport_usd": 30,
+   "transport_mode": "train",
+   "travel_hours": 5,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "میدان نقش جهان",
+     "tag": "history"
+    },
+    {
+     "name": "مسجد شیخ لطف‌الله",
+     "tag": "history"
+    },
+    {
+     "name": "کاخ عالی‌قاپو",
+     "tag": "history"
+    },
+    {
+     "name": "سی‌وسه‌پل و پل خواجو",
+     "tag": "history"
+    },
+    {
+     "name": "کاخ چهلستون",
+     "tag": "history"
+    },
+    {
+     "name": "کلیسای وانک و محله جلفا",
+     "tag": "history"
+    },
+    {
+     "name": "بازار قیصریه و صنایع دستی",
+     "tag": "shopping"
+    },
+    {
+     "name": "بریانی و گز اصفهان",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "عصرها کنار زاینده‌رود و پل خواجو حال‌وهوای خاصی دارد."
+   ]
+  },
+  {
+   "id": "shiraz",
+   "name": "شیراز",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "شهر شعر و باغ؛ تخت جمشید، حافظیه و مسجد صورتی نصیرالملک.",
+   "tags": {
+    "history": 1,
+    "nature": 0.5,
+    "food": 0.6,
+    "shopping": 0.4,
+    "relaxation": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    3,
+    3,
+    5,
+    5,
+    4,
+    2,
+    2,
+    2,
+    3,
+    4,
+    4,
+    3
+   ],
+   "min_days": 2,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 20,
+    "standard": 45,
+    "luxury": 100
+   },
+   "daily_usd": {
+    "economy": 12,
+    "standard": 22,
+    "luxury": 45
+   },
+   "transport_usd": 50,
+   "transport_mode": "flight",
+   "travel_hours": 1.5,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "تخت جمشید",
+     "tag": "history"
+    },
+    {
+     "name": "نقش رستم",
+     "tag": "history"
+    },
+    {
+     "name": "مسجد نصیرالملک (صبح زود)",
+     "tag": "history"
+    },
+    {
+     "name": "حافظیه و سعدیه",
+     "tag": "history"
+    },
+    {
+     "name": "باغ ارم",
+     "tag": "nature"
+    },
+    {
+     "name": "ارگ کریم‌خان",
+     "tag": "history"
+    },
+    {
+     "name": "بازار وکیل",
+     "tag": "shopping"
+    },
+    {
+     "name": "فالوده و کلم‌پلو شیرازی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "مسجد نصیرالملک را صبح زود ببینید تا نور شیشه‌های رنگی را تماشا کنید."
+   ]
+  },
+  {
+   "id": "yazd",
+   "name": "یزد",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "شهر خشتی و بادگیرها؛ بافت تاریخی جهانی و دروازه کویر.",
+   "tags": {
+    "history": 1,
+    "desert": 0.9,
+    "food": 0.5,
+    "relaxation": 0.5,
+    "adventure": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    3,
+    4,
+    5,
+    4,
+    3,
+    1,
+    1,
+    1,
+    3,
+    4,
+    5,
+    4
+   ],
+   "min_days": 2,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 18,
+    "standard": 40,
+    "luxury": 90
+   },
+   "daily_usd": {
+    "economy": 10,
+    "standard": 20,
+    "luxury": 40
+   },
+   "transport_usd": 30,
+   "transport_mode": "train",
+   "travel_hours": 6,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "بافت تاریخی و کوچه‌های خشتی",
+     "tag": "history"
+    },
+    {
+     "name": "میدان امیرچخماق",
+     "tag": "history"
+    },
+    {
+     "name": "مسجد جامع یزد",
+     "tag": "history"
+    },
+    {
+     "name": "باغ دولت‌آباد",
+     "tag": "history"
+    },
+    {
+     "name": "آتشکده و برج‌های خاموشان",
+     "tag": "history"
+    },
+    {
+     "name": "شب در کویر و رصد ستاره‌ها",
+     "tag": "desert"
+    },
+    {
+     "name": "باقلوا و قطاب یزدی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "اقامت در هتل‌های سنتی خانه‌حیاط‌دار بخشی از تجربه یزد است."
+   ]
+  },
+  {
+   "id": "kashan",
+   "name": "کاشان و ابیانه",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "خانه‌های تاریخی، باغ فین و روستای سرخ ابیانه؛ مناسب سفر کوتاه.",
+   "tags": {
+    "history": 1,
+    "desert": 0.6,
+    "nature": 0.4,
+    "relaxation": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    3,
+    3,
+    4,
+    5,
+    5,
+    2,
+    1,
+    1,
+    3,
+    4,
+    4,
+    3
+   ],
+   "min_days": 1,
+   "max_days": 3,
+   "lodging_usd": {
+    "economy": 18,
+    "standard": 40,
+    "luxury": 80
+   },
+   "daily_usd": {
+    "economy": 10,
+    "standard": 18,
+    "luxury": 35
+   },
+   "transport_usd": 10,
+   "transport_mode": "road",
+   "travel_hours": 3,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "باغ فین",
+     "tag": "history"
+    },
+    {
+     "name": "خانه طباطبایی‌ها و بروجردی‌ها",
+     "tag": "history"
+    },
+    {
+     "name": "حمام سلطان امیراحمد",
+     "tag": "history"
+    },
+    {
+     "name": "روستای ابیانه",
+     "tag": "history"
+    },
+    {
+     "name": "کویر مرنجاب و دریاچه نمک",
+     "tag": "desert"
+    },
+    {
+     "name": "گلاب‌گیری قمصر (اردیبهشت)",
+     "tag": "nature"
+    }
+   ],
+   "tips": [
+    "اردیبهشت فصل گلاب‌گیری است اما شلوغ؛ زودتر رزرو کنید."
+   ]
+  },
+  {
+   "id": "mashhad",
+   "name": "مشهد",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "شهر زیارتی با حرم امام رضا (ع)، توس و ییلاقات طرقبه و شاندیز.",
+   "tags": {
+    "pilgrimage": 1,
+    "shopping": 0.6,
+    "history": 0.6,
+    "food": 0.6,
+    "nature": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    4,
+    4,
+    5,
+    4,
+    3,
+    2
+   ],
+   "min_days": 2,
+   "max_days": 5,
+   "lodging_usd": {
+    "economy": 20,
+    "standard": 45,
+    "luxury": 120
+   },
+   "daily_usd": {
+    "economy": 12,
+    "standard": 22,
+    "luxury": 45
+   },
+   "transport_usd": 50,
+   "transport_mode": "flight",
+   "travel_hours": 1.5,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "حرم امام رضا (ع)",
+     "tag": "pilgrimage"
+    },
+    {
+     "name": "آرامگاه فردوسی در توس",
+     "tag": "history"
+    },
+    {
+     "name": "طرقبه و شاندیز",
+     "tag": "nature"
+    },
+    {
+     "name": "نیشابور: آرامگاه خیام و عطار",
+     "tag": "history"
+    },
+    {
+     "name": "بازار رضا و سوغات",
+     "tag": "shopping"
+    },
+    {
+     "name": "کوهسنگی",
+     "tag": "relaxation"
+    }
+   ],
+   "tips": [
+    "سفر با قطار از تهران هم گزینه اقتصادی و راحتی است."
+   ]
+  },
+  {
+   "id": "gilan",
+   "name": "گیلان (رشت، ماسوله، انزلی)",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "طبیعت سبز، روستای پلکانی ماسوله و بهشت غذاهای شمالی.",
+   "tags": {
+    "nature": 1,
+    "food": 1,
+    "relaxation": 0.6,
+    "history": 0.4,
+    "adventure": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    4,
+    3,
+    3,
+    4,
+    5,
+    3,
+    2
+   ],
+   "min_days": 2,
+   "max_days": 5,
+   "lodging_usd": {
+    "economy": 20,
+    "standard": 40,
+    "luxury": 90
+   },
+   "daily_usd": {
+    "economy": 12,
+    "standard": 22,
+    "luxury": 45
+   },
+   "transport_usd": 15,
+   "transport_mode": "road",
+   "travel_hours": 4,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "روستای ماسوله",
+     "tag": "history"
+    },
+    {
+     "name": "تالاب انزلی و قایق‌سواری",
+     "tag": "nature"
+    },
+    {
+     "name": "قلعه رودخان",
+     "tag": "adventure"
+    },
+    {
+     "name": "بازار رشت و غذاهای محلی",
+     "tag": "food"
+    },
+    {
+     "name": "لاهیجان و باغ‌های چای",
+     "tag": "nature"
+    },
+    {
+     "name": "ساحل انزلی",
+     "tag": "beach"
+    }
+   ],
+   "tips": [
+    "حتماً میرزاقاسمی، باقلاقاتق و ماهی شکم‌پر را امتحان کنید."
+   ]
+  },
+  {
+   "id": "mazandaran",
+   "name": "مازندران (رامسر و کلاردشت)",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "دریا و جنگل در کنار هم؛ ویلا، تله‌کابین و ییلاقات خنک.",
+   "tags": {
+    "nature": 1,
+    "beach": 0.7,
+    "relaxation": 0.8,
+    "entertainment": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4,
+    3,
+    2,
+    2
+   ],
+   "min_days": 2,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 25,
+    "standard": 50,
+    "luxury": 110
+   },
+   "daily_usd": {
+    "economy": 12,
+    "standard": 22,
+    "luxury": 45
+   },
+   "transport_usd": 15,
+   "transport_mode": "road",
+   "travel_hours": 4,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "ساحل رامسر",
+     "tag": "beach"
+    },
+    {
+     "name": "تله‌کابین رامسر و جواهرده",
+     "tag": "nature"
+    },
+    {
+     "name": "کلاردشت و دریاچه ولشت",
+     "tag": "nature"
+    },
+    {
+     "name": "تله‌کابین نمک‌آبرود",
+     "tag": "entertainment"
+    },
+    {
+     "name": "کاخ مرمر رامسر",
+     "tag": "history"
+    },
+    {
+     "name": "جنگل‌های هیرکانی",
+     "tag": "nature"
+    }
+   ],
+   "tips": [
+    "آخر هفته‌ها و تعطیلات جاده چالوس بسیار شلوغ است؛ زود حرکت کنید."
+   ]
+  },
+  {
+   "id": "tabriz",
+   "name": "تبریز و کندوان",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "بزرگ‌ترین بازار سرپوشیده جهان، ائل‌گلی و روستای صخره‌ای کندوان.",
+   "tags": {
+    "history": 0.9,
+    "shopping": 0.9,
+    "food": 0.8,
+    "nature": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    5,
+    4,
+    4,
+    3,
+    2,
+    1
+   ],
+   "min_days": 2,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 18,
+    "standard": 40,
+    "luxury": 90
+   },
+   "daily_usd": {
+    "economy": 10,
+    "standard": 20,
+    "luxury": 40
+   },
+   "transport_usd": 50,
+   "transport_mode": "flight",
+   "travel_hours": 1.2,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "بازار تاریخی تبریز",
+     "tag": "shopping"
+    },
+    {
+     "name": "ائل‌گلی",
+     "tag": "relaxation"
+    },
+    {
+     "name": "مسجد کبود",
+     "tag": "history"
+    },
+    {
+     "name": "ارگ علیشاه",
+     "tag": "history"
+    },
+    {
+     "name": "روستای صخره‌ای کندوان",
+     "tag": "nature"
+    },
+    {
+     "name": "کلیسای سنت استپانوس (جلفا)",
+     "tag": "history"
+    },
+    {
+     "name": "کوفته تبریزی و شیرینی‌های محلی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "زمستان تبریز بسیار سرد است؛ بهار و تابستان بهترین زمان است."
+   ]
+  },
+  {
+   "id": "kermanshah",
+   "name": "کرمانشاه و اورامانات",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "سنگ‌نوشته‌های بیستون و طاق بستان و روستاهای پلکانی اورامان.",
+   "tags": {
+    "history": 0.9,
+    "nature": 0.9,
+    "food": 0.5,
+    "adventure": 0.5
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    1,
+    2,
+    3,
+    5,
+    5,
+    4,
+    3,
+    3,
+    4,
+    5,
+    3,
+    1
+   ],
+   "min_days": 2,
+   "max_days": 5,
+   "lodging_usd": {
+    "economy": 15,
+    "standard": 35,
+    "luxury": 70
+   },
+   "daily_usd": {
+    "economy": 10,
+    "standard": 18,
+    "luxury": 35
+   },
+   "transport_usd": 45,
+   "transport_mode": "flight",
+   "travel_hours": 1,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "بیستون",
+     "tag": "history"
+    },
+    {
+     "name": "طاق بستان",
+     "tag": "history"
+    },
+    {
+     "name": "معبد آناهیتا کنگاور",
+     "tag": "history"
+    },
+    {
+     "name": "روستای پلکانی اورامان تخت",
+     "tag": "nature"
+    },
+    {
+     "name": "دره‌ها و چشمه‌های اورامانات",
+     "tag": "nature"
+    },
+    {
+     "name": "بازار و نان‌برنجی کرمانشاه",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "جاده‌های اورامانات کوهستانی است؛ با راننده محلی یا تور بروید."
+   ]
+  },
+  {
+   "id": "kerman",
+   "name": "کرمان و کویر لوت",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "گرم‌ترین نقطه زمین، کلوت‌های شهداد، باغ شاهزاده و روستای میمند.",
+   "tags": {
+    "desert": 1,
+    "adventure": 0.9,
+    "history": 0.7,
+    "nature": 0.6
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    4,
+    4,
+    3,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 3,
+   "max_days": 5,
+   "lodging_usd": {
+    "economy": 15,
+    "standard": 35,
+    "luxury": 80
+   },
+   "daily_usd": {
+    "economy": 15,
+    "standard": 28,
+    "luxury": 55
+   },
+   "transport_usd": 50,
+   "transport_mode": "flight",
+   "travel_hours": 1.5,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "کلوت‌های شهداد",
+     "tag": "desert"
+    },
+    {
+     "name": "کویر لوت و شب‌مانی",
+     "tag": "desert"
+    },
+    {
+     "name": "باغ شاهزاده ماهان",
+     "tag": "history"
+    },
+    {
+     "name": "مجموعه گنجعلی‌خان و بازار کرمان",
+     "tag": "history"
+    },
+    {
+     "name": "روستای دستکند میمند",
+     "tag": "history"
+    },
+    {
+     "name": "آفرود در تپه‌های شنی",
+     "tag": "adventure"
+    }
+   ],
+   "tips": [
+    "کویر لوت را فقط با تور یا راهنمای مجرب بروید."
+   ]
+  },
+  {
+   "id": "dizin",
+   "name": "دیزین و شمشک",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "پیست‌های اسکی معروف نزدیک تهران با برف پودری.",
+   "tags": {
+    "ski": 1,
+    "adventure": 0.8,
+    "nature": 0.6
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    5,
+    4,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    4
+   ],
+   "min_days": 1,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 30,
+    "standard": 60,
+    "luxury": 120
+   },
+   "daily_usd": {
+    "economy": 25,
+    "standard": 40,
+    "luxury": 70
+   },
+   "transport_usd": 10,
+   "transport_mode": "road",
+   "travel_hours": 2,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "پیست اسکی دیزین",
+     "tag": "ski"
+    },
+    {
+     "name": "پیست اسکی شمشک",
+     "tag": "ski"
+    },
+    {
+     "name": "کلاس آموزش اسکی یا اسنوبرد",
+     "tag": "ski"
+    },
+    {
+     "name": "پیست توچال",
+     "tag": "ski"
+    },
+    {
+     "name": "پیاده‌روی برفی در دره‌ها",
+     "tag": "nature"
+    }
+   ],
+   "tips": [
+    "زنجیر چرخ همراه داشته باشید و وضعیت جاده را قبل از حرکت چک کنید."
+   ]
+  },
+  {
+   "id": "chabahar",
+   "name": "چابهار",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "سواحل اقیانوسی، کوه‌های مریخی و تالاب صورتی لیپار.",
+   "tags": {
+    "nature": 1,
+    "beach": 0.9,
+    "adventure": 0.8,
+    "food": 0.4
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    5,
+    4,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 3,
+   "max_days": 5,
+   "lodging_usd": {
+    "economy": 20,
+    "standard": 40,
+    "luxury": 80
+   },
+   "daily_usd": {
+    "economy": 12,
+    "standard": 22,
+    "luxury": 45
+   },
+   "transport_usd": 70,
+   "transport_mode": "flight",
+   "travel_hours": 2,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "کوه‌های مریخی",
+     "tag": "nature"
+    },
+    {
+     "name": "تالاب صورتی لیپار",
+     "tag": "nature"
+    },
+    {
+     "name": "ساحل دریا بزرگ",
+     "tag": "beach"
+    },
+    {
+     "name": "خلیج گواتر و جنگل حرا",
+     "tag": "nature"
+    },
+    {
+     "name": "گل‌فشان‌ها",
+     "tag": "adventure"
+    },
+    {
+     "name": "غذاهای دریایی بلوچی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "برای جاذبه‌های اطراف، خودرو با راننده محلی کرایه کنید."
+   ]
+  },
+  {
+   "id": "hamedan",
+   "name": "همدان",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "شهر تاریخی و خنک با غار آبی علیصدر و گنجنامه.",
+   "tags": {
+    "history": 0.9,
+    "nature": 0.7,
+    "adventure": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    1,
+    1,
+    2,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "min_days": 2,
+   "max_days": 3,
+   "lodging_usd": {
+    "economy": 15,
+    "standard": 35,
+    "luxury": 70
+   },
+   "daily_usd": {
+    "economy": 10,
+    "standard": 18,
+    "luxury": 35
+   },
+   "transport_usd": 10,
+   "transport_mode": "road",
+   "travel_hours": 4,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "غار علیصدر",
+     "tag": "adventure"
+    },
+    {
+     "name": "گنجنامه",
+     "tag": "nature"
+    },
+    {
+     "name": "آرامگاه بوعلی سینا",
+     "tag": "history"
+    },
+    {
+     "name": "تپه هگمتانه",
+     "tag": "history"
+    },
+    {
+     "name": "آرامگاه باباطاهر",
+     "tag": "history"
+    }
+   ],
+   "tips": [
+    "همدان در تابستان هوای خنک و مطبوعی دارد."
+   ]
+  },
+  {
+   "id": "sarein",
+   "name": "اردبیل و سرعین",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "آب‌گرم‌های معدنی، کوه سبلان و هوای خنک تابستانی.",
+   "tags": {
+    "relaxation": 1,
+    "nature": 0.9,
+    "history": 0.4,
+    "food": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends"
+   ],
+   "season": [
+    3,
+    3,
+    3,
+    3,
+    4,
+    5,
+    5,
+    5,
+    4,
+    3,
+    3,
+    3
+   ],
+   "min_days": 2,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 20,
+    "standard": 45,
+    "luxury": 90
+   },
+   "daily_usd": {
+    "economy": 12,
+    "standard": 22,
+    "luxury": 45
+   },
+   "transport_usd": 45,
+   "transport_mode": "flight",
+   "travel_hours": 1,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "آب‌گرم‌های سرعین",
+     "tag": "relaxation"
+    },
+    {
+     "name": "تله‌کابین آلوارس و سبلان",
+     "tag": "nature"
+    },
+    {
+     "name": "دریاچه شورابیل",
+     "tag": "nature"
+    },
+    {
+     "name": "بقعه شیخ صفی‌الدین",
+     "tag": "history"
+    },
+    {
+     "name": "گردنه حیران",
+     "tag": "nature"
+    }
+   ],
+   "tips": [
+    "عسل سبلان و حلوای سیاه را به‌عنوان سوغات بخرید."
+   ]
+  },
+  {
+   "id": "khuzestan",
+   "name": "شوش و شوشتر",
+   "country": "ایران",
+   "scope": "domestic",
+   "summary": "زیگورات چغازنبیل، سازه‌های آبی شوشتر و شهر باستانی شوش.",
+   "tags": {
+    "history": 1,
+    "food": 0.6,
+    "nature": 0.3
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    5,
+    4,
+    3,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    4,
+    5
+   ],
+   "min_days": 2,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 15,
+    "standard": 35,
+    "luxury": 70
+   },
+   "daily_usd": {
+    "economy": 10,
+    "standard": 18,
+    "luxury": 35
+   },
+   "transport_usd": 45,
+   "transport_mode": "flight",
+   "travel_hours": 1.2,
+   "visa": "domestic",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "زیگورات چغازنبیل",
+     "tag": "history"
+    },
+    {
+     "name": "سازه‌های آبی شوشتر",
+     "tag": "history"
+    },
+    {
+     "name": "کاخ آپادانا شوش",
+     "tag": "history"
+    },
+    {
+     "name": "بافت تاریخی دزفول",
+     "tag": "history"
+    },
+    {
+     "name": "غذاهای جنوبی و فلافل اهوازی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "از اردیبهشت تا مهر هوا بسیار گرم است؛ زمستان بهترین زمان است."
+   ]
+  },
+  {
+   "id": "istanbul",
+   "name": "استانبول",
+   "country": "ترکیه",
+   "scope": "international",
+   "summary": "پل میان شرق و غرب؛ تاریخ عثمانی، بسفر و مراکز خرید.",
+   "tags": {
+    "history": 1,
+    "shopping": 0.9,
+    "food": 0.9,
+    "entertainment": 0.8,
+    "relaxation": 0.3
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    4,
+    4,
+    4,
+    5,
+    4,
+    3,
+    2
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 50,
+    "standard": 100,
+    "luxury": 250
+   },
+   "daily_usd": {
+    "economy": 35,
+    "standard": 60,
+    "luxury": 120
+   },
+   "transport_usd": 250,
+   "transport_mode": "flight",
+   "travel_hours": 3.5,
+   "visa": "free",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "ایاصوفیه",
+     "tag": "history"
+    },
+    {
+     "name": "مسجد سلطان احمد",
+     "tag": "history"
+    },
+    {
+     "name": "کاخ توپکاپی",
+     "tag": "history"
+    },
+    {
+     "name": "تور کشتی تنگه بسفر",
+     "tag": "relaxation"
+    },
+    {
+     "name": "گراند بازار و بازار ادویه",
+     "tag": "shopping"
+    },
+    {
+     "name": "برج گالاتا و خیابان استقلال",
+     "tag": "entertainment"
+    },
+    {
+     "name": "جزایر پرنس",
+     "tag": "nature"
+    },
+    {
+     "name": "مراکز خرید جواهر و استینیه پارک",
+     "tag": "shopping"
+    }
+   ],
+   "tips": [
+    "کارت استانبول‌کارت برای مترو و کشتی بگیرید."
+   ]
+  },
+  {
+   "id": "antalya",
+   "name": "آنتالیا",
+   "country": "ترکیه",
+   "scope": "international",
+   "summary": "سواحل مدیترانه و هتل‌های همه‌چیزتمام؛ ایده‌آل برای استراحت خانوادگی.",
+   "tags": {
+    "beach": 1,
+    "relaxation": 1,
+    "entertainment": 0.6,
+    "history": 0.4,
+    "nature": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends"
+   ],
+   "season": [
+    1,
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4,
+    2,
+    1
+   ],
+   "min_days": 4,
+   "max_days": 8,
+   "lodging_usd": {
+    "economy": 60,
+    "standard": 120,
+    "luxury": 280
+   },
+   "daily_usd": {
+    "economy": 15,
+    "standard": 30,
+    "luxury": 60
+   },
+   "transport_usd": 300,
+   "transport_mode": "flight",
+   "travel_hours": 4,
+   "visa": "free",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "هتل ساحلی همه‌چیزتمام (All-inclusive)",
+     "tag": "relaxation"
+    },
+    {
+     "name": "شهر قدیم کالیچی",
+     "tag": "history"
+    },
+    {
+     "name": "آبشار دودن",
+     "tag": "nature"
+    },
+    {
+     "name": "ساحل کنیالتی",
+     "tag": "beach"
+    },
+    {
+     "name": "تور قایق در مدیترانه",
+     "tag": "beach"
+    },
+    {
+     "name": "پارک آبی و شهربازی",
+     "tag": "entertainment"
+    }
+   ],
+   "tips": [
+    "قیمت هتل‌ها شامل غذا است؛ هزینه روزانه بیرون از هتل کم است."
+   ]
+  },
+  {
+   "id": "van",
+   "name": "وان",
+   "country": "ترکیه",
+   "scope": "international",
+   "summary": "سفری اقتصادی با اتوبوس؛ دریاچه وان، کلیسای آختامار و خرید.",
+   "tags": {
+    "shopping": 0.9,
+    "nature": 0.7,
+    "history": 0.6,
+    "food": 0.6
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    1,
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "min_days": 3,
+   "max_days": 5,
+   "lodging_usd": {
+    "economy": 25,
+    "standard": 45,
+    "luxury": 90
+   },
+   "daily_usd": {
+    "economy": 20,
+    "standard": 35,
+    "luxury": 60
+   },
+   "transport_usd": 70,
+   "transport_mode": "road",
+   "travel_hours": 14,
+   "visa": "free",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "دریاچه وان",
+     "tag": "nature"
+    },
+    {
+     "name": "جزیره و کلیسای آختامار",
+     "tag": "history"
+    },
+    {
+     "name": "قلعه وان",
+     "tag": "history"
+    },
+    {
+     "name": "بازارها و مراکز خرید شهر",
+     "tag": "shopping"
+    },
+    {
+     "name": "صبحانه معروف وانی",
+     "tag": "food"
+    },
+    {
+     "name": "آبشار مرادیه",
+     "tag": "nature"
+    }
+   ],
+   "tips": [
+    "در نوروز مقصد بسیار شلوغی است؛ زودتر رزرو کنید."
+   ]
+  },
+  {
+   "id": "cappadocia",
+   "name": "کاپادوکیه",
+   "country": "ترکیه",
+   "scope": "international",
+   "summary": "دودکش‌های جن، بالن‌سواری در طلوع و هتل‌های غاری.",
+   "tags": {
+    "adventure": 1,
+    "nature": 0.9,
+    "history": 0.7,
+    "relaxation": 0.5
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    3,
+    2
+   ],
+   "min_days": 3,
+   "max_days": 4,
+   "lodging_usd": {
+    "economy": 50,
+    "standard": 110,
+    "luxury": 280
+   },
+   "daily_usd": {
+    "economy": 35,
+    "standard": 70,
+    "luxury": 200
+   },
+   "transport_usd": 320,
+   "transport_mode": "flight",
+   "travel_hours": 6,
+   "visa": "free",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "بالن‌سواری در طلوع آفتاب",
+     "tag": "adventure"
+    },
+    {
+     "name": "موزه روباز گورمه",
+     "tag": "history"
+    },
+    {
+     "name": "شهر زیرزمینی درینکویو",
+     "tag": "history"
+    },
+    {
+     "name": "دره عشق و دره رز",
+     "tag": "nature"
+    },
+    {
+     "name": "قلعه اوچ‌حصار",
+     "tag": "history"
+    },
+    {
+     "name": "تور ATV در دره‌ها",
+     "tag": "adventure"
+    }
+   ],
+   "tips": [
+    "بالن‌سواری را از قبل رزرو کنید؛ در هوای نامساعد لغو می‌شود، پس آن را روز اول بگذارید."
+   ]
+  },
+  {
+   "id": "tbilisi",
+   "name": "تفلیس",
+   "country": "گرجستان",
+   "scope": "international",
+   "summary": "شهر قدیم رنگارنگ، حمام‌های گوگردی و طبیعت کوهستانی قفقاز.",
+   "tags": {
+    "nature": 0.8,
+    "history": 0.7,
+    "food": 0.9,
+    "entertainment": 0.8,
+    "relaxation": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    3,
+    2
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 35,
+    "standard": 70,
+    "luxury": 160
+   },
+   "daily_usd": {
+    "economy": 25,
+    "standard": 45,
+    "luxury": 90
+   },
+   "transport_usd": 250,
+   "transport_mode": "flight",
+   "travel_hours": 2,
+   "visa": "free",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "شهر قدیم و قلعه ناریکالا",
+     "tag": "history"
+    },
+    {
+     "name": "تله‌کابین و پل صلح",
+     "tag": "entertainment"
+    },
+    {
+     "name": "حمام‌های گوگردی آبانوتوبانی",
+     "tag": "relaxation"
+    },
+    {
+     "name": "شهر تاریخی متسختا",
+     "tag": "history"
+    },
+    {
+     "name": "کازبگی و کلیسای گرگتی",
+     "tag": "nature"
+    },
+    {
+     "name": "خینکالی و خاچاپوری",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "برای کازبگی یک روز کامل در نظر بگیرید."
+   ]
+  },
+  {
+   "id": "batumi",
+   "name": "باتومی",
+   "country": "گرجستان",
+   "scope": "international",
+   "summary": "شهر ساحلی دریای سیاه با بلوار ساحلی و باغ گیاه‌شناسی.",
+   "tags": {
+    "beach": 1,
+    "entertainment": 0.8,
+    "relaxation": 0.7,
+    "nature": 0.6
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends"
+   ],
+   "season": [
+    1,
+    1,
+    1,
+    2,
+    3,
+    5,
+    5,
+    5,
+    4,
+    3,
+    1,
+    1
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 35,
+    "standard": 70,
+    "luxury": 150
+   },
+   "daily_usd": {
+    "economy": 25,
+    "standard": 40,
+    "luxury": 80
+   },
+   "transport_usd": 280,
+   "transport_mode": "flight",
+   "travel_hours": 2.5,
+   "visa": "free",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "بلوار ساحلی باتومی",
+     "tag": "beach"
+    },
+    {
+     "name": "باغ گیاه‌شناسی",
+     "tag": "nature"
+    },
+    {
+     "name": "میدان اروپا و شهر قدیم",
+     "tag": "history"
+    },
+    {
+     "name": "آبشار ماخونتستی",
+     "tag": "nature"
+    },
+    {
+     "name": "تله‌کابین آرگو",
+     "tag": "entertainment"
+    },
+    {
+     "name": "ساحل سنگریزه‌ای",
+     "tag": "beach"
+    }
+   ],
+   "tips": [
+    "ساحل باتومی سنگریزه‌ای است؛ کفش آب همراه ببرید."
+   ]
+  },
+  {
+   "id": "yerevan",
+   "name": "ایروان",
+   "country": "ارمنستان",
+   "scope": "international",
+   "summary": "مقصدی نزدیک و اقتصادی با صومعه‌های کهن، دریاچه سوان و نمای آرارات.",
+   "tags": {
+    "history": 0.9,
+    "nature": 0.7,
+    "food": 0.7,
+    "entertainment": 0.6,
+    "relaxation": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    3,
+    2
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 30,
+    "standard": 60,
+    "luxury": 140
+   },
+   "daily_usd": {
+    "economy": 20,
+    "standard": 40,
+    "luxury": 80
+   },
+   "transport_usd": 200,
+   "transport_mode": "flight",
+   "travel_hours": 1.5,
+   "visa": "free",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "میدان جمهوری و فواره‌های موزیکال",
+     "tag": "entertainment"
+    },
+    {
+     "name": "پلکان کاسکاد",
+     "tag": "history"
+    },
+    {
+     "name": "معبد گارنی",
+     "tag": "history"
+    },
+    {
+     "name": "صومعه گغارد",
+     "tag": "history"
+    },
+    {
+     "name": "دریاچه سوان",
+     "tag": "nature"
+    },
+    {
+     "name": "صومعه خور ویراپ و نمای آرارات",
+     "tag": "history"
+    }
+   ],
+   "tips": [
+    "سفر زمینی از مرز نوردوز هم امکان‌پذیر و اقتصادی است."
+   ]
+  },
+  {
+   "id": "dubai",
+   "name": "دبی",
+   "country": "امارات",
+   "scope": "international",
+   "summary": "شهر رکوردها؛ برج خلیفه، مراکز خرید عظیم و سافاری صحرا.",
+   "tags": {
+    "shopping": 1,
+    "entertainment": 1,
+    "beach": 0.6,
+    "desert": 0.5,
+    "relaxation": 0.4
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends"
+   ],
+   "season": [
+    5,
+    5,
+    4,
+    3,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 70,
+    "standard": 140,
+    "luxury": 350
+   },
+   "daily_usd": {
+    "economy": 40,
+    "standard": 80,
+    "luxury": 180
+   },
+   "transport_usd": 200,
+   "transport_mode": "flight",
+   "travel_hours": 2,
+   "visa": "required",
+   "visa_cost_usd": 100,
+   "attractions": [
+    {
+     "name": "برج خلیفه",
+     "tag": "entertainment"
+    },
+    {
+     "name": "دبی مال و آکواریوم",
+     "tag": "shopping"
+    },
+    {
+     "name": "سافاری صحرا",
+     "tag": "desert"
+    },
+    {
+     "name": "پالم جمیرا و ساحل",
+     "tag": "beach"
+    },
+    {
+     "name": "دبی مارینا",
+     "tag": "entertainment"
+    },
+    {
+     "name": "گلوبال ویلیج (مهر تا فروردین)",
+     "tag": "entertainment"
+    },
+    {
+     "name": "موزه آینده",
+     "tag": "entertainment"
+    }
+   ],
+   "tips": [
+    "ویزای امارات معمولاً از طریق آژانس یا ایرلاین گرفته می‌شود."
+   ]
+  },
+  {
+   "id": "muscat",
+   "name": "مسقط",
+   "country": "عمان",
+   "scope": "international",
+   "summary": "آرام و اصیل؛ وادی‌های فیروزه‌ای، مسجد سلطان قابوس و صحرای وهیبه.",
+   "tags": {
+    "nature": 0.9,
+    "relaxation": 0.8,
+    "history": 0.6,
+    "adventure": 0.6,
+    "beach": 0.6
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "solo"
+   ],
+   "season": [
+    5,
+    5,
+    4,
+    3,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 3,
+   "max_days": 6,
+   "lodging_usd": {
+    "economy": 60,
+    "standard": 110,
+    "luxury": 250
+   },
+   "daily_usd": {
+    "economy": 35,
+    "standard": 60,
+    "luxury": 120
+   },
+   "transport_usd": 200,
+   "transport_mode": "flight",
+   "travel_hours": 2,
+   "visa": "required",
+   "visa_cost_usd": 50,
+   "attractions": [
+    {
+     "name": "مسجد جامع سلطان قابوس",
+     "tag": "history"
+    },
+    {
+     "name": "بازار مطرح",
+     "tag": "shopping"
+    },
+    {
+     "name": "وادی شاب",
+     "tag": "nature"
+    },
+    {
+     "name": "سینک‌هول بیمه",
+     "tag": "nature"
+    },
+    {
+     "name": "صحرای وهیبه",
+     "tag": "desert"
+    },
+    {
+     "name": "قلعه نزوا",
+     "tag": "history"
+    }
+   ],
+   "tips": [
+    "برای وادی‌ها خودرو کرایه کنید؛ رانندگی در عمان آسان است."
+   ]
+  },
+  {
+   "id": "malaysia",
+   "name": "کوالالامپور و لنکاوی",
+   "country": "مالزی",
+   "scope": "international",
+   "summary": "ترکیب شهر مدرن، جنگل استوایی و جزیره‌های گرمسیری.",
+   "tags": {
+    "nature": 0.8,
+    "beach": 0.8,
+    "shopping": 0.7,
+    "food": 0.8,
+    "entertainment": 0.7
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    4,
+    4,
+    4,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    3,
+    2,
+    3
+   ],
+   "min_days": 6,
+   "max_days": 12,
+   "lodging_usd": {
+    "economy": 30,
+    "standard": 70,
+    "luxury": 180
+   },
+   "daily_usd": {
+    "economy": 25,
+    "standard": 45,
+    "luxury": 90
+   },
+   "transport_usd": 600,
+   "transport_mode": "flight",
+   "travel_hours": 7,
+   "visa": "required",
+   "visa_cost_usd": 30,
+   "attractions": [
+    {
+     "name": "برج‌های دوقلوی پتروناس",
+     "tag": "entertainment"
+    },
+    {
+     "name": "غارهای باتو",
+     "tag": "history"
+    },
+    {
+     "name": "جنتینگ هایلندز",
+     "tag": "entertainment"
+    },
+    {
+     "name": "جزیره لنکاوی و تله‌کابین",
+     "tag": "beach"
+    },
+    {
+     "name": "پوتراجایا",
+     "tag": "history"
+    },
+    {
+     "name": "غذاهای خیابانی جالان آلور",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "هوا همیشه گرم و مرطوب است و رگبارهای عصرگاهی رایج است."
+   ]
+  },
+  {
+   "id": "thailand",
+   "name": "بانکوک و پوکت",
+   "country": "تایلند",
+   "scope": "international",
+   "summary": "معابد طلایی، بازارهای شلوغ و سواحل فیروزه‌ای جزایر.",
+   "tags": {
+    "beach": 1,
+    "food": 0.9,
+    "entertainment": 0.9,
+    "history": 0.6,
+    "shopping": 0.7,
+    "nature": 0.7
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    5,
+    4,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 6,
+   "max_days": 12,
+   "lodging_usd": {
+    "economy": 30,
+    "standard": 70,
+    "luxury": 200
+   },
+   "daily_usd": {
+    "economy": 25,
+    "standard": 50,
+    "luxury": 100
+   },
+   "transport_usd": 600,
+   "transport_mode": "flight",
+   "travel_hours": 7,
+   "visa": "required",
+   "visa_cost_usd": 40,
+   "attractions": [
+    {
+     "name": "کاخ بزرگ و معبد بودای زمردین",
+     "tag": "history"
+    },
+    {
+     "name": "معبد وات فو و وات آرون",
+     "tag": "history"
+    },
+    {
+     "name": "بازار شناور",
+     "tag": "shopping"
+    },
+    {
+     "name": "بازار چاتوچاک",
+     "tag": "shopping"
+    },
+    {
+     "name": "سواحل پوکت",
+     "tag": "beach"
+    },
+    {
+     "name": "تور قایق جزایر فی‌فی",
+     "tag": "beach"
+    },
+    {
+     "name": "غذای خیابانی تایلندی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "از خرداد تا مهر فصل باران‌های موسمی است."
+   ]
+  },
+  {
+   "id": "bali",
+   "name": "بالی",
+   "country": "اندونزی",
+   "scope": "international",
+   "summary": "جزیره خدایان؛ شالیزارهای پلکانی، معابد ساحلی و موج‌سواری.",
+   "tags": {
+    "nature": 1,
+    "beach": 0.9,
+    "relaxation": 0.9,
+    "adventure": 0.7,
+    "history": 0.5
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    4,
+    3,
+    2
+   ],
+   "min_days": 6,
+   "max_days": 14,
+   "lodging_usd": {
+    "economy": 35,
+    "standard": 80,
+    "luxury": 250
+   },
+   "daily_usd": {
+    "economy": 25,
+    "standard": 45,
+    "luxury": 100
+   },
+   "transport_usd": 900,
+   "transport_mode": "flight",
+   "travel_hours": 12,
+   "visa": "required",
+   "visa_cost_usd": 35,
+   "attractions": [
+    {
+     "name": "معبد تانا لات",
+     "tag": "history"
+    },
+    {
+     "name": "شالیزارهای تگالالانگ",
+     "tag": "nature"
+    },
+    {
+     "name": "اوبود و جنگل میمون‌ها",
+     "tag": "nature"
+    },
+    {
+     "name": "سواحل کوتا و سمینیاک",
+     "tag": "beach"
+    },
+    {
+     "name": "طلوع آفتاب روی کوه باتور",
+     "tag": "adventure"
+    },
+    {
+     "name": "ماساژ و اسپای بالیایی",
+     "tag": "relaxation"
+    }
+   ],
+   "tips": [
+    "پرواز طولانی و با توقف است؛ حداقل یک هفته برنامه‌ریزی کنید."
+   ]
+  },
+  {
+   "id": "maldives",
+   "name": "مالدیو",
+   "country": "مالدیو",
+   "scope": "international",
+   "summary": "ویلاهای روی آب و آب‌های فیروزه‌ای؛ مقصد ماه عسل.",
+   "tags": {
+    "beach": 1,
+    "relaxation": 1,
+    "adventure": 0.5
+   },
+   "good_for": [
+    "couple",
+    "family"
+   ],
+   "season": [
+    5,
+    5,
+    5,
+    4,
+    3,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    5
+   ],
+   "min_days": 4,
+   "max_days": 8,
+   "lodging_usd": {
+    "economy": 120,
+    "standard": 250,
+    "luxury": 700
+   },
+   "daily_usd": {
+    "economy": 40,
+    "standard": 80,
+    "luxury": 200
+   },
+   "transport_usd": 900,
+   "transport_mode": "flight",
+   "travel_hours": 7,
+   "visa": "on_arrival",
+   "visa_cost_usd": 0,
+   "attractions": [
+    {
+     "name": "اقامت در ویلای روی آب",
+     "tag": "relaxation"
+    },
+    {
+     "name": "اسنورکلینگ در صخره‌های مرجانی",
+     "tag": "adventure"
+    },
+    {
+     "name": "تور شنا با لاک‌پشت و سفره‌ماهی",
+     "tag": "adventure"
+    },
+    {
+     "name": "سواحل شنی سفید",
+     "tag": "beach"
+    },
+    {
+     "name": "شام ساحلی در غروب",
+     "tag": "relaxation"
+    }
+   ],
+   "tips": [
+    "بیشتر هزینه، اقامت و انتقال با قایق یا سی‌پلین به ریزورت است."
+   ]
+  },
+  {
+   "id": "russia",
+   "name": "مسکو و سن‌پترزبورگ",
+   "country": "روسیه",
+   "scope": "international",
+   "summary": "کرملین و میدان سرخ، موزه ارمیتاژ و کاخ‌های تزاری.",
+   "tags": {
+    "history": 1,
+    "entertainment": 0.7,
+    "shopping": 0.5,
+    "food": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    5,
+    4,
+    3,
+    2,
+    3
+   ],
+   "min_days": 5,
+   "max_days": 9,
+   "lodging_usd": {
+    "economy": 50,
+    "standard": 100,
+    "luxury": 250
+   },
+   "daily_usd": {
+    "economy": 35,
+    "standard": 60,
+    "luxury": 120
+   },
+   "transport_usd": 400,
+   "transport_mode": "flight",
+   "travel_hours": 4,
+   "visa": "required",
+   "visa_cost_usd": 52,
+   "attractions": [
+    {
+     "name": "میدان سرخ و کرملین",
+     "tag": "history"
+    },
+    {
+     "name": "کلیسای سنت باسیل",
+     "tag": "history"
+    },
+    {
+     "name": "ایستگاه‌های متروی مسکو",
+     "tag": "history"
+    },
+    {
+     "name": "موزه ارمیتاژ",
+     "tag": "history"
+    },
+    {
+     "name": "کاخ و باغ‌های پترهوف",
+     "tag": "history"
+    },
+    {
+     "name": "قطار سریع‌السیر سپسان بین دو شهر",
+     "tag": "entertainment"
+    }
+   ],
+   "tips": [
+    "کارت‌های بانکی بین‌المللی ممکن است کار نکنند؛ پول نقد همراه داشته باشید."
+   ]
+  },
+  {
+   "id": "baku",
+   "name": "باکو",
+   "country": "آذربایجان",
+   "scope": "international",
+   "summary": "شهر قدیم یونسکو، برج‌های شعله و بلوار ساحلی دریای خزر.",
+   "tags": {
+    "history": 0.8,
+    "entertainment": 0.7,
+    "food": 0.6,
+    "shopping": 0.5,
+    "relaxation": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    4,
+    3,
+    3,
+    5,
+    4,
+    3,
+    2
+   ],
+   "min_days": 3,
+   "max_days": 5,
+   "lodging_usd": {
+    "economy": 40,
+    "standard": 80,
+    "luxury": 180
+   },
+   "daily_usd": {
+    "economy": 25,
+    "standard": 45,
+    "luxury": 90
+   },
+   "transport_usd": 200,
+   "transport_mode": "flight",
+   "travel_hours": 1.5,
+   "visa": "required",
+   "visa_cost_usd": 30,
+   "attractions": [
+    {
+     "name": "شهر قدیم ایچری‌شهر و برج دختر",
+     "tag": "history"
+    },
+    {
+     "name": "برج‌های شعله",
+     "tag": "entertainment"
+    },
+    {
+     "name": "بلوار ساحلی",
+     "tag": "relaxation"
+    },
+    {
+     "name": "مرکز حیدر علی‌اف",
+     "tag": "history"
+    },
+    {
+     "name": "آتشگاه سوراخانی",
+     "tag": "history"
+    },
+    {
+     "name": "سنگ‌نگاره‌های گوبوستان",
+     "tag": "history"
+    }
+   ],
+   "tips": [
+    "مرز زمینی ممکن است بسته باشد؛ با پرواز سفر کنید."
+   ]
+  },
+  {
+   "id": "iraq",
+   "name": "کربلا و نجف",
+   "country": "عراق",
+   "scope": "international",
+   "summary": "سفر زیارتی به عتبات عالیات.",
+   "tags": {
+    "pilgrimage": 1,
+    "history": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    4,
+    4,
+    3,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "min_days": 3,
+   "max_days": 7,
+   "lodging_usd": {
+    "economy": 20,
+    "standard": 40,
+    "luxury": 90
+   },
+   "daily_usd": {
+    "economy": 15,
+    "standard": 25,
+    "luxury": 45
+   },
+   "transport_usd": 150,
+   "transport_mode": "flight",
+   "travel_hours": 1.5,
+   "visa": "required",
+   "visa_cost_usd": 40,
+   "attractions": [
+    {
+     "name": "حرم امام حسین (ع)",
+     "tag": "pilgrimage"
+    },
+    {
+     "name": "حرم حضرت عباس (ع) و بین‌الحرمین",
+     "tag": "pilgrimage"
+    },
+    {
+     "name": "حرم امام علی (ع)",
+     "tag": "pilgrimage"
+    },
+    {
+     "name": "مسجد کوفه",
+     "tag": "pilgrimage"
+    },
+    {
+     "name": "قبرستان وادی‌السلام",
+     "tag": "pilgrimage"
+    },
+    {
+     "name": "کاظمین",
+     "tag": "pilgrimage"
+    }
+   ],
+   "tips": [
+    "تابستان بسیار گرم است. ایام اربعین شرایط ویژه‌ای (مسیر پیاده و ویزا) دارد."
+   ]
+  },
+  {
+   "id": "india",
+   "name": "مثلث طلایی هند (دهلی، آگرا، جیپور)",
+   "country": "هند",
+   "scope": "international",
+   "summary": "تاج محل، قلعه‌های راجپوت و فرهنگ رنگارنگ هند.",
+   "tags": {
+    "history": 1,
+    "food": 0.8,
+    "shopping": 0.7,
+    "adventure": 0.4
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    5,
+    5,
+    4,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    4,
+    5,
+    5
+   ],
+   "min_days": 5,
+   "max_days": 9,
+   "lodging_usd": {
+    "economy": 25,
+    "standard": 60,
+    "luxury": 180
+   },
+   "daily_usd": {
+    "economy": 20,
+    "standard": 40,
+    "luxury": 90
+   },
+   "transport_usd": 450,
+   "transport_mode": "flight",
+   "travel_hours": 3.5,
+   "visa": "required",
+   "visa_cost_usd": 25,
+   "attractions": [
+    {
+     "name": "تاج محل",
+     "tag": "history"
+    },
+    {
+     "name": "قلعه آگرا",
+     "tag": "history"
+    },
+    {
+     "name": "قلعه سرخ و قطب منار در دهلی",
+     "tag": "history"
+    },
+    {
+     "name": "کاخ باد (هوامحل) در جیپور",
+     "tag": "history"
+    },
+    {
+     "name": "قلعه آمبر",
+     "tag": "history"
+    },
+    {
+     "name": "بازارهای چاندنی چوک",
+     "tag": "shopping"
+    },
+    {
+     "name": "غذاهای هندی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "آب بطری‌شده بنوشید و غذاهای خیلی تند را با احتیاط امتحان کنید."
+   ]
+  },
+  {
+   "id": "paris",
+   "name": "پاریس",
+   "country": "فرانسه",
+   "scope": "international",
+   "summary": "شهر نور؛ برج ایفل، لوور و کافه‌های کنار رود سن.",
+   "tags": {
+    "history": 1,
+    "food": 0.9,
+    "shopping": 0.8,
+    "entertainment": 0.8,
+    "relaxation": 0.4
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo",
+    "family"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    4,
+    4,
+    5,
+    4,
+    2,
+    3
+   ],
+   "min_days": 5,
+   "max_days": 9,
+   "lodging_usd": {
+    "economy": 100,
+    "standard": 200,
+    "luxury": 450
+   },
+   "daily_usd": {
+    "economy": 60,
+    "standard": 100,
+    "luxury": 200
+   },
+   "transport_usd": 700,
+   "transport_mode": "flight",
+   "travel_hours": 8,
+   "visa": "embassy",
+   "visa_cost_usd": 90,
+   "attractions": [
+    {
+     "name": "برج ایفل",
+     "tag": "entertainment"
+    },
+    {
+     "name": "موزه لوور",
+     "tag": "history"
+    },
+    {
+     "name": "کلیسای نوتردام",
+     "tag": "history"
+    },
+    {
+     "name": "محله مون‌مارتر و ساکره‌کر",
+     "tag": "history"
+    },
+    {
+     "name": "کاخ ورسای",
+     "tag": "history"
+    },
+    {
+     "name": "کروز رود سن",
+     "tag": "relaxation"
+    },
+    {
+     "name": "شانزه‌لیزه و گالری لافایت",
+     "tag": "shopping"
+    }
+   ],
+   "tips": [
+    "ویزای شینگن زمان‌بر است؛ حداقل ۲ تا ۳ ماه قبل اقدام کنید."
+   ]
+  },
+  {
+   "id": "rome",
+   "name": "رم",
+   "country": "ایتالیا",
+   "scope": "international",
+   "summary": "موزه‌ای روباز؛ کولوسئوم، واتیکان و غذاهای ایتالیایی.",
+   "tags": {
+    "history": 1,
+    "food": 1,
+    "shopping": 0.5,
+    "entertainment": 0.5
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo",
+    "family"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    5,
+    5,
+    4,
+    3,
+    3,
+    5,
+    5,
+    3,
+    2
+   ],
+   "min_days": 4,
+   "max_days": 8,
+   "lodging_usd": {
+    "economy": 90,
+    "standard": 180,
+    "luxury": 400
+   },
+   "daily_usd": {
+    "economy": 55,
+    "standard": 90,
+    "luxury": 180
+   },
+   "transport_usd": 700,
+   "transport_mode": "flight",
+   "travel_hours": 8,
+   "visa": "embassy",
+   "visa_cost_usd": 90,
+   "attractions": [
+    {
+     "name": "کولوسئوم و فوروم رومی",
+     "tag": "history"
+    },
+    {
+     "name": "واتیکان و کلیسای سن‌پیتر",
+     "tag": "history"
+    },
+    {
+     "name": "فواره تروی",
+     "tag": "history"
+    },
+    {
+     "name": "پانتئون",
+     "tag": "history"
+    },
+    {
+     "name": "پیاتزا ناوونا",
+     "tag": "history"
+    },
+    {
+     "name": "پیتزا و ژلاتوی ایتالیایی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "برای کولوسئوم و موزه‌های واتیکان بلیت آنلاین بخرید."
+   ]
+  },
+  {
+   "id": "china",
+   "name": "پکن و شانگهای",
+   "country": "چین",
+   "scope": "international",
+   "summary": "دیوار بزرگ، شهر ممنوعه و آسمان‌خراش‌های شانگهای.",
+   "tags": {
+    "history": 1,
+    "shopping": 0.8,
+    "food": 0.7,
+    "entertainment": 0.7
+   },
+   "good_for": [
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    2,
+    2,
+    3,
+    5,
+    5,
+    3,
+    3,
+    3,
+    5,
+    5,
+    3,
+    2
+   ],
+   "min_days": 6,
+   "max_days": 12,
+   "lodging_usd": {
+    "economy": 50,
+    "standard": 100,
+    "luxury": 250
+   },
+   "daily_usd": {
+    "economy": 35,
+    "standard": 60,
+    "luxury": 120
+   },
+   "transport_usd": 800,
+   "transport_mode": "flight",
+   "travel_hours": 8,
+   "visa": "embassy",
+   "visa_cost_usd": 60,
+   "attractions": [
+    {
+     "name": "دیوار بزرگ چین",
+     "tag": "history"
+    },
+    {
+     "name": "شهر ممنوعه",
+     "tag": "history"
+    },
+    {
+     "name": "معبد بهشت",
+     "tag": "history"
+    },
+    {
+     "name": "بوند و برج‌های شانگهای",
+     "tag": "entertainment"
+    },
+    {
+     "name": "بازارهای خرید پکن و شانگهای",
+     "tag": "shopping"
+    },
+    {
+     "name": "اردک پکنی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "بسیاری از سایت‌ها و اپ‌ها در چین فیلترند؛ از قبل برنامه‌ریزی کنید."
+   ]
+  },
+  {
+   "id": "uzbekistan",
+   "name": "سمرقند و بخارا",
+   "country": "ازبکستان",
+   "scope": "international",
+   "summary": "جاده ابریشم؛ میدان ریگستان، شاه‌زنده و شهر موزه‌ای بخارا.",
+   "tags": {
+    "history": 1,
+    "food": 0.6,
+    "shopping": 0.5
+   },
+   "good_for": [
+    "family",
+    "couple",
+    "friends",
+    "solo"
+   ],
+   "season": [
+    1,
+    2,
+    3,
+    5,
+    5,
+    3,
+    2,
+    2,
+    4,
+    5,
+    3,
+    1
+   ],
+   "min_days": 4,
+   "max_days": 8,
+   "lodging_usd": {
+    "economy": 30,
+    "standard": 60,
+    "luxury": 140
+   },
+   "daily_usd": {
+    "economy": 20,
+    "standard": 35,
+    "luxury": 70
+   },
+   "transport_usd": 350,
+   "transport_mode": "flight",
+   "travel_hours": 2.5,
+   "visa": "required",
+   "visa_cost_usd": 20,
+   "attractions": [
+    {
+     "name": "میدان ریگستان",
+     "tag": "history"
+    },
+    {
+     "name": "مجموعه شاه‌زنده",
+     "tag": "history"
+    },
+    {
+     "name": "گور امیر (آرامگاه تیمور)",
+     "tag": "history"
+    },
+    {
+     "name": "ارگ و مناره کلان بخارا",
+     "tag": "history"
+    },
+    {
+     "name": "قطار سریع افراسیاب بین شهرها",
+     "tag": "entertainment"
+    },
+    {
+     "name": "پلوی ازبکی",
+     "tag": "food"
+    }
+   ],
+   "tips": [
+    "قطار سریع بین تاشکند، سمرقند و بخارا راحت‌ترین راه جابه‌جایی است."
+   ]
+  }
+ ]
+}
