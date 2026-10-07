@@ -68,13 +68,47 @@
   .day b { color: var(--accent); }
   .hidden { display: none !important; }
   .notes li { color: var(--muted); font-size: 13px; }
-  @media (max-width: 640px) { .results { grid-template-columns: 1fr; } }
+  nav { display: flex; gap: 4px; margin-inline-start: auto; flex-wrap: wrap; }
+  nav button { border: 0; background: transparent; color: var(--muted); padding: 7px 14px; border-radius: 8px; font: inherit; cursor: pointer; }
+  nav button.active { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+  .chat-card { max-width: 860px; margin-inline: auto; }
+  #chat { display: flex; flex-direction: column; gap: 12px; }
+  .msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 14.5px; }
+  .msg.bot { background: var(--surface-2); align-self: flex-start; border-start-start-radius: 4px; }
+  .msg.user { background: var(--accent); color: #fff; align-self: flex-end; border-start-end-radius: 4px; }
+  .msg.wide { max-width: 100%; width: 100%; background: transparent; padding: 0; }
+  #composer { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 14px; }
+  #composer .row { display: flex; gap: 8px; margin-bottom: 10px; }
+  #composer .row input { flex: 1; }
+  .opt { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 14px; cursor: pointer; }
+  .opt:hover { border-color: var(--accent); color: var(--accent); }
+  .opt.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+  .g-section { margin-bottom: 18px; }
+  .g-section > h3 { font-size: 16px; margin: 0 0 10px; color: var(--accent); }
+  .places { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+  .place { border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; background: var(--surface); display: flex; flex-direction: column; gap: 6px; }
+  .place .pitch { font-weight: 500; }
+  .place .desc { font-size: 13.5px; color: var(--muted); }
+  .gday { border-right: 3px solid var(--accent); padding: 4px 12px 8px; margin-bottom: 12px; }
+  .gday h4 { margin: 0 0 6px; font-size: 14.5px; }
+  .gday ol { margin: 0; padding-right: 18px; font-size: 14px; }
+  @media (max-width: 640px) { .results { grid-template-columns: 1fr; } .msg { max-width: 95%; } nav { margin-inline-start: 0; } }
 </style>
 </head>
 <body>
-<header><div class="wrap bar"><div class="logo">سفر<span>پلنر</span></div><span class="hint">پیشنهاد هوشمند مقصد و برنامه سفر داخلی و خارجی</span></div></header>
+<header><div class="wrap bar"><div class="logo">سفر<span>پلنر</span></div><span class="hint">دستیار هوشمند سفر داخلی و خارجی</span>
+  <nav><button class="active" data-view="guide">راهنمای شهر: چه جاهایی بروم؟</button><button data-view="trip">کجا سفر کنم؟</button></nav>
+</div></header>
 
 <main class="wrap">
+  <section id="view-guide">
+    <div class="card chat-card">
+      <div id="chat" aria-live="polite"></div>
+      <div id="composer"></div>
+    </div>
+  </section>
+
+  <section id="view-trip" class="hidden">
   <form id="form" novalidate>
     <div class="card">
       <h2>۱. بودجه و زمان سفر</h2>
@@ -113,6 +147,7 @@
   </form>
 
   <section id="out" class="hidden"></section>
+  </section>
 </main>
 
 <script>
@@ -303,6 +338,153 @@ function renderCards(filter) {
     </article>`;
   }).join('');
 }
+
+// ------------------------------------------------------------------ City guide chat
+let GMETA = {}, CITIES = [], ANSWERS = {}, STEP = 0;
+
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('nav button').forEach(x => x.classList.toggle('active', x === b));
+  $('view-guide').classList.toggle('hidden', b.dataset.view !== 'guide');
+  $('view-trip').classList.toggle('hidden', b.dataset.view !== 'trip');
+});
+
+const cityOf = id => CITIES.find(c => c.id === id);
+function say(html, who = 'bot', wide = false) {
+  const div = document.createElement('div');
+  div.className = `msg ${who}${wide ? ' wide' : ''}`;
+  div.innerHTML = html;
+  $('chat').appendChild(div);
+  div.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  return div;
+}
+
+function currentSeason() {
+  const m = new Date().getMonth() + 1;
+  return m >= 3 && m <= 5 ? 'spring' : m >= 6 && m <= 8 ? 'summer' : m >= 9 && m <= 11 ? 'autumn' : 'winter';
+}
+
+const STEPS = [
+  { key: 'city', ask: () => 'سلام! من دستیار سفرت هستم. مقصدت کدام شهر است؟ اسمش را بنویس (مثلاً «می‌خوام برم مشهد») یا از گزینه‌ها انتخاب کن.' },
+  { key: 'days', ask: c => `عالی، ${esc(c.name)}! ${esc(c.intro)}<br>چند روز آنجا هستی؟`,
+    options: () => ({ 1: '۱ روز', 2: '۲ روز', 3: '۳ روز', 4: '۴ روز', 5: '۵ روز', 7: 'یک هفته' }) },
+  { key: 'group', ask: () => 'با چه کسانی سفر می‌کنی؟', options: () => GMETA.groups },
+  { key: 'interests', multi: true, ask: c => `در ${esc(c.name)} دنبال چه جور تجربه‌ای هستی؟ هرچند تا که دوست داری انتخاب کن و «ادامه» را بزن.`,
+    options: c => Object.fromEntries(c.categories.map(k => [k, GMETA.categories[k]])) },
+  { key: 'budget', ask: () => 'بودجه‌ات برای بلیت‌ها و تفریحات چطور است؟', options: () => GMETA.budgets },
+  { key: 'season', ask: () => 'چه فصلی سفر می‌کنی؟', options: () => GMETA.seasons },
+  { key: 'pace', ask: () => 'و آخرین سؤال: دوست داری سفرت چه ریتمی داشته باشد؟', options: () => GMETA.paces },
+];
+
+function ask() {
+  const step = STEPS[STEP];
+  const city = cityOf(ANSWERS.city);
+  say(step.ask(city));
+  if (step.key === 'city') return cityComposer();
+  const opts = step.options(city);
+  const def = step.key === 'season' ? currentSeason() : null;
+  $('composer').innerHTML = `<div class="chips">${Object.entries(opts).map(([k, v]) =>
+    `<button type="button" class="opt${k === def ? ' on' : ''}" data-k="${esc(k)}">${esc(v)}${k === def ? ' (همین حالا)' : ''}</button>`).join('')}</div>
+    ${step.multi ? '<div class="gap"><button type="button" class="btn" id="next">ادامه</button> <span class="hint" id="multi-hint"></span></div>' : ''}`;
+  $('composer').querySelectorAll('.opt').forEach(b => b.onclick = () => {
+    if (step.multi) { b.classList.toggle('on'); return; }
+    answer(step.key, b.dataset.k, opts[b.dataset.k]);
+  });
+  if (step.multi) $('next').onclick = () => {
+    const picked = [...$('composer').querySelectorAll('.opt.on')].map(b => b.dataset.k);
+    if (!picked.length) { $('multi-hint').textContent = 'حداقل یک مورد انتخاب کن.'; return; }
+    answer(step.key, picked, picked.map(k => opts[k]).join('، '));
+  };
+}
+
+function cityComposer(note = '') {
+  $('composer').innerHTML = `${note ? `<p class="hint">${note}</p>` : ''}
+    <div class="row"><input type="text" id="city-text" placeholder="مثلاً: می‌خوام برم کرمانشاه"><button type="button" class="btn" id="city-send">ارسال</button></div>
+    <div class="chips">${CITIES.map(c => `<button type="button" class="opt" data-k="${c.id}">${esc(c.name)}</button>`).join('')}</div>`;
+  $('composer').querySelectorAll('.opt').forEach(b => b.onclick = () => answer('city', b.dataset.k, cityOf(b.dataset.k).name));
+  const send = async () => {
+    const text = $('city-text').value.trim();
+    if (!text) return;
+    say(esc(text), 'user');
+    const { city } = await (await fetch('/api/cities/detect?q=' + encodeURIComponent(text))).json();
+    if (city) { ANSWERS.city = city; STEP++; ask(); }
+    else {
+      say(`این شهر را هنوز در فهرستم ندارم. فعلاً این شهرها را پوشش می‌دهم: ${CITIES.map(c => esc(c.name)).join('، ')}`);
+      cityComposer();
+    }
+  };
+  $('city-send').onclick = send;
+  $('city-text').onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); send(); } };
+  $('city-text').focus();
+}
+
+function answer(key, value, label) {
+  ANSWERS[key] = value;
+  say(esc(label), 'user');
+  STEP++;
+  if (STEP < STEPS.length) ask(); else finish();
+}
+
+async function finish() {
+  $('composer').innerHTML = '<p class="hint">در حال آماده کردن پیشنهادها...</p>';
+  const body = { ...ANSWERS, days: Number(ANSWERS.days) };
+  try {
+    const res = await fetch('/api/guide', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) });
+    if (!res.ok) throw new Error();
+    renderGuide(await res.json());
+  } catch {
+    say('متأسفانه مشکلی پیش آمد. دوباره امتحان کن.');
+  }
+  $('composer').innerHTML = '<button type="button" class="btn" id="restart">یک سفر دیگر</button>';
+  $('restart').onclick = startChat;
+}
+
+function placeCard(p, showPitch = true) {
+  const tags = [
+    `<span class="tag ${p.price === 'free' ? 'good' : ''}">${esc(p.price_label)}</span>`,
+    `<span class="tag">حدود ${fa(p.hours)} ساعت</span>`,
+    `<span class="tag">بهترین زمان: ${esc(p.best_time_label)}</span>`,
+    `<span class="tag">${esc(p.area)}</span>`,
+    p.kids ? '<span class="tag good">مناسب کودک</span>' : '',
+    p.indoor ? '<span class="tag">سرپوشیده</span>' : '',
+  ].join('');
+  return `<div class="place">
+    <div class="pitch">${esc(showPitch ? p.pitch : p.name)}</div>
+    <div class="desc">${esc(p.description)}</div>
+    <div class="tags">${tags}</div>
+    ${p.tips.length ? `<div class="hint">💡 ${p.tips.map(esc).join(' ')}</div>` : ''}
+  </div>`;
+}
+
+function renderGuide(g) {
+  say(`ممنون! بر اساس جواب‌هایت، این‌ها پیشنهادهای من برای ${esc(g.city_name)} است:`);
+  let html = '';
+  for (const s of g.sections) {
+    html += `<div class="g-section"><h3>${esc(s.headline)}</h3><div class="places">${s.places.map(p => placeCard(p)).join('')}</div></div>`;
+  }
+  if (g.must_see.length) {
+    html += `<div class="g-section"><h3>از دیدنی‌های معروف ${esc(g.city_name)} هم غافل نشو</h3><div class="places">${g.must_see.map(p => placeCard(p, false)).join('')}</div></div>`;
+  }
+  html += `<div class="g-section"><h3>برنامه پیشنهادی روزبه‌روز</h3>${g.itinerary.map(d => `
+    <div class="gday"><h4>روز ${fa(d.day)}: ${esc(d.title)} <span class="hint">(حدود ${fa(d.hours)} ساعت)</span></h4>
+      ${d.places.length ? `<ol>${d.places.map(p => `<li>${esc(p.name)} <span class="hint">— ${esc(p.best_time_label)}</span></li>`).join('')}</ol>` : ''}
+    </div>`).join('')}
+    ${g.left_out.length ? `<p class="hint">اگر وقت اضافه داشتی: ${g.left_out.map(esc).join('، ')}</p>` : ''}</div>`;
+  html += `<div class="g-section"><h3>غذاهایی که باید امتحان کنی</h3><div class="tags">${g.foods.map(f => `<span class="tag">${esc(f)}</span>`).join('')}</div></div>`;
+  html += `<div class="g-section"><h3>نکته‌ها</h3><ul class="list">${g.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>`;
+  const ex = Object.entries(g.excluded);
+  if (ex.length) html += `<p class="hint">کنار گذاشته شد — ${ex.map(([r, names]) => `${esc(r)}: ${names.map(esc).join('، ')}`).join(' | ')}</p>`;
+  say(html, 'bot', true);
+}
+
+async function startChat() {
+  if (!CITIES.length) {
+    [GMETA, CITIES] = await Promise.all([(await fetch('/api/guide/meta')).json(), (await fetch('/api/cities')).json()]);
+  }
+  ANSWERS = {}; STEP = 0;
+  $('chat').innerHTML = '';
+  ask();
+}
+startChat();
 
 init();
 </script>

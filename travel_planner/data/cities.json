@@ -1,0 +1,2787 @@
+{
+ "version": 1,
+ "cities": [
+  {
+   "id": "mashhad",
+   "name": "مشهد",
+   "aliases": [
+    "مشهد",
+    "مشهد مقدس",
+    "mashhad"
+   ],
+   "intro": "دومین کلان‌شهر ایران و مقصد زیارتی میلیون‌ها نفر؛ ترکیبی از زیارت، تاریخ، خرید و ییلاقات خوش‌آب‌وهوای اطراف.",
+   "foods": [
+    "شیشلیک مشهدی",
+    "شله مشهدی",
+    "کباب شاندیزی",
+    "نان شیرمال"
+   ],
+   "tips": [
+    "هتل نزدیک حرم انتخاب کنید تا رفت‌وآمد پیاده باشد.",
+    "زعفران، فیروزه و نبات را از فروشگاه‌های معتبر بخرید."
+   ],
+   "hot_seasons": [],
+   "cold_seasons": [
+    "winter"
+   ],
+   "places": [
+    {
+     "id": "mashhad-01",
+     "name": "حرم امام رضا (ع)",
+     "categories": [
+      "pilgrimage",
+      "history",
+      "night"
+     ],
+     "price": "free",
+     "hours": 3,
+     "best_time": "any",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "قلب مشهد؛ مجموعه عظیم صحن‌ها و رواق‌ها با معماری چشمگیر. حال‌وهوای شب‌های حرم تجربه‌ای فراموش‌نشدنی است.",
+     "tip": "برای زیارت آرام‌تر، ساعت‌های صبح زود یا نیمه‌شب را انتخاب کنید.",
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-02",
+     "name": "موزه‌های آستان قدس رضوی",
+     "categories": [
+      "museum",
+      "history"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "مجموعه موزه‌های داخل حرم با فرش‌های نفیس، قرآن‌های خطی، سکه‌ها و اشیای تاریخی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-03",
+     "name": "آرامگاه فردوسی در توس",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 2.5,
+     "best_time": "afternoon",
+     "area": "توس",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "آرامگاه شاعر شاهنامه در باغی آرام، همراه با موزه‌ای کوچک از نسخه‌های شاهنامه.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-04",
+     "name": "نیشابور: آرامگاه خیام، عطار و کمال‌الملک",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 4,
+     "best_time": "morning",
+     "area": "نیشابور",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "سفری یک‌روزه به شهر خیام؛ آرامگاه‌های خیام، عطار نیشابوری و کمال‌الملک در یک مسیر.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-05",
+     "name": "طرقبه و شاندیز",
+     "categories": [
+      "nature",
+      "food",
+      "relaxation"
+     ],
+     "price": "mid",
+     "hours": 4,
+     "best_time": "afternoon",
+     "area": "طرقبه و شاندیز",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "ییلاقات خنک نزدیک مشهد با رستوران‌های باغی، رودخانه و کباب معروف شاندیزی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-06",
+     "name": "پارک آبی موج‌های آبی",
+     "categories": [
+      "thrill",
+      "fun"
+     ],
+     "price": "mid",
+     "hours": 3,
+     "best_time": "afternoon",
+     "area": "مشهد",
+     "trip": "city",
+     "kids": true,
+     "elderly": false,
+     "indoor": true,
+     "popularity": 2,
+     "description": "از پارک‌های آبی معروف مشهد با سرسره‌های هیجان‌انگیز و استخر موج؛ پرانرژی و مناسب جمع‌های دوستانه و خانوادگی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-07",
+     "name": "کوهسنگی",
+     "categories": [
+      "nature",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 1.5,
+     "best_time": "evening",
+     "area": "مشهد",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "پارک کوهستانی و قدیمی شهر با دریاچه و مسیرهای پیاده‌روی؛ عصرها پاتوق خانواده‌هاست.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-08",
+     "name": "پارک ملت",
+     "categories": [
+      "fun",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 1.5,
+     "best_time": "evening",
+     "area": "مشهد",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "پارک بزرگ و سرسبز با فضای بازی کودکان و مسیرهای پیاده‌روی؛ مناسب یک عصر آرام.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-09",
+     "name": "بازار رضا",
+     "categories": [
+      "shopping"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "بازار سرپوشیده بزرگ نزدیک حرم؛ زعفران، فیروزه، فرش، سجاده و انواع سوغات.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-10",
+     "name": "مرکز خرید پروما",
+     "categories": [
+      "shopping"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "any",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "مرکز خرید مدرن و بزرگ نزدیک حرم با فروشگاه‌ها و رستوران‌ها.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-11",
+     "name": "خانه تاریخی داروغه",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "خانه‌ای قاجاری با آینه‌کاری و گچ‌بری‌های زیبا در نزدیکی حرم.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-12",
+     "name": "آرامگاه نادرشاه (موزه نادری)",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "آرامگاه نادرشاه افشار با مجسمه‌های باشکوه و موزه سلاح‌های تاریخی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "mashhad-13",
+     "name": "آبشار اخلمد",
+     "categories": [
+      "nature",
+      "thrill"
+     ],
+     "price": "free",
+     "hours": 6,
+     "best_time": "morning",
+     "area": "اطراف مشهد",
+     "trip": "full_day",
+     "kids": false,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "آبشاری زیبا در دل کوه‌ها با مسیر کوه‌پیمایی؛ برای اهل طبیعت و پیاده‌روی.",
+     "tip": "کفش مناسب کوه‌پیمایی بپوشید؛ مسیر سنگلاخی است.",
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+     ]
+    },
+    {
+     "id": "mashhad-14",
+     "name": "روستای ییلاقی زشک",
+     "categories": [
+      "nature",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 4,
+     "best_time": "afternoon",
+     "area": "اطراف مشهد",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "روستایی خنک و سرسبز در دامنه کوه با باغ‌های گیلاس و آلبالو.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kermanshah",
+   "name": "کرمانشاه",
+   "aliases": [
+    "کرمانشاه",
+    "kermanshah"
+   ],
+   "intro": "سرزمین سنگ‌نگاره‌ها؛ از آثار ساسانی و هخامنشی تا طبیعت بکر اورامانات.",
+   "foods": [
+    "دنده‌کباب کرمانشاهی",
+    "خورشت خلال",
+    "نان برنجی",
+    "کاک"
+   ],
+   "tips": [
+    "برای اورامانات راننده محلی یا تور بگیرید؛ جاده‌ها کوهستانی است."
+   ],
+   "hot_seasons": [],
+   "cold_seasons": [
+    "winter"
+   ],
+   "places": [
+    {
+     "id": "kermanshah-01",
+     "name": "طاق بستان",
+     "categories": [
+      "history",
+      "night",
+      "relaxation"
+     ],
+     "price": "low",
+     "hours": 2,
+     "best_time": "evening",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "سنگ‌نگاره‌های باشکوه ساسانی کنار چشمه و استخر؛ شب‌ها با نورپردازی دیدنی‌تر است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kermanshah-02",
+     "name": "مجموعه جهانی بیستون",
+     "categories": [
+      "history",
+      "nature"
+     ],
+     "price": "low",
+     "hours": 2.5,
+     "best_time": "morning",
+     "area": "بیستون",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "کتیبه مشهور داریوش بزرگ و آثار تاریخی در دل کوه؛ ثبت‌شده در فهرست میراث جهانی یونسکو.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kermanshah-03",
+     "name": "معبد آناهیتا کنگاور",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "morning",
+     "area": "کنگاور",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "بقایای معبدی باستانی با ستون‌های سنگی عظیم، منسوب به ایزدبانوی آب.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kermanshah-04",
+     "name": "تکیه معاون‌الملک",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "تکیه‌ای قاجاری با کاشی‌کاری‌های بی‌نظیر از داستان‌های مذهبی و شاهنامه.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kermanshah-05",
+     "name": "تکیه بیگلربیگی",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "بنای تاریخی با آینه‌کاری درخشان که امروز موزه است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kermanshah-06",
+     "name": "بازار تاریخی کرمانشاه",
+     "categories": [
+      "shopping",
+      "history"
+     ],
+     "price": "free",
+     "hours": 1.5,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "بازار قدیمی شهر برای خرید گیوه، نان برنجی و سوغات محلی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kermanshah-07",
+     "name": "سراب نیلوفر",
+     "categories": [
+      "nature",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 3,
+     "best_time": "afternoon",
+     "area": "اطراف کرمانشاه",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "دریاچه‌ای پوشیده از گل‌های نیلوفر آبی؛ اواخر بهار و تابستان در اوج زیبایی است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer"
+     ]
+    },
+    {
+     "id": "kermanshah-08",
+     "name": "روستای پلکانی اورامان تخت",
+     "categories": [
+      "nature",
+      "history"
+     ],
+     "price": "free",
+     "hours": 6,
+     "best_time": "morning",
+     "area": "اورامانات",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 3,
+     "description": "روستای پلکانی شگفت‌انگیز در دل کوه‌های زاگرس؛ از جاذبه‌های طبیعی-فرهنگی ثبت جهانی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+     ]
+    },
+    {
+     "id": "kermanshah-09",
+     "name": "رفتینگ در رودخانه سیروان",
+     "categories": [
+      "thrill",
+      "nature"
+     ],
+     "price": "high",
+     "hours": 5,
+     "best_time": "morning",
+     "area": "اورامانات",
+     "trip": "full_day",
+     "kids": false,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "قایق‌رانی در آب‌های خروشان سیروان؛ هیجان خالص در طبیعت کوهستانی.",
+     "tip": "فقط با تیم‌های دارای مجوز و تجهیزات ایمنی بروید.",
+     "seasons": [
+      "spring",
+      "summer"
+     ]
+    },
+    {
+     "id": "kermanshah-10",
+     "name": "غار قوری‌قلعه",
+     "categories": [
+      "thrill",
+      "nature"
+     ],
+     "price": "mid",
+     "hours": 5,
+     "best_time": "morning",
+     "area": "اطراف پاوه",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "از بزرگ‌ترین غارهای آبی آسیا با تالارها و قندیل‌های آهکی دیدنی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "isfahan",
+   "name": "اصفهان",
+   "aliases": [
+    "اصفهان",
+    "isfahan",
+    "esfahan"
+   ],
+   "intro": "نصف جهان؛ پایتخت صفویه با میدان نقش جهان، پل‌های تاریخی و هنرهای دستی بی‌نظیر.",
+   "foods": [
+    "بریانی",
+    "خورش ماست",
+    "گز و پولکی",
+    "بستنی سنتی"
+   ],
+   "tips": [
+    "بیشتر جاذبه‌های تاریخی پیاده در دسترس‌اند؛ اقامت نزدیک میدان نقش جهان بهترین انتخاب است."
+   ],
+   "hot_seasons": [
+    "summer"
+   ],
+   "cold_seasons": [],
+   "places": [
+    {
+     "id": "isfahan-01",
+     "name": "میدان نقش جهان",
+     "categories": [
+      "history",
+      "night"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "evening",
+     "area": "نقش جهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "یکی از بزرگ‌ترین میدان‌های تاریخی جهان؛ عصرها با کالسکه و چراغ‌ها حال‌وهوای خاصی دارد.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-02",
+     "name": "مسجد شیخ لطف‌الله",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 0.75,
+     "best_time": "morning",
+     "area": "نقش جهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "شاهکار کاشی‌کاری صفوی با گنبدی که نور در آن رنگ عوض می‌کند.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-03",
+     "name": "مسجد امام (شاه)",
+     "categories": [
+      "history",
+      "pilgrimage"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "نقش جهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "مسجد عظیم صفوی با کاشی‌های فیروزه‌ای و پژواک معروف زیر گنبد.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-04",
+     "name": "کاخ عالی‌قاپو",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "نقش جهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": false,
+     "indoor": true,
+     "popularity": 2,
+     "description": "کاخ شاه عباس با تالار موسیقی و چشم‌اندازی رو به میدان.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-05",
+     "name": "بازار قیصریه",
+     "categories": [
+      "shopping",
+      "history"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "afternoon",
+     "area": "نقش جهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "بازار تاریخی برای خرید میناکاری، قلم‌زنی، خاتم و ترمه.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-06",
+     "name": "کاخ چهلستون",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "کاخ باغی صفوی با نقاشی‌های دیواری و انعکاس ستون‌ها در حوض.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-07",
+     "name": "سی‌وسه‌پل",
+     "categories": [
+      "history",
+      "night",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 1,
+     "best_time": "evening",
+     "area": "زاینده‌رود",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "پل تاریخی با ۳۳ دهانه؛ قدم زدن عصرگاهی روی آن از تجربه‌های اصلی اصفهان است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-08",
+     "name": "پل خواجو",
+     "categories": [
+      "history",
+      "night",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 1,
+     "best_time": "evening",
+     "area": "زاینده‌رود",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "زیباترین پل اصفهان؛ شب‌ها گاهی آوازخوانی مردم زیر طاق‌هایش شنیده می‌شود.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-09",
+     "name": "کلیسای وانک و محله جلفا",
+     "categories": [
+      "history",
+      "food",
+      "relaxation"
+     ],
+     "price": "low",
+     "hours": 2,
+     "best_time": "afternoon",
+     "area": "جلفا",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "کلیسای ارمنی با نقاشی‌های طلاکاری، و کوچه‌های جلفا پر از کافه‌های دنج.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-10",
+     "name": "کاخ هشت‌بهشت",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 0.75,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "کاخ کوچک صفوی در باغ بلبل با تزئینات ظریف.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-11",
+     "name": "مسجد جامع عتیق",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "موزه هزارساله معماری ایرانی؛ ثبت‌شده در میراث جهانی یونسکو.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-12",
+     "name": "منارجنبان",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 0.75,
+     "best_time": "morning",
+     "area": "غرب اصفهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "بنایی با دو منار که با تکان یکی، دیگری هم می‌لرزد.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-13",
+     "name": "کوه صفه و تله‌سی‌یژ",
+     "categories": [
+      "thrill",
+      "fun",
+      "nature"
+     ],
+     "price": "mid",
+     "hours": 3,
+     "best_time": "afternoon",
+     "area": "جنوب اصفهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "کوه مشرف به شهر با تله‌سی‌یژ، مسیرهای کوه‌پیمایی و چشم‌انداز کل اصفهان.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-14",
+     "name": "باغ پرندگان",
+     "categories": [
+      "fun",
+      "nature"
+     ],
+     "price": "low",
+     "hours": 2,
+     "best_time": "morning",
+     "area": "زاینده‌رود",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "باغی بزرگ با صدها گونه پرنده؛ بچه‌ها عاشقش می‌شوند.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-15",
+     "name": "آکواریوم اصفهان",
+     "categories": [
+      "fun"
+     ],
+     "price": "mid",
+     "hours": 1.5,
+     "best_time": "any",
+     "area": "اصفهان",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "آکواریوم بزرگ با تونل زیر آب و جانوران دریایی متنوع.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "isfahan-16",
+     "name": "کویر ورزنه",
+     "categories": [
+      "thrill",
+      "nature"
+     ],
+     "price": "mid",
+     "hours": 6,
+     "best_time": "afternoon",
+     "area": "ورزنه",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "تپه‌های شنی طلایی، شترسواری، موتور ATV و غروب کویر.",
+     "tip": "شب را در اقامتگاه بوم‌گردی بمانید تا آسمان پرستاره را ببینید.",
+     "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shiraz",
+   "name": "شیراز",
+   "aliases": [
+    "شیراز",
+    "shiraz"
+   ],
+   "intro": "شهر شعر و باغ و نارنج؛ دروازه تخت جمشید و پاسارگاد.",
+   "foods": [
+    "فالوده شیرازی",
+    "کلم‌پلو",
+    "آش سبزی شیرازی",
+    "کاهو سکنجبین"
+   ],
+   "tips": [
+    "بهار و بوی بهارنارنج بهترین زمان سفر است.",
+    "مسجد نصیرالملک را صبح زود ببینید."
+   ],
+   "hot_seasons": [
+    "summer"
+   ],
+   "cold_seasons": [],
+   "places": [
+    {
+     "id": "shiraz-01",
+     "name": "تخت جمشید و نقش رستم",
+     "categories": [
+      "history"
+     ],
+     "price": "mid",
+     "hours": 5,
+     "best_time": "morning",
+     "area": "مرودشت",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "پایتخت تشریفاتی هخامنشیان و آرامگاه‌های صخره‌ای شاهان؛ مهم‌ترین اثر باستانی ایران.",
+     "tip": "کلاه و آب همراه داشته باشید؛ سایه کم است.",
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-02",
+     "name": "پاسارگاد",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 6,
+     "best_time": "morning",
+     "area": "پاسارگاد",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "آرامگاه کوروش بزرگ و نخستین پایتخت هخامنشی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-03",
+     "name": "حافظیه",
+     "categories": [
+      "history",
+      "relaxation",
+      "night"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "evening",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "آرامگاه حافظ در باغی دلنشین؛ فال حافظ گرفتن در غروب حال خوبی دارد.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-04",
+     "name": "سعدیه",
+     "categories": [
+      "history",
+      "relaxation"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "afternoon",
+     "area": "شمال شرق شیراز",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "آرامگاه سعدی با حوض ماهی‌های قدیمی و باغ آرام.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-05",
+     "name": "مسجد نصیرالملک",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "مسجد صورتی با شیشه‌های رنگی که نور صبحگاهی را به رقص درمی‌آورد.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-06",
+     "name": "باغ ارم",
+     "categories": [
+      "nature",
+      "history",
+      "relaxation"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "باغ تاریخی و گیاه‌شناسی با سروهای بلند و عمارت قاجاری؛ ثبت جهانی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-07",
+     "name": "ارگ کریم‌خان",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "قلعه زندیه در قلب شهر با برج کج معروف.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-08",
+     "name": "مجموعه وکیل: بازار، مسجد و حمام",
+     "categories": [
+      "shopping",
+      "history"
+     ],
+     "price": "low",
+     "hours": 2.5,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "بازار تاریخی زندیه برای خرید ادویه، گلیم و سوغات، در کنار مسجد و حمام وکیل.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-09",
+     "name": "نارنجستان قوام",
+     "categories": [
+      "history",
+      "relaxation"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "خانه‌باغی قاجاری با آینه‌کاری و درختان نارنج.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-10",
+     "name": "دروازه قرآن",
+     "categories": [
+      "night",
+      "nature"
+     ],
+     "price": "free",
+     "hours": 1,
+     "best_time": "evening",
+     "area": "ورودی شیراز",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "دروازه تاریخی شهر با چشم‌اندازی زیبا از شیراز در شب.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-11",
+     "name": "حرم شاهچراغ",
+     "categories": [
+      "pilgrimage",
+      "history",
+      "night"
+     ],
+     "price": "free",
+     "hours": 1.5,
+     "best_time": "evening",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "زیارتگاه مهم شیراز با آینه‌کاری خیره‌کننده.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-12",
+     "name": "باغ عفیف‌آباد (موزه سلاح)",
+     "categories": [
+      "museum",
+      "history",
+      "nature"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "afternoon",
+     "area": "شیراز",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "باغ و عمارت قاجاری با موزه سلاح‌های تاریخی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "shiraz-13",
+     "name": "پیست اسکی پولادکف",
+     "categories": [
+      "thrill",
+      "nature"
+     ],
+     "price": "high",
+     "hours": 6,
+     "best_time": "morning",
+     "area": "سپیدان",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "پیست اسکی خوش‌منظره در کوه‌های زاگرس نزدیک شیراز.",
+     "tip": null,
+     "seasons": [
+      "winter"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tabriz",
+   "name": "تبریز",
+   "aliases": [
+    "تبریز",
+    "tabriz"
+   ],
+   "intro": "شهر اولین‌ها؛ با بزرگ‌ترین بازار سرپوشیده جهان و طبیعت کوهستانی اطراف.",
+   "foods": [
+    "کوفته تبریزی",
+    "آش دوغ",
+    "قرابیه",
+    "لوز و باسلوق"
+   ],
+   "tips": [
+    "زمستان تبریز سرد و برفی است؛ لباس گرم کافی ببرید."
+   ],
+   "hot_seasons": [],
+   "cold_seasons": [
+    "winter"
+   ],
+   "places": [
+    {
+     "id": "tabriz-01",
+     "name": "بازار تاریخی تبریز",
+     "categories": [
+      "shopping",
+      "history"
+     ],
+     "price": "free",
+     "hours": 3,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "بزرگ‌ترین بازار سرپوشیده به‌هم‌پیوسته جهان؛ ثبت جهانی یونسکو. فرش، ادویه و آجیل.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-02",
+     "name": "ائل‌گلی",
+     "categories": [
+      "relaxation",
+      "fun",
+      "night"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "evening",
+     "area": "جنوب شرق تبریز",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "دریاچه‌ای با عمارتی در میانه؛ عصرها و شب‌ها پاتوق خانواده‌هاست.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-03",
+     "name": "مسجد کبود",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "فیروزه اسلام؛ مسجدی با کاشی‌های لاجوردی کم‌نظیر.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-04",
+     "name": "ارگ علیشاه",
+     "categories": [
+      "history"
+     ],
+     "price": "free",
+     "hours": 0.5,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "دیوارهای عظیم آجری از دوره ایلخانی در قلب شهر.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-05",
+     "name": "خانه مشروطه",
+     "categories": [
+      "museum",
+      "history"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "خانه‌ای قاجاری که محل نشست انقلابیون مشروطه بود؛ امروز موزه است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-06",
+     "name": "موزه آذربایجان",
+     "categories": [
+      "museum",
+      "history"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "دومین موزه باستان‌شناسی بزرگ ایران با آثاری از هزاران سال پیش.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-07",
+     "name": "مقبره‌الشعرا",
+     "categories": [
+      "history"
+     ],
+     "price": "free",
+     "hours": 0.75,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "آرامگاه شاعران نامی از جمله شهریار در بنایی مدرن.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-08",
+     "name": "خانه امیرنظام (موزه قاجار)",
+     "categories": [
+      "museum",
+      "history"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "عمارتی باشکوه با اشیای دوره قاجار.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-09",
+     "name": "تله‌کابین عینالی",
+     "categories": [
+      "fun",
+      "thrill",
+      "nature"
+     ],
+     "price": "mid",
+     "hours": 2.5,
+     "best_time": "afternoon",
+     "area": "شمال تبریز",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "تله‌کابین روی کوه عینالی با چشم‌انداز کامل شهر و تفرجگاه بالای کوه.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-10",
+     "name": "روستای صخره‌ای کندوان",
+     "categories": [
+      "nature",
+      "history"
+     ],
+     "price": "free",
+     "hours": 4,
+     "best_time": "morning",
+     "area": "اسکو",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 3,
+     "description": "خانه‌هایی کنده‌شده در دل صخره‌های مخروطی که هنوز مسکونی‌اند.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tabriz-11",
+     "name": "کلیسای سنت استپانوس",
+     "categories": [
+      "history",
+      "nature"
+     ],
+     "price": "low",
+     "hours": 6,
+     "best_time": "morning",
+     "area": "جلفا",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "کلیسای تاریخی ارمنی در دره‌ای زیبا کنار رود ارس؛ ثبت جهانی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yazd",
+   "name": "یزد",
+   "aliases": [
+    "یزد",
+    "yazd"
+   ],
+   "intro": "شهر خشتی و بادگیرها؛ نخستین شهر خشتی ثبت‌شده در فهرست میراث جهانی.",
+   "foods": [
+    "باقلوا و قطاب یزدی",
+    "شولی یزدی",
+    "پشمک",
+    "حلیم بادمجان"
+   ],
+   "tips": [
+    "اقامت در هتل‌های سنتی خانه‌حیاط‌دار را تجربه کنید.",
+    "در تابستان بازدیدها را صبح زود یا بعد از غروب بگذارید."
+   ],
+   "hot_seasons": [
+    "summer"
+   ],
+   "cold_seasons": [],
+   "places": [
+    {
+     "id": "yazd-01",
+     "name": "بافت تاریخی و پشت‌بام‌گردی",
+     "categories": [
+      "history",
+      "relaxation",
+      "night"
+     ],
+     "price": "free",
+     "hours": 2.5,
+     "best_time": "evening",
+     "area": "بافت تاریخی",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "کوچه‌های خشتی و ساباط‌ها؛ تماشای غروب از پشت‌بام‌ها و کافه‌های بافت.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-02",
+     "name": "مسجد جامع یزد",
+     "categories": [
+      "history"
+     ],
+     "price": "free",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "بافت تاریخی",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "مسجدی با بلندترین مناره‌های ایران و کاشی‌کاری درخشان.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-03",
+     "name": "میدان امیرچخماق",
+     "categories": [
+      "history",
+      "night"
+     ],
+     "price": "free",
+     "hours": 1,
+     "best_time": "evening",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "نماد یزد؛ تکیه سه‌طبقه که شب‌ها با نورپردازی می‌درخشد.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-04",
+     "name": "باغ دولت‌آباد",
+     "categories": [
+      "history",
+      "relaxation"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "باغ ایرانی ثبت جهانی با بلندترین بادگیر دنیا.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-05",
+     "name": "آتشکده یزد",
+     "categories": [
+      "history",
+      "pilgrimage"
+     ],
+     "price": "low",
+     "hours": 0.75,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "آتشکده زرتشتیان با آتشی که گفته می‌شود قرن‌هاست روشن است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-06",
+     "name": "برج‌های خاموشان",
+     "categories": [
+      "history",
+      "nature"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "afternoon",
+     "area": "جنوب شرق یزد",
+     "trip": "city",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "دخمه‌های زرتشتی روی تپه؛ غروب از بالای آن تماشایی است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-07",
+     "name": "موزه آب",
+     "categories": [
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "موزه‌ای در خانه‌ای قدیمی درباره قنات و هنر ایرانیان در مهار آب.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-08",
+     "name": "خانه لاری‌ها",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "morning",
+     "area": "بافت تاریخی",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "خانه‌ای قاجاری با بادگیرها، ارسی‌ها و حیاط‌های دلنشین.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-09",
+     "name": "زندان اسکندر",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 0.75,
+     "best_time": "morning",
+     "area": "بافت تاریخی",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "بنایی قدیمی با چاهی مرموز که افسانه‌های زیادی درباره‌اش گفته می‌شود.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-10",
+     "name": "بازار خان و شیرینی‌فروشی‌های سنتی",
+     "categories": [
+      "shopping",
+      "food"
+     ],
+     "price": "free",
+     "hours": 1.5,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "بازار قدیمی برای خرید ترمه، شیرینی‌های یزدی و ادویه.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-11",
+     "name": "میبد: قلعه نارین و یخچال",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 4,
+     "best_time": "morning",
+     "area": "میبد",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "قلعه خشتی هزاران‌ساله، یخچال و کاروانسرای شاه‌عباسی در یک مسیر.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-12",
+     "name": "روستای تاریخی خرانق",
+     "categories": [
+      "history",
+      "nature"
+     ],
+     "price": "free",
+     "hours": 4,
+     "best_time": "afternoon",
+     "area": "اطراف یزد",
+     "trip": "half_day",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "روستای خشتی متروکه با منار جنبان و کاروانسرا در حاشیه کویر.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "yazd-13",
+     "name": "کویرنوردی و آفرود",
+     "categories": [
+      "thrill",
+      "nature"
+     ],
+     "price": "mid",
+     "hours": 6,
+     "best_time": "afternoon",
+     "area": "کویرهای اطراف یزد",
+     "trip": "full_day",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "سواری روی تپه‌های شنی، شترسواری و تماشای آسمان پرستاره کویر.",
+     "tip": "فقط با تور یا راهنمای مجرب به کویر بروید.",
+     "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kish",
+   "name": "کیش",
+   "aliases": [
+    "کیش",
+    "جزیره کیش",
+    "kish"
+   ],
+   "intro": "جزیره مرجانی خلیج فارس؛ ساحل، خرید، تفریحات آبی و غروب‌های دیدنی.",
+   "foods": [
+    "غذاهای دریایی",
+    "قلیه ماهی",
+    "میگو پفیلی",
+    "فلافل جنوبی"
+   ],
+   "tips": [
+    "در تابستان هوا بسیار گرم و شرجی است؛ برنامه بیرون را صبح زود یا عصر بچینید.",
+    "اجاره دوچرخه یا خودروی برقی برای گشت ساحلی به‌صرفه است."
+   ],
+   "hot_seasons": [
+    "summer"
+   ],
+   "cold_seasons": [],
+   "places": [
+    {
+     "id": "kish-01",
+     "name": "ساحل مرجان",
+     "categories": [
+      "nature",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "morning",
+     "area": "شرق جزیره",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "ساحلی با آب فیروزه‌ای و مرجان‌های زیبا؛ مناسب شنا و استراحت.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-02",
+     "name": "کشتی یونانی",
+     "categories": [
+      "nature",
+      "night",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 1.5,
+     "best_time": "evening",
+     "area": "جنوب غرب جزیره",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "کشتی به گل‌نشسته‌ای که غروب خورشید در کنارش از نمادهای کیش است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-03",
+     "name": "تفریحات آبی (جت‌اسکی، پاراسل، بنانا)",
+     "categories": [
+      "thrill"
+     ],
+     "price": "high",
+     "hours": 2,
+     "best_time": "morning",
+     "area": "اسکله تفریحی",
+     "trip": "city",
+     "kids": false,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 3,
+     "description": "هیجان روی آب‌های خلیج فارس؛ پرواز با پاراسل و سرعت جت‌اسکی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-04",
+     "name": "غواصی",
+     "categories": [
+      "thrill",
+      "nature"
+     ],
+     "price": "high",
+     "hours": 3,
+     "best_time": "morning",
+     "area": "شرق جزیره",
+     "trip": "city",
+     "kids": false,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "غواصی تفریحی با مربی در میان مرجان‌ها و ماهی‌های رنگارنگ.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-05",
+     "name": "پارک آبی اوشن",
+     "categories": [
+      "thrill",
+      "fun"
+     ],
+     "price": "high",
+     "hours": 3,
+     "best_time": "afternoon",
+     "area": "کیش",
+     "trip": "city",
+     "kids": true,
+     "elderly": false,
+     "indoor": true,
+     "popularity": 2,
+     "description": "پارک آبی بزرگ با سرسره‌های هیجان‌انگیز و استخر موج.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-06",
+     "name": "پارک دلفین‌ها",
+     "categories": [
+      "fun",
+      "nature"
+     ],
+     "price": "mid",
+     "hours": 3,
+     "best_time": "afternoon",
+     "area": "کیش",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "نمایش دلفین‌ها، باغ پرندگان و فضای سبز؛ محبوب بچه‌ها.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-07",
+     "name": "شهر زیرزمینی کاریز",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "mid",
+     "hours": 1.5,
+     "best_time": "any",
+     "area": "مرکز جزیره",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "قنات باستانی که به شهری زیرزمینی با گالری و کافه تبدیل شده؛ در گرما هم خنک است.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-08",
+     "name": "شهر تاریخی حریره",
+     "categories": [
+      "history"
+     ],
+     "price": "low",
+     "hours": 1,
+     "best_time": "afternoon",
+     "area": "شمال جزیره",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "بقایای شهری کهن کنار ساحل با چشم‌انداز دریا.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-09",
+     "name": "مراکز خرید پردیس، مریم و دامون",
+     "categories": [
+      "shopping"
+     ],
+     "price": "free",
+     "hours": 3,
+     "best_time": "evening",
+     "area": "مرکز جزیره",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "مراکز خرید معروف کیش برای خرید لوازم برقی، عطر و پوشاک.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-10",
+     "name": "دوچرخه‌سواری در جاده ساحلی",
+     "categories": [
+      "relaxation",
+      "nature"
+     ],
+     "price": "low",
+     "hours": 2,
+     "best_time": "evening",
+     "area": "جاده ساحلی",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "رکاب زدن کنار دریا در مسیر ساحلی جزیره؛ آرام و دلنشین.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-11",
+     "name": "درخت سبز",
+     "categories": [
+      "nature"
+     ],
+     "price": "free",
+     "hours": 0.5,
+     "best_time": "afternoon",
+     "area": "مرکز جزیره",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "درخت انجیر معابد کهنسال با ریشه‌های هوایی عجیب.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "kish-12",
+     "name": "اسکله تفریحی و کافه‌های ساحلی",
+     "categories": [
+      "night",
+      "food",
+      "relaxation"
+     ],
+     "price": "mid",
+     "hours": 2,
+     "best_time": "night",
+     "area": "اسکله تفریحی",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "شب‌گردی کنار دریا، کافه‌ها و رستوران‌های غذای دریایی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tehran",
+   "name": "تهران",
+   "aliases": [
+    "تهران",
+    "tehran"
+   ],
+   "intro": "پایتخت پرجنب‌وجوش ایران؛ کاخ‌ها و موزه‌های مهم، کوه‌های شمال شهر و مراکز خرید بزرگ.",
+   "foods": [
+    "دیزی",
+    "کباب کوبیده",
+    "آش رشته",
+    "بستنی اکبرمشتی"
+   ],
+   "tips": [
+    "از مترو برای جابه‌جایی استفاده کنید تا در ترافیک گیر نکنید.",
+    "روزهای کاری صبح‌ها ترافیک سنگین است."
+   ],
+   "hot_seasons": [
+    "summer"
+   ],
+   "cold_seasons": [],
+   "places": [
+    {
+     "id": "tehran-01",
+     "name": "کاخ گلستان",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "mid",
+     "hours": 2,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "کاخ قاجاری ثبت جهانی با تالار آینه، شمس‌العماره و باغ زیبا.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-02",
+     "name": "موزه ملی ایران",
+     "categories": [
+      "museum",
+      "history"
+     ],
+     "price": "mid",
+     "hours": 2,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "مهم‌ترین موزه باستان‌شناسی ایران از پیش از تاریخ تا دوره اسلامی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-03",
+     "name": "موزه جواهرات ملی",
+     "categories": [
+      "museum"
+     ],
+     "price": "mid",
+     "hours": 1,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "گنجینه جواهرات سلطنتی ایران از جمله الماس دریای نور.",
+     "tip": "روزها و ساعت‌های بازدید محدود است؛ قبل از رفتن بررسی کنید.",
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-04",
+     "name": "بازار بزرگ تهران",
+     "categories": [
+      "shopping",
+      "history"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "morning",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "بازار تاریخی و شلوغ پایتخت؛ از فرش و ادویه تا همه چیز.",
+     "tip": "صبح زود بروید؛ ظهر بسیار شلوغ است.",
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-05",
+     "name": "کاخ سعدآباد",
+     "categories": [
+      "history",
+      "museum",
+      "nature"
+     ],
+     "price": "mid",
+     "hours": 3,
+     "best_time": "morning",
+     "area": "شمال تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "مجموعه کاخ‌موزه‌های پهلوی در باغی وسیع در دامنه البرز.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-06",
+     "name": "کاخ نیاوران",
+     "categories": [
+      "history",
+      "museum"
+     ],
+     "price": "mid",
+     "hours": 2,
+     "best_time": "afternoon",
+     "area": "شمال تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "آخرین کاخ سلطنتی ایران با باغ و موزه‌ها.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-07",
+     "name": "دربند",
+     "categories": [
+      "nature",
+      "food",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 3,
+     "best_time": "evening",
+     "area": "شمال تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 3,
+     "description": "مسیر کوهستانی کنار رودخانه با رستوران‌ها و قهوه‌خانه‌های سنتی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-08",
+     "name": "تله‌کابین توچال",
+     "categories": [
+      "thrill",
+      "nature",
+      "fun"
+     ],
+     "price": "high",
+     "hours": 4,
+     "best_time": "morning",
+     "area": "شمال تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 3,
+     "description": "تله‌کابین تا ارتفاعات توچال با چشم‌انداز تهران؛ زمستان‌ها پیست اسکی دارد.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-09",
+     "name": "برج میلاد",
+     "categories": [
+      "fun",
+      "night"
+     ],
+     "price": "high",
+     "hours": 2,
+     "best_time": "evening",
+     "area": "غرب تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 3,
+     "description": "بلندترین برج ایران با رستوران گردان و چشم‌انداز ۳۶۰ درجه از شهر.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-10",
+     "name": "پل طبیعت",
+     "categories": [
+      "night",
+      "relaxation"
+     ],
+     "price": "free",
+     "hours": 1.5,
+     "best_time": "evening",
+     "area": "شمال تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "پل پیاده‌روی معروف میان دو پارک؛ شب‌ها پرشور و زیباست.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-11",
+     "name": "باغ کتاب",
+     "categories": [
+      "fun",
+      "museum"
+     ],
+     "price": "mid",
+     "hours": 3,
+     "best_time": "afternoon",
+     "area": "جنوب تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "مجموعه بزرگ فرهنگی با کتاب‌فروشی، بخش علمی و بازی برای کودکان.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-12",
+     "name": "دریاچه چیتگر",
+     "categories": [
+      "fun",
+      "relaxation",
+      "nature"
+     ],
+     "price": "free",
+     "hours": 2,
+     "best_time": "evening",
+     "area": "غرب تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": false,
+     "popularity": 2,
+     "description": "دریاچه‌ای با پارک‌ها، مسیر دوچرخه و فضای خانوادگی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-13",
+     "name": "ایران‌مال",
+     "categories": [
+      "shopping",
+      "fun"
+     ],
+     "price": "free",
+     "hours": 3,
+     "best_time": "any",
+     "area": "غرب تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "مرکز خرید بسیار بزرگ با فروشگاه‌ها، سینما، کتابخانه و رستوران‌ها.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-14",
+     "name": "موزه هنرهای معاصر تهران",
+     "categories": [
+      "museum"
+     ],
+     "price": "low",
+     "hours": 1.5,
+     "best_time": "afternoon",
+     "area": "مرکز شهر",
+     "trip": "city",
+     "kids": true,
+     "elderly": true,
+     "indoor": true,
+     "popularity": 2,
+     "description": "مجموعه ارزشمند آثار هنر مدرن ایران و جهان.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    },
+    {
+     "id": "tehran-15",
+     "name": "شهربازی ارم",
+     "categories": [
+      "thrill",
+      "fun"
+     ],
+     "price": "mid",
+     "hours": 3,
+     "best_time": "afternoon",
+     "area": "غرب تهران",
+     "trip": "city",
+     "kids": true,
+     "elderly": false,
+     "indoor": false,
+     "popularity": 2,
+     "description": "شهربازی قدیمی و محبوب تهران با وسایل بازی هیجانی.",
+     "tip": null,
+     "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+     ]
+    }
+   ]
+  }
+ ]
+}
