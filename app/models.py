@@ -1,4 +1,6 @@
+from datetime import date
 from enum import Enum
+from typing import Literal
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -72,6 +74,40 @@ class KeywordTarget(BaseModel):
     url: str = Field(min_length=1, max_length=500)
 
 
+class RecentLinks(str, Enum):
+    none = "none"
+    few = "few"
+    many = "many"
+    unknown = "unknown"
+
+
+class AnchorHistory(str, Enum):
+    brand = "brand"
+    mixed = "mixed"
+    keyword_heavy = "keyword_heavy"
+    unknown = "unknown"
+
+
+class SiteScope(str, Enum):
+    national = "national"
+    local = "local"
+
+
+class SiteProfile(BaseModel):
+    """What we know about the client's own site: detected by the audit and/or answered by the user."""
+
+    authority: int | None = Field(default=None, ge=0, le=100)
+    domain_age_years: float | None = Field(default=None, ge=0, le=50)
+    monthly_organic_traffic: int | None = Field(default=None, ge=0)
+    referring_domains: int | None = Field(default=None, ge=0)
+    indexed_pages: int | None = Field(default=None, ge=0)
+    recent_links: RecentLinks = RecentLinks.unknown
+    anchor_history: AnchorHistory = AnchorHistory.unknown
+    penalty_history: bool = False
+    competitor_authority: int | None = Field(default=None, ge=0, le=100)
+    scope: SiteScope = SiteScope.national
+
+
 class PlanRequest(BaseModel):
     site_url: str = Field(min_length=3, max_length=300)
     brand_name: str | None = Field(default=None, max_length=100)
@@ -84,6 +120,7 @@ class PlanRequest(BaseModel):
     allowed_types: list[str] | None = None
     permanent_only: bool = False
     dofollow_only: bool = False
+    profile: SiteProfile = Field(default_factory=SiteProfile)
 
     @field_validator("category")
     @classmethod
@@ -154,9 +191,69 @@ class Scenario(BaseModel):
     warnings: list[str]
 
 
+class SiteAssessment(BaseModel):
+    stage: str
+    stage_label: str
+    effective_risk: str
+    monthly_cap: int
+    adjustments: list[str]
+    warnings: list[str]
+
+
 class PlanResponse(BaseModel):
+    site_assessment: SiteAssessment
     total_offers: int
     eligible_offers: int
     excluded: dict[str, int]
     scenarios: list[Scenario]
     notes: list[str]
+
+
+class AuditRequest(BaseModel):
+    site_url: str = Field(min_length=3, max_length=300)
+    target_urls: list[str] = Field(default_factory=list, max_length=20)
+
+
+class AuditCheck(BaseModel):
+    key: str
+    label: str
+    status: Literal["ok", "warn", "fail"]
+    detail: str
+
+
+class TargetPageStatus(BaseModel):
+    url: str
+    status_code: int | None = None
+    indexable: bool
+    title: str | None = None
+    issue: str | None = None
+
+
+class SiteAudit(BaseModel):
+    url: str
+    domain: str
+    final_url: str | None
+    reachable: bool
+    status_code: int | None
+    https: bool
+    response_ms: int | None
+    title: str | None
+    meta_description: str | None
+    lang: str | None
+    indexable: bool
+    canonical: str | None
+    has_robots_txt: bool
+    has_sitemap: bool
+    word_count: int
+    internal_links: int
+    external_links: int
+    domain_created: date | None
+    domain_age_years: float | None
+    first_archived: date | None
+    history_years: float | None
+    authority: int | None
+    authority_source: str | None
+    target_pages: list[TargetPageStatus]
+    sources_failed: list[str]
+    checks: list[AuditCheck] = Field(default_factory=list)
+    readiness: int = 0

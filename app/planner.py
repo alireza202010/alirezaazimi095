@@ -6,12 +6,12 @@ from dataclasses import dataclass
 from app import anchors
 from app.catalog import ANCHOR_TYPES, PRODUCTS, PUBLISHER_TYPES
 from app.jalali import current_jalali_year, month_labels
-from app.models import MonthSummary, PlanItem, PlanRequest, PlanResponse, Publisher, Risk, Scenario
+from app.models import (
+    MonthSummary, PlanItem, PlanRequest, PlanResponse, Publisher, Scenario, SiteAssessment,
+)
 from app.optimizer import group_knapsack
 from app.scoring import Scored, exclusion_reason, score
-
-# Natural link velocity: maximum new links per month.
-MONTHLY_CAP = {Risk.conservative: 4, Risk.balanced: 8, Risk.aggressive: 15}
+from app.site_profile import STAGE_LABELS, Assessment, assess
 
 
 @dataclass(frozen=True)
@@ -44,7 +44,10 @@ SCENARIOS = [
 ]
 
 
-def _normalized_mix(mix: dict[str, float], allowed: list[str] | None) -> dict[str, float]:
+def _normalized_mix(
+    mix: dict[str, float], allowed: list[str] | None, multipliers: dict[str, float]
+) -> dict[str, float]:
+    mix = {t: w * multipliers.get(t, 1.0) for t, w in mix.items()}
     if allowed:
         mix = {t: w for t, w in mix.items() if t in allowed}
     total = sum(mix.values())
@@ -98,18 +101,24 @@ def _select(
 
 
 def _build_items(
-    selected: list[Scored], req: PlanRequest, labels: list[str], brand: str, site_domain: str
+    selected: list[Scored], req: PlanRequest, assessment: Assessment,
+    labels: list[str], brand: str, site_domain: str,
 ) -> list[PlanItem]:
     homepage = anchors.homepage_of(req.site_url)
     year = current_jalali_year()
-    # Strongest links first so round-robin spreads them evenly across months.
-    ordered = sorted(selected, key=lambda s: s.quality, reverse=True)
-    anchor_plan = anchors.allocate(len(ordered), anchors.ANCHOR_MIX[req.risk])
+    n = len(selected)
+    if assessment.ramp_up:
+        # Gradual growth: weaker links first, the strongest ones in the final months.
+        ordered = sorted(selected, key=lambda s: s.power)
+    else:
+        # Strongest links first so round-robin spreads them evenly across months.
+        ordered = sorted(selected, key=lambda s: s.quality, reverse=True)
+    anchor_plan = anchors.allocate(n, assessment.anchor_mix)
 
     items: list[PlanItem] = []
     for i, (s, a_type) in enumerate(zip(ordered, anchor_plan)):
         kw = req.keywords[i % len(req.keywords)]
-        month = i % req.months + 1
+        month = i * req.months // n + 1 if assessment.ramp_up else i % req.months + 1
         target = homepage if a_type in {"brand", "naked"} else kw.url
         items.append(PlanItem(
             month=month,
@@ -143,24 +152,26 @@ def _build_items(
 
 
 def _scenario(
-    cfg: ScenarioConfig, publishers: list[Publisher], req: PlanRequest, brand: str, site_domain: str
+    cfg: ScenarioConfig, publishers: list[Publisher], req: PlanRequest, assessment: Assessment,
+    brand: str, site_domain: str,
 ) -> Scenario:
-    scored = [score(p, req, cfg.authority_boost) for p in publishers]
+    boost = cfg.authority_boost + assessment.authority_boost
+    scored = [score(p, req, boost) for p in publishers]
     candidates = [s for s in scored if exclusion_reason(s, req) is None]
     budget = int(req.budget * cfg.budget_share)
-    mix = _normalized_mix(cfg.mix, req.allowed_types)
-    max_links = MONTHLY_CAP[req.risk] * req.months
+    mix = _normalized_mix(cfg.mix, req.allowed_types, assessment.type_multipliers)
+    max_links = assessment.monthly_cap * req.months
     selected, capped = _select(candidates, budget, mix, max_links)
 
     warnings: list[str] = []
     if capped:
         warnings.append(
-            f"برای طبیعی ماندن سرعت لینک‌سازی، حداکثر {MONTHLY_CAP[req.risk]} لینک در ماه "
+            f"برای طبیعی ماندن سرعت لینک‌سازی، حداکثر {assessment.monthly_cap} لینک در ماه "
             f"({max_links} لینک در کل) در نظر گرفته شد و بودجه به لینک‌های قوی‌تر اختصاص یافت."
         )
 
     labels = month_labels(req.months)
-    items = _build_items(selected, req, labels, brand, site_domain)
+    items = _build_items(selected, req, assessment, labels, brand, site_domain)
     total = sum(it.price for it in items)
     remaining = budget - total
 
@@ -197,6 +208,9 @@ def _scenario(
 
 
 def build_plan(req: PlanRequest, publishers: list[Publisher]) -> PlanResponse:
+    assessment = assess(req)
+    if assessment.risk != req.risk:
+        req = req.model_copy(update={"risk": assessment.risk})
     site_domain = anchors.domain_of(req.site_url)
     brand = (req.brand_name or "").strip() or site_domain.split(".")[0]
 
@@ -210,10 +224,18 @@ def build_plan(req: PlanRequest, publishers: list[Publisher]) -> PlanResponse:
             eligible += 1
 
     return PlanResponse(
+        site_assessment=SiteAssessment(
+            stage=assessment.stage,
+            stage_label=STAGE_LABELS[assessment.stage],
+            effective_risk=assessment.risk.value,
+            monthly_cap=assessment.monthly_cap,
+            adjustments=assessment.adjustments,
+            warnings=assessment.warnings,
+        ),
         total_offers=len(publishers),
         eligible_offers=eligible,
         excluded=dict(excluded),
-        scenarios=[_scenario(cfg, publishers, req, brand, site_domain) for cfg in SCENARIOS],
+        scenarios=[_scenario(cfg, publishers, req, assessment, brand, site_domain) for cfg in SCENARIOS],
         notes=[
             "پیشنهادها بر اساس داده‌های موجود در دیتابیس ناشران است؛ قبل از خرید، قیمت و شرایط را با ناشر چک کنید.",
             "خرید لینک برای رتبه طبق سیاست‌های گوگل ریسک دارد؛ تنوع منابع، ارتباط موضوعی و محتوای واقعی را رعایت کنید.",

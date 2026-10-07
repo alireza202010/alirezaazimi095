@@ -84,8 +84,15 @@
   .muted { color: var(--muted); }
   .hidden { display: none !important; }
   .notes li { color: var(--muted); font-size: 13px; }
+  .checks { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 6px; }
+  .checks li { display: grid; grid-template-columns: 22px 170px 1fr; gap: 8px; font-size: 13.5px; align-items: start; }
+  .checks .dot { width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; margin-top: 3px; }
+  .dot.ok { background: var(--ok); } .dot.warn { background: var(--warn); } .dot.fail { background: var(--danger); }
+  .adj li { font-size: 14px; margin-bottom: 4px; }
   .err { color: var(--danger); font-size: 14px; white-space: pre-wrap; }
   @media (max-width: 640px) {
+    .checks li { grid-template-columns: 22px 1fr; }
+    .checks li .d { grid-column: 2; }
     .kw-row { grid-template-columns: 1fr auto; }
     .kw-row input.url { grid-column: 1 / -1; grid-row: 2; }
     .bars div.row { grid-template-columns: 100px 1fr 28px; }
@@ -105,37 +112,68 @@
 
 <main class="wrap">
   <section id="view-planner">
-    <form id="plan-form" class="card" novalidate>
-      <h2>۱. اطلاعات سایت و بودجه</h2>
-      <div class="grid">
-        <div><label for="site_url">آدرس سایت *</label><input id="site_url" type="url" class="ltr" placeholder="https://example.ir" required></div>
-        <div><label for="brand_name">نام برند</label><input id="brand_name" type="text" placeholder="مثلاً دیجی‌شاپ"></div>
-        <div><label for="budget">بودجه کل (تومان) *</label><input id="budget" type="text" inputmode="numeric" class="ltr" placeholder="50,000,000" required></div>
-        <div><label for="months">مدت کمپین *</label>
-          <select id="months">
-            <option value="1">۱ ماه</option><option value="2">۲ ماه</option><option value="3" selected>۳ ماه</option>
-            <option value="6">۶ ماه</option><option value="12">۱۲ ماه</option>
-          </select></div>
-        <div><label for="category">حوزه فعالیت *</label><select id="category"></select></div>
+    <form id="plan-form" novalidate>
+      <div class="card">
+        <h2>۱. سایت و کلمات کلیدی</h2>
+        <div class="grid">
+          <div><label for="site_url">آدرس سایت *</label><input id="site_url" type="url" class="ltr" placeholder="https://example.ir" required></div>
+          <div><label for="brand_name">نام برند</label><input id="brand_name" type="text" placeholder="مثلاً دیجی‌شاپ"></div>
+          <div><label for="category">حوزه فعالیت *</label><select id="category"></select></div>
+        </div>
+        <label class="section-gap">کلمات کلیدی و صفحات هدف</label>
+        <div id="kw-list"></div>
+        <button type="button" class="btn ghost small" id="add-kw">+ افزودن کلمه کلیدی</button>
+        <p class="hint">برای هر کلمه کلیدی، صفحه‌ای از سایت را که می‌خواهید در آن کلمه رتبه بگیرد وارد کنید (حداکثر ۲۰).</p>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <button type="button" class="btn" id="analyze">تحلیل وضعیت سایت</button>
+          <span id="analyze-msg" class="hint"></span>
+        </div>
       </div>
 
-      <h2 class="section-gap">۲. کلمات کلیدی و صفحات هدف</h2>
-      <div id="kw-list"></div>
-      <button type="button" class="btn ghost small" id="add-kw">+ افزودن کلمه کلیدی</button>
-      <p class="hint">برای هر کلمه کلیدی، صفحه‌ای از سایت را که می‌خواهید در آن کلمه رتبه بگیرد وارد کنید (حداکثر ۲۰).</p>
-
-      <h2 class="section-gap">۳. هدف و ترجیحات</h2>
-      <label>هدف اصلی</label><div class="chips" id="goals"></div>
-      <label class="section-gap">ریسک‌پذیری</label><div class="chips" id="risks"></div>
-      <label class="section-gap">نوع سایت‌های مجاز</label><div class="chips" id="types"></div>
-      <div class="chips section-gap">
-        <label class="chip"><input type="checkbox" id="dofollow_only"> فقط لینک فالو</label>
-        <label class="chip"><input type="checkbox" id="permanent_only"> فقط لینک دائمی</label>
+      <div class="card">
+        <h2>۲. وضعیت فعلی سایت شما</h2>
+        <p class="hint">با «تحلیل وضعیت سایت» موارد قابل تشخیص خودکار پر می‌شوند. هر مقدار را می‌توانید اصلاح کنید؛ هرچه دقیق‌تر جواب دهید، پلن دقیق‌تر می‌شود.</p>
+        <div id="audit" class="hidden"></div>
+        <div class="grid">
+          <div><label for="p_authority">اعتبار دامنه (DA یا DR، ۰ تا ۱۰۰)</label><input id="p_authority" type="text" inputmode="numeric" class="ltr num" placeholder="مثلاً 18"></div>
+          <div><label for="p_age">عمر دامنه (سال)</label><input id="p_age" type="text" inputmode="decimal" class="ltr num" placeholder="مثلاً 2.5"></div>
+          <div><label for="p_traffic">ترافیک ارگانیک ماهانه</label><input id="p_traffic" type="text" inputmode="numeric" class="ltr num" placeholder="از سرچ کنسول"></div>
+          <div><label for="p_rd">تعداد دامنه‌های ارجاع‌دهنده (بک‌لینک‌ها)</label><input id="p_rd" type="text" inputmode="numeric" class="ltr num" placeholder="از Ahrefs / Moz / سرچ کنسول"></div>
+          <div><label for="p_pages">تعداد صفحات ایندکس‌شده</label><input id="p_pages" type="text" inputmode="numeric" class="ltr num" placeholder="جستجوی site:example.ir"></div>
+          <div><label for="p_comp">میانگین اعتبار دامنه رقبای اصلی</label><input id="p_comp" type="text" inputmode="numeric" class="ltr num" placeholder="مثلاً 35"></div>
+          <div><label for="p_recent">در ۶ ماه اخیر لینک یا رپورتاژ خریده‌اید؟</label>
+            <select id="p_recent"><option value="unknown">نمی‌دانم</option><option value="none">خیر</option><option value="few">کم (کمتر از ۱۰ لینک)</option><option value="many">بله، مستمر و زیاد</option></select></div>
+          <div><label for="p_anchor">انکرتکست لینک‌های فعلی بیشتر چیست؟</label>
+            <select id="p_anchor"><option value="unknown">نمی‌دانم</option><option value="brand">بیشتر نام برند</option><option value="mixed">ترکیبی</option><option value="keyword_heavy">بیشتر کلمه کلیدی</option></select></div>
+          <div><label for="p_scope">محدوده کسب‌وکار</label>
+            <select id="p_scope"><option value="national">سراسری / آنلاین</option><option value="local">محلی (یک شهر یا منطقه)</option></select></div>
+        </div>
+        <div class="chips section-gap">
+          <label class="chip"><input type="checkbox" id="p_penalty"> سابقه پنالتی یا افت شدید و ناگهانی ترافیک گوگل دارم</label>
+        </div>
       </div>
 
-      <div class="section-gap" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-        <button class="btn" id="submit">ساخت پلن پیشنهادی</button>
-        <span id="form-error" class="err"></span>
+      <div class="card">
+        <h2>۳. بودجه و ترجیحات</h2>
+        <div class="grid">
+          <div><label for="budget">بودجه کل (تومان) *</label><input id="budget" type="text" inputmode="numeric" class="ltr" placeholder="50,000,000" required></div>
+          <div><label for="months">مدت کمپین *</label>
+            <select id="months">
+              <option value="1">۱ ماه</option><option value="2">۲ ماه</option><option value="3" selected>۳ ماه</option>
+              <option value="6">۶ ماه</option><option value="12">۱۲ ماه</option>
+            </select></div>
+        </div>
+        <label class="section-gap">هدف اصلی</label><div class="chips" id="goals"></div>
+        <label class="section-gap">ریسک‌پذیری</label><div class="chips" id="risks"></div>
+        <label class="section-gap">نوع سایت‌های مجاز</label><div class="chips" id="types"></div>
+        <div class="chips section-gap">
+          <label class="chip"><input type="checkbox" id="dofollow_only"> فقط لینک فالو</label>
+          <label class="chip"><input type="checkbox" id="permanent_only"> فقط لینک دائمی</label>
+        </div>
+        <div class="section-gap" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <button class="btn" id="submit">ساخت پلن پیشنهادی</button>
+          <span id="form-error" class="err"></span>
+        </div>
       </div>
     </form>
 
@@ -214,14 +252,79 @@ function normalizeUrl(u) {
   return u && !/^https?:\/\//i.test(u) ? 'https://' + u : u;
 }
 
-$('plan-form').onsubmit = async e => {
-  e.preventDefault();
-  $('form-error').textContent = '';
+function collectKeywords(site) {
   const keywords = [...document.querySelectorAll('.kw-row')].map(r => ({
     keyword: r.querySelector('.kw').value.trim(), url: normalizeUrl(r.querySelector('.url').value),
   })).filter(k => k.keyword);
-  const site = normalizeUrl($('site_url').value);
   keywords.forEach(k => { if (!k.url) k.url = site; });
+  return keywords;
+}
+
+const num = id => {
+  const v = toLatinDigits($(id).value).replace(/[,٬\s]/g, '').replace('٫', '.');
+  return v === '' || isNaN(Number(v)) ? null : Number(v);
+};
+const setIfEmpty = (id, v) => { if (v !== null && v !== undefined && !$(id).value.trim()) $(id).value = v; };
+
+function collectProfile() {
+  const clamp = (v, max) => v === null ? null : Math.min(max, Math.max(0, v));
+  const int = v => v === null ? null : Math.round(v);
+  return {
+    authority: int(clamp(num('p_authority'), 100)), domain_age_years: clamp(num('p_age'), 50),
+    monthly_organic_traffic: int(clamp(num('p_traffic'), 1e12)), referring_domains: int(clamp(num('p_rd'), 1e9)),
+    indexed_pages: int(clamp(num('p_pages'), 1e9)), competitor_authority: int(clamp(num('p_comp'), 100)),
+    recent_links: $('p_recent').value, anchor_history: $('p_anchor').value, scope: $('p_scope').value,
+    penalty_history: $('p_penalty').checked,
+  };
+}
+
+$('analyze').onclick = async () => {
+  const site = normalizeUrl($('site_url').value);
+  if (!site) { $('analyze-msg').textContent = 'ابتدا آدرس سایت را وارد کنید.'; return; }
+  const targets = [...new Set(collectKeywords(site).map(k => k.url).filter(u => u !== site))];
+  $('analyze').disabled = true; $('analyze-msg').textContent = 'در حال بررسی سایت و صفحات هدف... (تا ۴۰ ثانیه)';
+  try {
+    const res = await fetch('/api/site/analyze', { method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ site_url: site, target_urls: targets }) });
+    const a = await res.json();
+    if (!res.ok) throw new Error(typeof a.detail === 'string' ? a.detail : 'تحلیل سایت انجام نشد');
+    renderAudit(a);
+    $('analyze-msg').textContent = 'تحلیل انجام شد. موارد خالی را تکمیل کنید.';
+  } catch (err) {
+    $('analyze-msg').textContent = 'خطا: ' + err.message + ' — می‌توانید فرم را دستی پر کنید.';
+  } finally {
+    $('analyze').disabled = false;
+  }
+};
+
+let AUDIT = null;
+function renderAudit(a) {
+  AUDIT = a;
+  const age = a.domain_age_years ?? a.history_years;
+  setIfEmpty('p_authority', a.authority);
+  setIfEmpty('p_age', age);
+  const icon = { ok: '✓', warn: '!', fail: '×' };
+  const badTargets = a.target_pages.filter(t => !t.indexable);
+  $('audit').classList.remove('hidden');
+  $('audit').innerHTML = `
+    <div class="stats">
+      <div class="stat"><div class="v">${fa(a.readiness)}٪</div><div class="k">آمادگی سایت برای لینک‌سازی</div></div>
+      <div class="stat"><div class="v">${a.authority !== null ? fa(a.authority) : '—'}</div><div class="k">اعتبار دامنه ${a.authority_source ? '(' + esc(a.authority_source) + ')' : '(دستی وارد کنید)'}</div></div>
+      <div class="stat"><div class="v">${a.domain_age_years !== null ? fa(a.domain_age_years) + ' سال' : '—'}</div><div class="k">عمر دامنه ${a.domain_created ? '(ثبت ' + esc(a.domain_created) + ')' : ''}</div></div>
+      <div class="stat"><div class="v">${a.history_years !== null ? fa(a.history_years) + ' سال' : '—'}</div><div class="k">سابقه آنلاین (اولین آرشیو ${a.first_archived ? esc(a.first_archived) : '—'})</div></div>
+      <div class="stat"><div class="v">${a.response_ms !== null ? fa(a.response_ms) : '—'}</div><div class="k">زمان پاسخ (میلی‌ثانیه)</div></div>
+    </div>
+    <ul class="checks">${a.checks.map(c => `<li><span class="dot ${c.status}">${icon[c.status]}</span><b>${esc(c.label)}</b><span class="d muted">${esc(c.detail)}</span></li>`).join('')}</ul>
+    ${badTargets.length ? `<div class="warn"><b>صفحات هدف مشکل‌دار — قبل از خرید لینک اصلاح کنید:</b><ul style="margin:4px 0 0">${badTargets.map(t =>
+      `<li><span class="ltr" style="display:inline-block">${esc(t.url)}</span> — ${esc(t.issue)}</li>`).join('')}</ul></div>` : ''}
+    ${a.sources_failed.length ? `<p class="hint">این منابع در دسترس نبودند: ${a.sources_failed.map(esc).join('، ')} — مقادیر مربوط را دستی وارد کنید.</p>` : ''}`;
+}
+
+$('plan-form').onsubmit = async e => {
+  e.preventDefault();
+  $('form-error').textContent = '';
+  const site = normalizeUrl($('site_url').value);
+  const keywords = collectKeywords(site);
   const budget = Number(toLatinDigits($('budget').value).replace(/\D/g, ''));
   const types = [...document.querySelectorAll('input[name=types]:checked')].map(i => i.value);
 
@@ -238,6 +341,7 @@ $('plan-form').onsubmit = async e => {
     goal: document.querySelector('input[name=goal]:checked').value,
     risk: document.querySelector('input[name=risk]:checked').value,
     allowed_types: types, dofollow_only: $('dofollow_only').checked, permanent_only: $('permanent_only').checked,
+    profile: collectProfile(),
   };
   $('submit').disabled = true; $('submit').textContent = 'در حال محاسبه...';
   try {
@@ -257,9 +361,21 @@ function renderResults(data) {
   PLAN = data;
   const excluded = Object.entries(data.excluded).map(([k, v]) => `${esc(k)}: ${fa(v)}`).join('، ');
   $('results').classList.remove('hidden');
+  const sa = data.site_assessment;
   $('results').innerHTML = `
     <div class="card">
-      <h2>نتیجه تحلیل</h2>
+      <h2>ارزیابی سایت شما و اثر آن بر پلن</h2>
+      <div class="stats">
+        <div class="stat"><div class="v">${esc(sa.stage_label)}</div><div class="k">مرحله رشد سایت</div></div>
+        <div class="stat"><div class="v">${esc(META.risks[sa.effective_risk])}</div><div class="k">استراتژی ریسک اعمال‌شده</div></div>
+        <div class="stat"><div class="v">${fa(sa.monthly_cap)}</div><div class="k">حداکثر لینک در ماه</div></div>
+      </div>
+      ${sa.warnings.map(w => `<div class="warn">${esc(w)}</div>`).join('')}
+      ${badTargetUrls().size ? `<div class="warn">${fa(badTargetUrls().size)} صفحه هدف در تحلیل سایت مشکل داشت (در جدول با برچسب قرمز مشخص شده). تا اصلاح آن صفحات، لینک‌های مربوط را نخرید.</div>` : ''}
+      ${sa.adjustments.length ? `<ul class="adj">${sa.adjustments.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+    </div>
+    <div class="card">
+      <h2>پلن پیشنهادی</h2>
       <p class="hint">از ${fa(data.total_offers)} پیشنهاد موجود، ${fa(data.eligible_offers)} مورد با شرایط شما سازگار بود.
         ${excluded ? 'حذف‌شده‌ها — ' + excluded : ''}</p>
       <div class="tabs" id="sc-tabs">${data.scenarios.map((s, i) =>
@@ -273,6 +389,10 @@ function renderResults(data) {
   });
   renderScenario(data.scenarios[1]);
   $('results').scrollIntoView({ behavior: 'smooth' });
+}
+
+function badTargetUrls() {
+  return new Set((AUDIT?.target_pages || []).filter(t => !t.indexable).map(t => t.url));
 }
 
 function bars(obj) {
@@ -300,7 +420,7 @@ function renderScenario(s) {
       <td>${fa(it.price)}</td>
       <td><span class="score">${fa(Math.round(it.quality))}</span><div class="muted" style="font-size:12px">اعتبار ${fa(it.authority)} · ${fa(it.monthly_traffic)} بازدید</div></td>
       <td><b>${esc(it.anchor_text)}</b><div><span class="tag">${esc(it.anchor_type_label)}</span></div></td>
-      <td class="ltr" style="font-size:12px;word-break:break-all">${esc(it.target_url)}</td>
+      <td class="ltr" style="font-size:12px;word-break:break-all">${esc(it.target_url)}${badTargetUrls().has(it.target_url) ? '<div><span class="tag bad">صفحه هدف مشکل دارد</span></div>' : ''}</td>
       <td>${esc(it.brief_title)}</td>
       <td>${why ? `<details><summary>چرا این سایت؟</summary><ul>${why}</ul></details>` : ''}</td>
     </tr>`;

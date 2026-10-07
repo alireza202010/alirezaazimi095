@@ -7,8 +7,9 @@ from fastapi.staticfiles import StaticFiles
 
 from app import catalog
 from app.data import CsvImportError, PublisherStore, parse_csv, to_csv
-from app.models import PlanRequest, PlanResponse, Publisher
+from app.models import AuditRequest, PlanRequest, PlanResponse, Publisher, SiteAudit
 from app.planner import build_plan
+from app.site_audit import analyze_site
 
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_CSV = BASE_DIR.parent / "data" / "publishers.csv"
@@ -19,6 +20,7 @@ def create_app(csv_path: Path | None = None) -> FastAPI:
     store = PublisherStore(csv_path or Path(os.environ.get("PUBLISHERS_CSV", DEFAULT_CSV)))
     app = FastAPI(title="لینک‌پلنر - پیشنهاددهنده لینک‌سازی و رپورتاژ")
     app.state.store = store
+    app.state.analyzer = analyze_site
 
     @app.get("/", include_in_schema=False)
     def index() -> FileResponse:
@@ -38,6 +40,13 @@ def create_app(csv_path: Path | None = None) -> FastAPI:
     @app.post("/api/plan", response_model=PlanResponse)
     def plan(req: PlanRequest) -> PlanResponse:
         return build_plan(req, store.all())
+
+    @app.post("/api/site/analyze", response_model=SiteAudit)
+    async def site_analyze(req: AuditRequest) -> SiteAudit:
+        try:
+            return await app.state.analyzer(req.site_url, req.target_urls)
+        except TimeoutError:
+            raise HTTPException(504, "site analysis timed out")
 
     @app.get("/api/publishers", response_model=list[Publisher])
     def publishers() -> list[Publisher]:
