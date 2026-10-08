@@ -40,7 +40,14 @@ class Lead:
     shop_type: str = ""
     size: str = ""
     branches: int = 0
+    instagram_followers: int = 0
+    sells_bullion: str = ""  # yes / no / "" (unknown) — sells شمش / آبشده / سکه
+    bullion_brands: list[str] = field(default_factory=list)
+    wholesale: str = ""  # yes / no / ""
+    agency_fit: str = ""  # high / medium / low / ""
+    fit_reason: str = ""
     ai_note: str = ""
+    outreach_message: str = ""
     enriched: bool = False
     # Filled by scoring.
     score: int = 0

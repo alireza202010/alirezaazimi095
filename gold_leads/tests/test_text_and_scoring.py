@@ -2,6 +2,7 @@ from leadgen.models import Lead
 from leadgen.scoring import score_lead, tier_for
 from leadgen.text import (
     extract_phones,
+    has_bullion_hint,
     is_gold_related,
     name_key,
     normalize,
@@ -40,6 +41,8 @@ def test_gold_related():
     assert is_gold_related("جواهری سعیدی")
     assert is_gold_related("Arya Gold")
     assert not is_gold_related("نانوایی بربری")
+    assert is_gold_related("خرید و فروش آب‌شده")
+    assert has_bullion_hint("شمش و سکه پارسیان") and not has_bullion_hint("گالری طلای ماهان")
 
 
 def test_instagram_normalization():
@@ -49,11 +52,16 @@ def test_instagram_normalization():
     assert normalize_instagram("") == ""
 
 
-def test_scoring_prefers_reachable_and_big_shops():
-    rich = Lead(name="a", landlines=["02133112233"], mobiles=["09121234567"], instagram="x",
-                reviews=250, rating=4.6, sources=["google", "neshan"], size="large")
-    bare = Lead(name="b", sources=["neshan"])
-    assert score_lead(rich) > 60 and tier_for(score_lead(rich), rich) == "A"
+def test_scoring_prefers_bullion_sellers_that_can_be_reached():
+    contact = dict(landlines=["02133112233"], mobiles=["09121234567"], instagram="x", sources=["google", "neshan"])
+    rep = Lead(name="a", sells_bullion="yes", wholesale="yes", agency_fit="high", size="medium", **contact)
+    big_jewellery = Lead(name="b", reviews=250, size="large", agency_fit="low", **contact)
+    bare = Lead(name="c", sources=["neshan"])
+    assert tier_for(score_lead(rep), rep) == "A"
+    assert tier_for(score_lead(big_jewellery), big_jewellery) == "B"
+    assert score_lead(rep) > score_lead(big_jewellery)
     assert score_lead(bare) == 0 and tier_for(0, bare) == "C"
+    # Before AI research, a name like «طلای آبشده» already counts a little.
+    assert score_lead(Lead(name="طلای آب‌شده رضایی", sources=["neshan"])) == 10
     closed = Lead(name="c", landlines=["02133112233"], business_status="CLOSED_PERMANENTLY")
     assert score_lead(closed) == 0 and tier_for(0, closed) == "D"

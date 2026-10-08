@@ -2,7 +2,7 @@ from types import SimpleNamespace
 
 from leadgen.enrich import SUBMIT_TOOL, Enricher
 from leadgen.models import Lead
-from leadgen.table import ALL_TAB, HEADERS, SUMMARY_TAB, SYNC_TAB, build_tabs
+from leadgen.table import ALL_TAB, CANDIDATE_HEADERS, CANDIDATES_TAB, HEADERS, SUMMARY_TAB, SYNC_TAB, build_tabs
 
 COL = {h: i for i, h in enumerate(HEADERS)}
 
@@ -14,12 +14,27 @@ def _lead(name, district, **kw):
 def test_tabs_are_grouped_by_district():
     leads = [_lead("طلای الف", 6, score=40), _lead("طلای ب", 12, score=70), _lead("طلای ج", None)]
     tabs = build_tabs(leads, {}, "2026-10-08")
-    assert list(tabs)[:2] == [SUMMARY_TAB, ALL_TAB]
+    assert list(tabs)[:3] == [SUMMARY_TAB, CANDIDATES_TAB, ALL_TAB]
     assert {"منطقه ۶", "منطقه ۱۲", "نامشخص"} <= set(tabs)
     names = [r[COL["نام فروشگاه"]] for r in tabs[ALL_TAB][1:]]
     assert names == ["طلای الف", "طلای ب", "طلای ج"]  # district order, unknown last
     assert all(r[COL["وضعیت"]] == "جدید" for r in tabs[ALL_TAB][1:])
     assert tabs[SUMMARY_TAB][-1][:2] == ["جمع کل", 3]
+    assert [r[COL["رتبه در منطقه"]] for r in tabs[ALL_TAB][1:]] == [1, 1, ""]
+
+
+def test_candidates_tab_picks_top_open_shops_per_district():
+    leads = [_lead(f"طلای {i}", 6, score=s, landlines=[f"0213311223{i}"]) for i, s in enumerate([90, 80, 70, 60, 50])]
+    first = build_tabs(leads, {}, "2026-10-08")
+    names = [r[CANDIDATE_HEADERS.index("نام فروشگاه")] for r in first[CANDIDATES_TAB][1:]]
+    assert names == ["طلای 0", "طلای 1", "طلای 2"]
+
+    # The top shop rejected the offer -> the next one moves up into the candidate list.
+    main = [list(r) for r in first[ALL_TAB]]
+    main[1][COL["وضعیت"]] = "رد کرد"
+    second = build_tabs(leads, {ALL_TAB: main, SYNC_TAB: first[SYNC_TAB]}, "2026-10-09")
+    names = [r[CANDIDATE_HEADERS.index("نام فروشگاه")] for r in second[CANDIDATES_TAB][1:]]
+    assert names == ["طلای 1", "طلای 2", "طلای 3"]
 
 
 def test_sales_edits_survive_reruns():
@@ -91,7 +106,14 @@ SUBMIT_INPUT = {
     "shop_type": "wholesale",
     "size": "large",
     "branches": 3,
+    "instagram_followers": 42000,
+    "sells_bullion": "yes",
+    "bullion_brands": ["بانک مرکزی", " "],
+    "wholesale": "yes",
+    "agency_fit": "high",
+    "fit_reason": "آبشده و سکه می‌فروشد و پخش عمده دارد.",
     "sales_note": "پخش عمده در بازار؛ از حجم سفارش‌ها شروع کنید.",
+    "outreach_message": "سلام، از هاشین گلد تماس می‌گیریم...",
     "evidence_urls": ["https://instagram.com/kian.gold"],
 }
 
@@ -112,6 +134,9 @@ def test_enricher_continues_after_pause_and_applies_result(tmp_path):
     assert lead.instagram == "https://instagram.com/kian.gold"
     assert lead.shop_type == "عمده‌فروشی / پخش" and lead.size == "large" and lead.branches == 3
     assert "web" in lead.sources
+    assert lead.sells_bullion == "yes" and lead.bullion_brands == ["بانک مرکزی"] and lead.agency_fit == "high"
+    assert lead.instagram_followers == 42000 and lead.outreach_message.startswith("سلام")
+    assert "هاشین" in req["system"] and "750" in req["system"]  # default business context is the bar agency
 
     # A second run re-uses the cached research without calling Claude.
     client2, messages2 = _client([])

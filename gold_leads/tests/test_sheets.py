@@ -44,7 +44,7 @@ def test_sheet_sync_creates_tabs_and_writes_raw():
     added = [r["addSheet"]["properties"]["title"] for r in spreadsheet.batches[0]["requests"] if "addSheet" in r]
     assert added == list(tabs)
     assert spreadsheet.written["valueInputOption"] == "RAW"  # keeps the 0 of 021...
-    assert spreadsheet.written["data"][1]["range"] == f"'{ALL_TAB}'!A1"
+    assert f"'{ALL_TAB}'!A1" in [d["range"] for d in spreadsheet.written["data"]]
     fmt = spreadsheet.batches[-1]["requests"]
     hidden = [r for r in fmt if r.get("updateSheetProperties", {}).get("fields") == "hidden"]
     sync_id = next(s.id for s in spreadsheet.sheets if s.title == SYNC_TAB)

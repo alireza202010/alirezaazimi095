@@ -11,11 +11,13 @@ _FA_DIGITS = str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹")
 # Words that say "this is a gold shop" but don't identify *which* shop.
 _GENERIC_NAME_WORDS = {
     "طلا", "طلای", "طلافروشی", "فروشی", "جواهر", "جواهری", "جواهرات", "گالری", "و", "زرگری",
-    "سکه", "فروشگاه", "مزون", "خانه", "مرکز", "پخش", "تولیدی", "شعبه", "ساعت",
+    "سکه", "شمش", "آبشده", "آب", "شده", "فروشگاه", "مزون", "خانه", "مرکز", "پخش", "تولیدی", "شعبه", "ساعت",
 }
 
 # A name/category matching this is treated as gold-related.
-GOLD_PATTERN = re.compile(r"طلا|جواهر|زرگر|سکه|گالری زر|\bزر\b|gold|jewel", re.IGNORECASE)
+GOLD_PATTERN = re.compile(r"طلا|جواهر|زرگر|سکه|شمش|آب ?شده|گالری زر|\bزر\b|gold|jewel|bullion", re.IGNORECASE)
+# A name/category matching this suggests the shop already sells investment gold (bars, melted gold, coins).
+BULLION_PATTERN = re.compile(r"شمش|آب ?شده|سکه|bullion|coin", re.IGNORECASE)
 
 
 def to_latin_digits(text: str) -> str:
@@ -45,6 +47,10 @@ def name_key(name: str | None) -> str:
 
 def is_gold_related(*texts: str | None) -> bool:
     return any(t and GOLD_PATTERN.search(normalize(t)) for t in texts)
+
+
+def has_bullion_hint(*texts: str | None) -> bool:
+    return any(t and BULLION_PATTERN.search(normalize(t)) for t in texts)
 
 
 def normalize_phone(raw: str | None) -> str | None:

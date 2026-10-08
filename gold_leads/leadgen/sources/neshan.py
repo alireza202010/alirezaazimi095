@@ -17,7 +17,7 @@ from ..text import is_gold_related
 log = logging.getLogger(__name__)
 
 SEARCH_URL = "https://api.neshan.org/v1/search"
-DEFAULT_TERMS = ("طلا فروشی", "گالری طلا", "جواهری")
+DEFAULT_TERMS = ("طلا فروشی", "گالری طلا", "جواهری", "طلای آبشده", "سکه و طلا")
 
 
 def parse_items(items: list[dict]) -> list[Lead]:

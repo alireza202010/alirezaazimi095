@@ -25,7 +25,8 @@ FIELD_MASK = ",".join(
         "userRatingCount", "businessStatus", "types", "primaryType", "regularOpeningHours.weekdayDescriptions",
     )
 ) + ",nextPageToken"
-DEFAULT_QUERIES = ("طلا فروشی", "گالری طلا و جواهر")
+# Bullion queries find the shops that already sell investment gold — the best representatives.
+DEFAULT_QUERIES = ("طلا فروشی", "گالری طلا و جواهر", "طلای آبشده", "شمش و سکه طلا")
 PAGE_SIZE = 20
 MAX_RESULTS = 60  # Google's hard cap per query
 
