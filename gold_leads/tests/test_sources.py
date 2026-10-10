@@ -1,8 +1,13 @@
-from conftest import FakeHttp
+import json
+
+import pytest
+from conftest import FakeHttp, FakeHTTPError
 
 from leadgen.geo import BBox
 from leadgen.sources.google_places import MAX_RESULTS, GooglePlacesSource, parse_place
-from leadgen.sources.neshan import NeshanSource, parse_items
+from leadgen.sources.mapir import MapirSource
+from leadgen.sources.mapir import parse_items as parse_mapir
+from leadgen.sources.neshan import NeshanAccessError, NeshanSource, item_point, parse_items
 from leadgen.sources.osm import parse_elements
 
 GOOGLE_PLACE = {
@@ -69,11 +74,63 @@ def test_parse_neshan_items():
     assert "منطقه ۶" in leads[0].address
 
 
-def test_neshan_grid_sweep_sends_key():
+def test_neshan_grid_sweep_uses_v3_with_cell_bounds():
     http = FakeHttp(lambda m, u, k: {"items": []})
-    NeshanSource(http, "secret", terms=("طلا",), step=0.05, bbox=BBox(35.6, 51.3, 35.7, 51.4)).collect()
-    assert http.calls and all(c[2]["headers"]["Api-Key"] == "secret" for c in http.calls)
-    assert len(http.calls) == 4  # 2x2 grid
+    source = NeshanSource(http, "secret", terms=("طلا",), step=0.05, bbox=BBox(35.6, 51.3, 35.7, 51.4))
+    source.collect()
+    assert source.version == "v3"
+    assert all(c[2]["headers"]["Api-Key"] == "secret" for c in http.calls)
+    assert len(http.calls) == 1 + 4  # endpoint probe + 2x2 grid
+    q = json.loads(http.calls[-1][2]["params"]["q"])
+    assert q["term"] == "طلا" and q["bound"]["northEast"]["latitude"] > q["center"]["latitude"]
+
+
+def test_neshan_falls_back_to_v1_when_v3_is_not_allowed():
+    def handler(method, url, kwargs):
+        if "/v3/" in url:
+            raise FakeHTTPError(403)
+        return {"items": []}
+
+    source = NeshanSource(FakeHttp(handler), "k")
+    assert source.detect_version() == "v1"
+
+
+def test_neshan_key_without_search_access_fails_fast():
+    def handler(method, url, kwargs):
+        raise FakeHTTPError(403)
+
+    http = FakeHttp(handler)
+    with pytest.raises(NeshanAccessError, match="Search API"):
+        NeshanSource(http, "k").collect()
+    assert len(http.calls) == 2  # one probe per endpoint, not thousands of failing grid calls
+
+
+def test_neshan_item_point_handles_degrees_and_mercator():
+    assert item_point({"location": {"x": 51.42, "y": 35.67}}) == (35.67, 51.42)
+    lat, lng = item_point({"location": {"x": 5724040.0, "y": 4254500.0}})  # metres
+    assert 35.5 < lat < 35.9 and 51.2 < lng < 51.6
+    assert item_point({"location": {"latitude": 35.7, "longitude": 51.4}}) == (35.7, 51.4)
+    assert item_point({}) is None
+
+
+def test_parse_mapir_items():
+    items = [
+        {"title": "طلای آبشده نیکان", "address": "خیابان ۱۵ خرداد", "city": "تهران", "region": "منطقه ۱۲",
+         "neighborhood": "بازار", "fclass": "poi", "geom": {"type": "Point", "coordinates": [51.421, 35.6745]}},
+        {"title": "طلای کرج", "city": "کرج", "geom": {"type": "Point", "coordinates": [51.42, 35.67]}},
+        {"title": "نانوایی", "city": "تهران", "geom": {"type": "Point", "coordinates": [51.42, 35.67]}},
+    ]
+    leads = parse_mapir(items)
+    assert len(leads) == 1 and leads[0].sources == ["mapir"]
+    assert (leads[0].lat, leads[0].lng) == (35.6745, 51.421) and "منطقه ۱۲" in leads[0].address
+
+
+def test_mapir_sends_key_header():
+    http = FakeHttp(lambda m, u, k: {"value": []})
+    MapirSource(http, "mk").search("طلا", 35.7, 51.4)
+    method, url, kwargs = http.calls[0]
+    assert (method, url) == ("POST", "https://map.ir/search/v2")
+    assert kwargs["headers"]["x-api-key"] == "mk" and kwargs["json"]["$select"] == "poi"
 
 
 def test_parse_osm_elements():

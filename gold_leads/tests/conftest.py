@@ -4,6 +4,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 
+class FakeHTTPError(Exception):
+    """Mimics requests.HTTPError: carries .response.status_code."""
+
+    def __init__(self, status):
+        super().__init__(f"HTTP {status}")
+        self.response = type("R", (), {"status_code": status})()
+
+
 class FakeResponse:
     def __init__(self, data):
         self._data = data

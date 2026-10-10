@@ -87,3 +87,13 @@ def ring_to_segments(ring: list[tuple[float, float]]) -> list[Segment]:
     if ring[0] != ring[-1]:
         ring = [*ring, ring[0]]
     return [(a[0], a[1], b[0], b[1]) for a, b in zip(ring, ring[1:])]
+
+
+_HALF_CIRCUMFERENCE = 20037508.342789244
+
+
+def mercator_to_wgs84(x: float, y: float) -> tuple[float, float]:
+    """Web Mercator (EPSG:3857) metres -> (lat, lng) degrees. Some Neshan APIs return metres."""
+    lng = x / _HALF_CIRCUMFERENCE * 180.0
+    lat = math.degrees(2.0 * math.atan(math.exp(y / _HALF_CIRCUMFERENCE * math.pi)) - math.pi / 2.0)
+    return lat, lng

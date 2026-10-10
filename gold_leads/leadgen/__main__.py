@@ -1,4 +1,4 @@
-"""CLI:  python -m leadgen run [options]   |   python -m leadgen districts"""
+"""CLI:  python -m leadgen check   |   python -m leadgen run [options]   |   python -m leadgen districts"""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ def main(argv: list[str] | None = None) -> None:
     sub = parser.add_subparsers(dest="command", required=True)
 
     run = sub.add_parser("run", help="find gold shops and update the sheet")
-    run.add_argument("--sources", default="google,neshan,osm", help="comma list of google,neshan,osm")
+    run.add_argument("--sources", default="google,neshan,mapir,osm", help="comma list of google,neshan,mapir,osm")
     run.add_argument("--sheet-id", help="Google Sheet id (default: $GOOGLE_SHEET_ID)")
     run.add_argument("--service-account", help="service account JSON (default: $GOOGLE_SERVICE_ACCOUNT_FILE)")
     run.add_argument("--enrich", action="store_true", help="research leads on the web with Claude")
@@ -29,10 +29,17 @@ def main(argv: list[str] | None = None) -> None:
     run.add_argument("--out", type=Path, help="output folder for xlsx/csv")
 
     sub.add_parser("districts", help="download Tehran district boundaries from OpenStreetMap")
+    sub.add_parser("check", help="test every configured API key with one cheap request")
 
     parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+
+    if args.command == "check":
+        marks = {True: "OK  ", False: "FAIL", None: "--  "}
+        for service, ok, detail in LeadAgent(Config.from_env()).check_keys():
+            print(f"[{marks[ok]}] {service}: {detail}")
+        return
 
     if args.command == "districts":
         agent = LeadAgent(Config.from_env())

@@ -8,7 +8,7 @@ from .geo import distance_m
 from .models import Lead
 from .text import name_key, normalize
 
-SOURCE_PRIORITY = {"google": 0, "osm": 1, "neshan": 2}
+SOURCE_PRIORITY = {"google": 0, "osm": 1, "neshan": 2, "mapir": 3}
 SAME_PLACE_METERS = 80
 _CELL = 0.002  # ~200 m spatial bucket
 
