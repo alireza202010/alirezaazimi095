@@ -1,5 +1,0 @@
-{
-  "platform": "docker",
-  "app": "goldbot",
-  "disks": [{ "name": "data", "mountTo": "/app/data" }]
-}
