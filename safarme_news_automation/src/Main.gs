@@ -77,6 +77,7 @@ function testGemini() {
     categories: ['Airlines']
   };
   var r = callGemini_(cfg, buildPrompt_(item, ''), new Date());
+  Logger.log('مدل: ' + resolveModel_(cfg, false));
   Logger.log(r.ok ? JSON.stringify(r.data, null, 2) : 'خطا: ' + r.error);
   Logger.log('فراخوانی‌های امروز: ' + geminiCallsToday_(new Date()) + ' از ' + cfg.maxGeminiCallsPerDay);
   return r;
@@ -151,7 +152,7 @@ function runPipeline_(opts) {
     if (opts.dryRun) {
       // در dryRun چیزی به سابقه اضافه نمی‌شود
       var lines = sel.candidates.slice(0, 20).map(function (c) {
-        return '[' + c.keywordScore + '] ' + c.title + ' | ' + c.feedTitle + ' | ' + c.keywordHits.join(',');
+        return '[' + c.keywordScore + ' | geo ' + c.keywordGeo + ' reg ' + c.keywordReg + '] ' + c.title + ' | ' + c.feedTitle + ' | ' + c.keywordHits.join(',');
       });
       log_(ss, 'INFO', 'dryRun: ' + sel.candidates.length + ' نامزد از ' + all.length + ' آیتم\n' + lines.join('\n'));
       return { stats: stats, candidates: sel.candidates, rejected: sel.rejected };
@@ -160,6 +161,7 @@ function runPipeline_(opts) {
     var ssUrl = ss.getUrl();
     for (var i = 0; i < sel.candidates.length && stats.drafts < cfg.maxDraftsPerRun; i++) {
       if (Date.now() - started > DEFAULTS.MAX_RUNTIME_MS) { log_(ss, 'WARN', 'زمان اجرا به سقف رسید'); break; }
+      if (stats.geminiCalls >= cfg.maxGeminiCallsPerRun) { log_(ss, 'INFO', 'سقف فراخوانی Gemini در این اجرا (' + cfg.maxGeminiCallsPerRun + ') پر شد؛ بقیه برای ساعت بعد'); break; }
       if (!hasGeminiQuota_(cfg, now)) { log_(ss, 'WARN', 'سقف روزانه Gemini (' + cfg.maxGeminiCallsPerDay + ') پر شد'); break; }
       var item = sel.candidates[i];
       var text = cfg.fetchFullArticle ? fetchArticleText_(item.link, DEFAULTS.ARTICLE_CHAR_LIMIT) : '';

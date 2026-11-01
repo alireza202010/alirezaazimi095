@@ -84,14 +84,73 @@ function hasGeminiQuota_(cfg, now) {
 }
 
 /**
+ * نام مدل: اگر GEMINI_MODEL تنظیم شده همان؛ وگرنه جدیدترین مدل flash پایدار که
+ * برای این کلید در دسترس است (هر ۷ روز یک بار از ListModels دوباره بررسی می‌شود).
+ * گوگل مدل‌های قدیمی را برای کاربران جدید می‌بندد، پس نام ثابت در کد شکننده است.
+ */
+function resolveModel_(cfg, forceRefresh) {
+  if (cfg.geminiModel) return cfg.geminiModel;
+  var props = getProps_();
+  var cached = props.getProperty('GEMINI_MODEL_RESOLVED');
+  var cachedAt = Number(props.getProperty('GEMINI_MODEL_RESOLVED_AT') || 0);
+  if (cached && !forceRefresh && Date.now() - cachedAt < 7 * 86400000) return cached;
+  var picked = pickFlashModel_(listGeminiModels_(cfg)) || 'gemini-flash-latest';
+  props.setProperty('GEMINI_MODEL_RESOLVED', picked);
+  props.setProperty('GEMINI_MODEL_RESOLVED_AT', String(Date.now()));
+  return picked;
+}
+
+function listGeminiModels_(cfg) {
+  try {
+    var res = UrlFetchApp.fetch(GEMINI_ENDPOINT.replace(/\/$/, '') + '?pageSize=1000', {
+      headers: { 'x-goog-api-key': cfg.geminiApiKey }, muteHttpExceptions: true
+    });
+    if (res.getResponseCode() !== 200) return [];
+    return JSON.parse(res.getContentText()).models || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+/** از فهرست مدل‌ها جدیدترین flash پایدار (نه lite، نه preview، نه تصویر/صدا) را انتخاب می‌کند. */
+function pickFlashModel_(models) {
+  var excluded = /lite|image|tts|audio|live|thinking|exp|embedding|vision|8b|robotics|computer|native/i;
+  var usable = models.filter(function (m) {
+    var name = String(m.name || '').replace(/^models\//, '');
+    return /^gemini-[\d.]+-flash/.test(name) && !excluded.test(name) &&
+      (m.supportedGenerationMethods || []).indexOf('generateContent') >= 0;
+  }).map(function (m) {
+    var name = String(m.name).replace(/^models\//, '');
+    var ver = parseFloat((/^gemini-([\d.]+)/.exec(name) || [])[1] || '0');
+    return { name: name, ver: ver, preview: /preview/i.test(name), dated: /-\d{3,}$|-\d{2}-\d{4}$/.test(name) };
+  });
+  if (!usable.length) return '';
+  usable.sort(function (a, b) {
+    return (a.preview - b.preview) || (b.ver - a.ver) || (a.dated - b.dated) || (a.name.length - b.name.length);
+  });
+  return usable[0].name;
+}
+
+/**
  * @return {{ok:boolean, data:Object, error:string, quotaExceeded:boolean}}
  */
 function callGemini_(cfg, prompt, now) {
   if (!hasGeminiQuota_(cfg, now)) {
     return { ok: false, data: null, error: 'سقف روزانه Gemini پر شده است', quotaExceeded: true };
   }
+  var model = resolveModel_(cfg, false);
+  var r = requestGemini_(cfg, model, prompt, now);
+  if (r.httpCode === 404 && !cfg.geminiModel) {
+    // مدل ذخیره‌شده دیگر در دسترس نیست؛ یک بار مدل تازه انتخاب و دوباره تلاش می‌شود
+    var fresh = resolveModel_(cfg, true);
+    if (fresh !== model && hasGeminiQuota_(cfg, now)) r = requestGemini_(cfg, fresh, prompt, now);
+  }
+  return r.result;
+}
+
+function requestGemini_(cfg, model, prompt, now) {
   incrementGeminiCalls_(now);
-  var url = GEMINI_ENDPOINT + encodeURIComponent(cfg.geminiModel) + ':generateContent';
+  var url = GEMINI_ENDPOINT + encodeURIComponent(model) + ':generateContent';
   var payload = {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],
     generationConfig: {
@@ -110,17 +169,19 @@ function callGemini_(cfg, prompt, now) {
       muteHttpExceptions: true
     });
   } catch (e) {
-    return { ok: false, data: null, error: 'خطای شبکه Gemini: ' + (e && e.message || e), quotaExceeded: false };
+    return { httpCode: 0, result: { ok: false, data: null, error: 'خطای شبکه Gemini: ' + (e && e.message || e), quotaExceeded: false } };
   }
   var code = res.getResponseCode();
   var text = res.getContentText();
   if (code === 429) {
-    return { ok: false, data: null, error: 'Gemini 429: محدودیت نرخ یا سهمیه رایگان تمام شده', quotaExceeded: true };
+    return { httpCode: code, result: { ok: false, data: null, error: 'Gemini 429: محدودیت نرخ یا سهمیه رایگان تمام شده', quotaExceeded: true } };
   }
   if (code !== 200) {
-    return { ok: false, data: null, error: 'Gemini HTTP ' + code + ': ' + text.slice(0, 300), quotaExceeded: false };
+    return { httpCode: code, result: { ok: false, data: null, error: 'Gemini HTTP ' + code + ' (' + model + '): ' + text.slice(0, 300), quotaExceeded: false } };
   }
-  return parseGeminiResponse_(text);
+  var parsed = parseGeminiResponse_(text);
+  parsed.model = model;
+  return { httpCode: code, result: parsed };
 }
 
 function parseGeminiResponse_(text) {

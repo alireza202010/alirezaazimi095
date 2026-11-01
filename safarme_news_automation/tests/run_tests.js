@@ -164,6 +164,16 @@ const GOOD_ARTICLE = {
   tags_fa: ['گرجستان', 'ویزا'], verify_fa: ['تاریخ اجرای قانون'], confidence: 0.9
 };
 
+const MODEL_LIST = [
+  { name: 'models/gemini-2.5-flash', supportedGenerationMethods: ['generateContent'] },
+  { name: 'models/gemini-3.0-flash', supportedGenerationMethods: ['generateContent', 'countTokens'] },
+  { name: 'models/gemini-3.0-flash-lite', supportedGenerationMethods: ['generateContent'] },
+  { name: 'models/gemini-3.5-flash-preview-09-2026', supportedGenerationMethods: ['generateContent'] },
+  { name: 'models/gemini-3.0-flash-image', supportedGenerationMethods: ['generateContent'] },
+  { name: 'models/gemini-3.0-pro', supportedGenerationMethods: ['generateContent'] },
+  { name: 'models/text-embedding-004', supportedGenerationMethods: ['embedContent'] }
+];
+
 const tests = [];
 function test(name, fn) { tests.push({ name, fn }); }
 
@@ -236,13 +246,18 @@ function pipelineSandbox(extra) {
   extra = extra || {};
   const now = new Date();
   let geminiCalls = 0;
+  const modelsUsed = [];
   const sb = makeSandbox({
     props: Object.assign({ GEMINI_API_KEY: 'k', NOTIFY_EMAIL: 'me@example.com', RSS_FEEDS: 'https://feed.example/rss\nhttps://home.example/' }, extra.props || {}),
     fetch: (url, o) => {
       if (url === 'https://feed.example/rss') return { code: 200, body: rssFixture(now) };
       if (url === 'https://home.example/') return { code: 200, body: '<!doctype html><html></html>' };
+      if (url.startsWith('https://generativelanguage.googleapis.com/v1beta/models?')) {
+        return { code: 200, body: JSON.stringify(extra.models || { models: MODEL_LIST }) };
+      }
       if (url.startsWith('https://generativelanguage.googleapis.com/')) {
         geminiCalls++;
+        modelsUsed.push(url.split('/models/')[1].split(':')[0]);
         assert.strictEqual(o.headers['x-goog-api-key'], 'k');
         if (extra.gemini) return extra.gemini(geminiCalls, JSON.parse(o.payload));
         return { code: 200, body: geminiReply(GOOD_ARTICLE) };
@@ -252,7 +267,7 @@ function pipelineSandbox(extra) {
     }
   });
   sb.setup();
-  return { sb, now, calls: () => geminiCalls };
+  return { sb, now, calls: () => geminiCalls, modelsUsed };
 }
 
 test('dryRun: فقط خبرهای تازه، مرتبط، غیرطنز انتخاب می‌شوند و Gemini صدا زده نمی‌شود', () => {
@@ -356,6 +371,65 @@ test('بدون کلید Gemini اجرا با پیام روشن متوقف می�
   const sb = makeSandbox({ props: { NOTIFY_EMAIL: 'me@example.com' } });
   sb.setup();
   assert.throws(() => sb.runNow(), /GEMINI_API_KEY/);
+});
+
+test('pickFlashModel_ جدیدترین flash پایدار را انتخاب می‌کند', () => {
+  const sb = makeSandbox();
+  assert.strictEqual(sb.pickFlashModel_(MODEL_LIST), 'gemini-3.0-flash');
+  assert.strictEqual(sb.pickFlashModel_([{ name: 'models/gemini-3.5-flash-preview-09-2026', supportedGenerationMethods: ['generateContent'] }]), 'gemini-3.5-flash-preview-09-2026');
+  assert.strictEqual(sb.pickFlashModel_([]), '');
+});
+
+test('مدل از کار افتاده (404) با مدل تازه جایگزین می‌شود', () => {
+  const { sb, modelsUsed } = pipelineSandbox({
+    props: { MAX_DRAFTS_PER_RUN: '1', GEMINI_MODEL_RESOLVED: 'gemini-2.5-flash', GEMINI_MODEL_RESOLVED_AT: String(Date.now()) },
+    gemini: (n) => (n === 1 ? { code: 404, body: '{"error":{"code":404,"message":"no longer available"}}' } : { code: 200, body: geminiReply(GOOD_ARTICLE) })
+  });
+  const r = sb.runNow();
+  assert.deepStrictEqual(modelsUsed, ['gemini-2.5-flash', 'gemini-3.0-flash']);
+  assert.strictEqual(r.stats.drafts, 1);
+  assert.strictEqual(sb.__state.props.GEMINI_MODEL_RESOLVED, 'gemini-3.0-flash');
+});
+
+test('GEMINI_MODEL دستی بر انتخاب خودکار مقدم است', () => {
+  const { sb, modelsUsed } = pipelineSandbox({ props: { MAX_DRAFTS_PER_RUN: '1', GEMINI_MODEL: 'gemini-x-flash' } });
+  sb.runNow();
+  assert.deepStrictEqual(modelsUsed, ['gemini-x-flash']);
+});
+
+test('سقف فراخوانی Gemini در هر اجرا', () => {
+  const { sb, calls } = pipelineSandbox({
+    props: { MAX_DRAFTS_PER_RUN: '5', MAX_GEMINI_CALLS_PER_RUN: '1' },
+    gemini: () => ({ code: 200, body: geminiReply(Object.assign({}, GOOD_ARTICLE, { relevant: false })) })
+  });
+  sb.runNow();
+  assert.strictEqual(calls(), 1);
+});
+
+test('فیلتر ارتباط روی عنوان‌های واقعی dryRun اول', () => {
+  const sb = makeSandbox();
+  const cfg = { maxItemAgeHours: 36, minKeywordScore: 5 };
+  const now = new Date();
+  const mk = (title, summary) => ({ title, summary: summary || '', link: 'https://x/' + encodeURIComponent(title), published: now, categories: [] });
+  const items = [
+    mk('10 Airlines Offering Stopover Packages For A Fraction Of The Cost Of A Separate Trip', 'Qatar Airways, Turkish Airlines, Emirates, Malaysia'),
+    mk('Lufthansa Crew Member Dies Of Electrocution In Hotel Swimming Pool During Layover', 'India airport'),
+    mk('Three killed in midair helicopter collision at Oregon airport', 'flight'),
+    mk('5 US Airports With The Longest Security Lines In 2026', 'baggage travel'),
+    mk('Here’s Why Dassault Scrapped The Falcon 5X Before It Ever Entered Service', 'flights'),
+    mk('Marriott to launch JW Marriott in Fiji by 2027', 'China hotel tourism'),
+    mk('Passenger rights group sues DOT over rule shifting flight delay costs to travelers', 'airline hotel'),
+    mk('Capella Dubai to open at Dubai Peninsula in 2030', 'hotel tourism'),
+    mk('Turkey extends visa-free travel to new countries', 'tourists'),
+    mk('flydubai resumes flights to Mashhad', 'airline')
+  ];
+  const sel = sb.selectCandidates_(items, { urls: {}, titles: [] }, cfg, now);
+  const picked = Array.from(sel.candidates, (c) => c.title);
+  assert.deepStrictEqual(picked.sort(), [
+    'Capella Dubai to open at Dubai Peninsula in 2030',
+    'Turkey extends visa-free travel to new countries',
+    'flydubai resumes flights to Mashhad'
+  ].sort());
 });
 
 let failed = 0;

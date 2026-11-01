@@ -45,18 +45,27 @@ function isBlocked_(item) {
   return '';
 }
 
-/** امتیاز ارتباط بر اساس کلیدواژه؛ عنوان وزن دو برابر دارد. */
+/**
+ * امتیاز ارتباط بر اساس سه گروه کلیدواژه؛ عنوان وزن دو برابر دارد.
+ * @return {{score:number, geo:number, reg:number, topic:number, hits:Array<string>, gated:boolean}}
+ */
 function keywordScore_(item) {
   var title = ' ' + String(item.title || '').toLowerCase() + ' ';
   var body = ' ' + [item.summary, (item.categories || []).join(' ')].join(' ').toLowerCase().slice(0, 3000) + ' ';
-  var score = 0, hits = [];
-  Object.keys(RELEVANCE_KEYWORDS).forEach(function (kw) {
-    var re = new RegExp('(^|[^a-z0-9À-ɏ])' + kw.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&') + '(?=$|[^a-z0-9À-ɏ])', 'i');
-    var w = RELEVANCE_KEYWORDS[kw];
-    if (re.test(title)) { score += w * 2; hits.push(kw); }
-    else if (re.test(body)) { score += w; hits.push(kw); }
-  });
-  return { score: score, hits: hits };
+  var hits = [];
+  function scoreGroup(group) {
+    var total = 0;
+    Object.keys(group).forEach(function (kw) {
+      var re = new RegExp('(^|[^a-z0-9\u00c0-\u024f])' + kw.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&') + '(?=$|[^a-z0-9\u00c0-\u024f])', 'i');
+      if (re.test(title)) { total += group[kw] * 2; hits.push(kw); }
+      else if (re.test(body)) { total += group[kw]; hits.push(kw); }
+    });
+    return total;
+  }
+  var geo = scoreGroup(GEO_KEYWORDS);
+  var reg = scoreGroup(REG_KEYWORDS);
+  var topic = Math.min(scoreGroup(TOPIC_KEYWORDS), 6); // کلمات عمومی نباید امتیاز را باد کنند
+  return { score: geo + reg + topic, geo: geo, reg: reg, topic: topic, hits: hits, gated: geo >= 2 || reg >= 3 };
 }
 
 function isFresh_(item, maxAgeHours, now) {
@@ -94,7 +103,10 @@ function selectCandidates_(items, seen, cfg, now) {
       var ks = keywordScore_(item);
       item.keywordScore = ks.score;
       item.keywordHits = ks.hits;
-      if (ks.score < cfg.minKeywordScore) reason = 'نامرتبط (امتیاز کلیدواژه ' + ks.score + ')';
+      item.keywordGeo = ks.geo;
+      item.keywordReg = ks.reg;
+      if (!ks.gated) reason = 'نامرتبط (بدون مقصد یا مقررات مرتبط)';
+      else if (ks.score < cfg.minKeywordScore) reason = 'نامرتبط (امتیاز کلیدواژه ' + ks.score + ')';
     }
     if (reason) {
       item.rejectReason = reason;
