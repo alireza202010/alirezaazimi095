@@ -102,7 +102,9 @@ function resolveModels_(cfg, forceRefresh) {
   var cachedFallbacks = (props.getProperty('GEMINI_MODEL_FALLBACKS') || '').split(',').filter(String);
   var cachedAt = Number(props.getProperty('GEMINI_MODEL_RESOLVED_AT') || 0);
   var ranked;
-  if (cached && !forceRefresh && Date.now() - cachedAt < 7 * 86400000) {
+  // نسخه قبلی اسکریپت فهرست جایگزین ذخیره نمی‌کرد؛ اگر این کلید وجود ندارد، فهرست تازه گرفته می‌شود
+  var hasFallbackKey = props.getProperty('GEMINI_MODEL_FALLBACKS') !== null;
+  if (cached && hasFallbackKey && !forceRefresh && Date.now() - cachedAt < 7 * 86400000) {
     ranked = [cached].concat(cachedFallbacks);
   } else {
     ranked = rankFlashModels_(listGeminiModels_(cfg));

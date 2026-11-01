@@ -454,6 +454,15 @@ test('503 گذرا: تلاش دوم موفق می‌شود', () => {
   assert.deepStrictEqual(modelsUsed, ['gemini-3.0-flash', 'gemini-3.0-flash']);
 });
 
+test('کش قدیمی بدون فهرست جایگزین تازه‌سازی می‌شود', () => {
+  const { sb, modelsUsed } = pipelineSandbox({
+    props: { MAX_DRAFTS_PER_RUN: '1', GEMINI_MODEL_RESOLVED: 'gemini-3.0-flash', GEMINI_MODEL_RESOLVED_AT: String(Date.now()) },
+    gemini: (n) => (n <= 3 ? { code: 503, body: '{}' } : { code: 200, body: geminiReply(GOOD_ARTICLE) })
+  });
+  assert.strictEqual(sb.runNow().stats.drafts, 1);
+  assert.strictEqual(modelsUsed[3], 'gemini-2.5-flash');
+});
+
 let failed = 0;
 for (const t of tests) {
   try { t.fn(); console.log('✓', t.name); } catch (e) { failed++; console.log('✗', t.name, '\n   ', e.stack.split('\n').slice(0, 3).join('\n    ')); }
