@@ -176,7 +176,7 @@ function callGemini_(cfg, prompt, now) {
   var last = null;
   for (var i = 0; i < models.length; i++) {
     var model = models[i];
-    var delays = [0, 4000, 10000];
+    var delays = [0, 3000, 6000];
     for (var attempt = 0; attempt < delays.length; attempt++) {
       if (delays[attempt]) Utilities.sleep(delays[attempt]);
       last = requestGemini_(cfg, model, prompt);

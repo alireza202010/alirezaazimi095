@@ -158,15 +158,22 @@ function runPipeline_(opts) {
       return { stats: stats, candidates: sel.candidates, rejected: sel.rejected };
     }
 
+    // ردشده‌ها همین الان ذخیره می‌شوند تا اگر اجرا وسط کار قطع شد از دست نروند
+    appendSeen_(ss, seenRows);
+    seenRows = [];
+
     var ssUrl = ss.getUrl();
     for (var i = 0; i < sel.candidates.length && stats.drafts < cfg.maxDraftsPerRun; i++) {
-      if (Date.now() - started > DEFAULTS.MAX_RUNTIME_MS) { log_(ss, 'WARN', 'زمان اجرا به سقف رسید'); break; }
+      // هر فراخوانی Gemini (با تلاش مجدد) ممکن است تا ۲ دقیقه طول بکشد؛ سقف ۶ دقیقه‌ای گوگل نباید وسط کار برسد
+      if (Date.now() - started > DEFAULTS.LAST_CALL_START_MS) { log_(ss, 'INFO', 'زمان این اجرا تمام شد؛ بقیه نامزدها برای ساعت بعد'); break; }
       if (stats.geminiCalls >= cfg.maxGeminiCallsPerRun) { log_(ss, 'INFO', 'سقف فراخوانی Gemini در این اجرا (' + cfg.maxGeminiCallsPerRun + ') پر شد؛ بقیه برای ساعت بعد'); break; }
       if (!hasGeminiQuota_(cfg, now)) { log_(ss, 'WARN', 'سقف روزانه Gemini (' + cfg.maxGeminiCallsPerDay + ') پر شد'); break; }
       var item = sel.candidates[i];
       var text = cfg.fetchFullArticle ? fetchArticleText_(item.link, DEFAULTS.ARTICLE_CHAR_LIMIT) : '';
+      var callStart = Date.now();
       var g = callGemini_(cfg, buildPrompt_(item, text), now);
       stats.geminiCalls++;
+      stats.geminiSeconds = (stats.geminiSeconds || 0) + Math.round((Date.now() - callStart) / 1000);
       if (!g.ok) {
         stats.errors++;
         log_(ss, 'ERROR', item.title + ' | ' + g.error);
@@ -177,7 +184,7 @@ function runPipeline_(opts) {
       var reject = acceptArticle_(a);
       if (reject) {
         stats.modelRejected++;
-        seenRows.push([item.key, item.title, now, reject]);
+        appendSeen_(ss, [[item.key, item.title, now, reject]]);
         continue;
       }
       var doc = createDraftDoc_(cfg, a, item);
@@ -185,12 +192,11 @@ function runPipeline_(opts) {
       var cms = pushToCms_(cfg, a, item, html);
       appendQueue_(ss, [now, 'pending', a.title_fa, doc.url, item.feedTitle, item.link, item.published,
         a.news_type, a.category, item.keywordScore, a.confidence, cms, a.slug_en, html]);
-      seenRows.push([item.key, item.title, now, 'draft']);
+      appendSeen_(ss, [[item.key, item.title, now, 'draft']]);
       sendDraftEmail_(cfg, a, item, doc, cms, ssUrl);
       stats.drafts++;
     }
 
-    appendSeen_(ss, seenRows);
     pruneSeen_(ss, now);
     log_(ss, 'INFO', 'اجرا تمام شد ' + JSON.stringify(stats) + ' | ' + Math.round((Date.now() - started) / 1000) + 's');
     return { stats: stats };

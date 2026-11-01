@@ -29,6 +29,7 @@ var DEFAULTS = {
   MIN_KEYWORD_SCORE: 5,
   FETCH_FULL_ARTICLE: true,
   MAX_RUNTIME_MS: 4.5 * 60 * 1000,
+  LAST_CALL_START_MS: 3 * 60 * 1000, // بعد از این زمان فراخوانی جدید Gemini شروع نمی‌شود
   SEEN_RETENTION_DAYS: 45,
   ARTICLE_CHAR_LIMIT: 9000
 };
