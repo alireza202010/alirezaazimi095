@@ -44,9 +44,13 @@ function testFeeds() {
   var report = loadSources_(ss, cfg).map(function (src) {
     var r = fetchFeed_(src.url);
     var fresh = r.items.filter(function (it) { return isFresh_(it, cfg.maxItemAgeHours, now); }).length;
+    var undated = r.items.filter(function (it) { return !it.published; });
+    var newest = r.items.reduce(function (m, it) { return it.published && (!m || it.published > m) ? it.published : m; }, null);
     var status = r.ok ? 'OK' : 'FAIL: ' + r.error;
     updateSourceStatus_(ss, src, status, r.items.length, now);
     return (r.ok ? '✅ ' : '❌ ') + src.name + ' | ' + status + ' | آیتم: ' + r.items.length + ' | تازه: ' + fresh +
+      ' | جدیدترین: ' + (newest ? Utilities.formatDate(newest, 'Asia/Tehran', 'yyyy-MM-dd HH:mm') : '-') +
+      (undated.length ? ' | بدون تاریخ: ' + undated.length + ' (نمونه تاریخ خام: "' + (undated[0].rawDate || '') + '")' : '') +
       (r.items[0] ? ' | نمونه: ' + r.items[0].title : '');
   });
   log_(ss, 'INFO', 'testFeeds\n' + report.join('\n'));

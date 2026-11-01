@@ -64,6 +64,7 @@ function parseFeed_(xml, feedUrl) {
       link: link.trim(),
       guid: guid,
       published: parseDate_(dateStr),
+      rawDate: dateStr,
       summary: htmlToText_(stripCdata_(summaryRaw)).slice(0, 4000),
       categories: categories,
       feedTitle: feedTitle,
