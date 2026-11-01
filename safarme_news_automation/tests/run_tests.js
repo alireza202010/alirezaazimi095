@@ -384,7 +384,7 @@ test('pickFlashModel_ جدیدترین flash پایدار را انتخاب می
 
 test('مدل از کار افتاده (404) با مدل تازه جایگزین می‌شود', () => {
   const { sb, modelsUsed } = pipelineSandbox({
-    props: { MAX_DRAFTS_PER_RUN: '1', GEMINI_MODEL_RESOLVED: 'gemini-2.5-flash', GEMINI_MODEL_RESOLVED_AT: String(Date.now()) },
+    props: { MAX_DRAFTS_PER_RUN: '1', GEMINI_MODEL_RESOLVED: 'gemini-2.5-flash', GEMINI_MODEL_FALLBACKS: '', GEMINI_MODEL_RESOLVED_AT: String(Date.now()) },
     gemini: (n) => (n === 1 ? { code: 404, body: '{"error":{"code":404,"message":"no longer available"}}' } : { code: 200, body: geminiReply(GOOD_ARTICLE) })
   });
   const r = sb.runNow();
