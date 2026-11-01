@@ -89,15 +89,32 @@ function hasGeminiQuota_(cfg, now) {
  * گوگل مدل‌های قدیمی را برای کاربران جدید می‌بندد، پس نام ثابت در کد شکننده است.
  */
 function resolveModel_(cfg, forceRefresh) {
-  if (cfg.geminiModel) return cfg.geminiModel;
+  return resolveModels_(cfg, forceRefresh)[0];
+}
+
+/**
+ * فهرست مدل‌ها به ترتیب اولویت: [اصلی، جایگزین‌ها...].
+ * جایگزین وقتی استفاده می‌شود که مدل اصلی شلوغ است (503) یا خطای سرور می‌دهد.
+ */
+function resolveModels_(cfg, forceRefresh) {
   var props = getProps_();
   var cached = props.getProperty('GEMINI_MODEL_RESOLVED');
+  var cachedFallbacks = (props.getProperty('GEMINI_MODEL_FALLBACKS') || '').split(',').filter(String);
   var cachedAt = Number(props.getProperty('GEMINI_MODEL_RESOLVED_AT') || 0);
-  if (cached && !forceRefresh && Date.now() - cachedAt < 7 * 86400000) return cached;
-  var picked = pickFlashModel_(listGeminiModels_(cfg)) || 'gemini-flash-latest';
-  props.setProperty('GEMINI_MODEL_RESOLVED', picked);
-  props.setProperty('GEMINI_MODEL_RESOLVED_AT', String(Date.now()));
-  return picked;
+  var ranked;
+  if (cached && !forceRefresh && Date.now() - cachedAt < 7 * 86400000) {
+    ranked = [cached].concat(cachedFallbacks);
+  } else {
+    ranked = rankFlashModels_(listGeminiModels_(cfg));
+    if (!ranked.length) ranked = ['gemini-flash-latest'];
+    props.setProperty('GEMINI_MODEL_RESOLVED', ranked[0]);
+    props.setProperty('GEMINI_MODEL_FALLBACKS', ranked.slice(1, 3).join(','));
+    props.setProperty('GEMINI_MODEL_RESOLVED_AT', String(Date.now()));
+  }
+  if (cfg.geminiModel) {
+    ranked = [cfg.geminiModel].concat(ranked.filter(function (m) { return m !== cfg.geminiModel; }));
+  }
+  return ranked.slice(0, 3);
 }
 
 function listGeminiModels_(cfg) {
@@ -112,9 +129,12 @@ function listGeminiModels_(cfg) {
   }
 }
 
-/** از فهرست مدل‌ها جدیدترین flash پایدار (نه lite، نه preview، نه تصویر/صدا) را انتخاب می‌کند. */
-function pickFlashModel_(models) {
-  var excluded = /lite|image|tts|audio|live|thinking|exp|embedding|vision|8b|robotics|computer|native/i;
+/**
+ * مدل‌های flash قابل استفاده به ترتیب اولویت:
+ * پایدار قبل از preview، کامل قبل از lite، نسخه جدیدتر قبل از قدیمی‌تر.
+ */
+function rankFlashModels_(models) {
+  var excluded = /image|tts|audio|live|thinking|exp|embedding|vision|8b|robotics|computer|native/i;
   var usable = models.filter(function (m) {
     var name = String(m.name || '').replace(/^models\//, '');
     return /^gemini-[\d.]+-flash/.test(name) && !excluded.test(name) &&
@@ -122,34 +142,61 @@ function pickFlashModel_(models) {
   }).map(function (m) {
     var name = String(m.name).replace(/^models\//, '');
     var ver = parseFloat((/^gemini-([\d.]+)/.exec(name) || [])[1] || '0');
-    return { name: name, ver: ver, preview: /preview/i.test(name), dated: /-\d{3,}$|-\d{2}-\d{4}$/.test(name) };
+    return { name: name, ver: ver, preview: /preview/i.test(name), lite: /lite/i.test(name),
+      dated: /-\d{3,}$|-\d{2}-\d{4}$/.test(name) };
   });
-  if (!usable.length) return '';
   usable.sort(function (a, b) {
-    return (a.preview - b.preview) || (b.ver - a.ver) || (a.dated - b.dated) || (a.name.length - b.name.length);
+    return (a.preview - b.preview) || (a.lite - b.lite) || (b.ver - a.ver) ||
+      (a.dated - b.dated) || (a.name.length - b.name.length);
   });
-  return usable[0].name;
+  return usable.map(function (u) { return u.name; });
+}
+
+/** سازگاری با نسخه قبل: بهترین مدل غیر lite. */
+function pickFlashModel_(models) {
+  var ranked = rankFlashModels_(models).filter(function (n) { return !/lite/i.test(n); });
+  return ranked[0] || '';
 }
 
 /**
+ * یک فراخوانی منطقی Gemini (فقط یک واحد از سقف روزانه مصرف می‌کند):
+ * - 503/500/502/504: تا دو بار تلاش مجدد با مکث، بعد مدل جایگزین
+ * - 404: فهرست مدل‌ها تازه می‌شود و با مدل جدید تلاش می‌شود
  * @return {{ok:boolean, data:Object, error:string, quotaExceeded:boolean}}
  */
 function callGemini_(cfg, prompt, now) {
   if (!hasGeminiQuota_(cfg, now)) {
     return { ok: false, data: null, error: 'سقف روزانه Gemini پر شده است', quotaExceeded: true };
   }
-  var model = resolveModel_(cfg, false);
-  var r = requestGemini_(cfg, model, prompt, now);
-  if (r.httpCode === 404 && !cfg.geminiModel) {
-    // مدل ذخیره‌شده دیگر در دسترس نیست؛ یک بار مدل تازه انتخاب و دوباره تلاش می‌شود
-    var fresh = resolveModel_(cfg, true);
-    if (fresh !== model && hasGeminiQuota_(cfg, now)) r = requestGemini_(cfg, fresh, prompt, now);
+  incrementGeminiCalls_(now);
+  var models = resolveModels_(cfg, false);
+  var refreshed = false;
+  var last = null;
+  for (var i = 0; i < models.length; i++) {
+    var model = models[i];
+    var delays = [0, 4000, 10000];
+    for (var attempt = 0; attempt < delays.length; attempt++) {
+      if (delays[attempt]) Utilities.sleep(delays[attempt]);
+      last = requestGemini_(cfg, model, prompt);
+      if (!isTransient_(last.httpCode)) break;
+    }
+    if (last.result.ok || last.httpCode === 429) return last.result;
+    if (last.httpCode === 404 && !refreshed) {
+      refreshed = true;
+      models = [models[i]].concat(resolveModels_(cfg, true).filter(function (m) { return m !== model; }));
+      continue;
+    }
+    if (!isTransient_(last.httpCode) && last.httpCode !== 404) return last.result;
+    log_(null, 'WARN', 'مدل ' + model + ' در دسترس نبود (HTTP ' + last.httpCode + ')، تلاش با مدل بعدی');
   }
-  return r.result;
+  return last.result;
 }
 
-function requestGemini_(cfg, model, prompt, now) {
-  incrementGeminiCalls_(now);
+function isTransient_(code) {
+  return code === 0 || code === 500 || code === 502 || code === 503 || code === 504;
+}
+
+function requestGemini_(cfg, model, prompt) {
   var url = GEMINI_ENDPOINT + encodeURIComponent(model) + ':generateContent';
   var payload = {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],

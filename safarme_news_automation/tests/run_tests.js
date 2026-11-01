@@ -132,7 +132,8 @@ function makeSandbox(opts) {
       },
       computeDigest: (_alg, s) => Array.from(crypto.createHash('sha256').update(String(s)).digest()),
       base64EncodeWebSafe: (bytes) => Buffer.from(bytes).toString('base64url'),
-      DigestAlgorithm: { SHA_256: 'SHA_256' }
+      DigestAlgorithm: { SHA_256: 'SHA_256' },
+      sleep: () => {}
     }
   };
   vm.createContext(sb);
@@ -376,6 +377,7 @@ test('بدون کلید Gemini اجرا با پیام روشن متوقف می�
 test('pickFlashModel_ جدیدترین flash پایدار را انتخاب می‌کند', () => {
   const sb = makeSandbox();
   assert.strictEqual(sb.pickFlashModel_(MODEL_LIST), 'gemini-3.0-flash');
+  assert.deepStrictEqual(Array.from(sb.rankFlashModels_(MODEL_LIST)).slice(0, 3), ['gemini-3.0-flash', 'gemini-2.5-flash', 'gemini-3.0-flash-lite']);
   assert.strictEqual(sb.pickFlashModel_([{ name: 'models/gemini-3.5-flash-preview-09-2026', supportedGenerationMethods: ['generateContent'] }]), 'gemini-3.5-flash-preview-09-2026');
   assert.strictEqual(sb.pickFlashModel_([]), '');
 });
@@ -430,6 +432,26 @@ test('فیلتر ارتباط روی عنوان‌های واقعی dryRun او�
     'Turkey extends visa-free travel to new countries',
     'flydubai resumes flights to Mashhad'
   ].sort());
+});
+
+test('503 پایدار: تلاش مجدد و بعد مدل جایگزین، با یک واحد مصرف روزانه', () => {
+  const { sb, modelsUsed } = pipelineSandbox({
+    props: { MAX_DRAFTS_PER_RUN: '1' },
+    gemini: (n) => (n <= 3 ? { code: 503, body: '{"error":{"code":503,"status":"UNAVAILABLE"}}' } : { code: 200, body: geminiReply(GOOD_ARTICLE) })
+  });
+  const r = sb.runNow();
+  assert.deepStrictEqual(modelsUsed, ['gemini-3.0-flash', 'gemini-3.0-flash', 'gemini-3.0-flash', 'gemini-2.5-flash']);
+  assert.strictEqual(r.stats.drafts, 1);
+  assert.strictEqual(sb.geminiCallsToday_(new Date()), 1);
+});
+
+test('503 گذرا: تلاش دوم موفق می‌شود', () => {
+  const { sb, modelsUsed } = pipelineSandbox({
+    props: { MAX_DRAFTS_PER_RUN: '1' },
+    gemini: (n) => (n === 1 ? { code: 503, body: '{}' } : { code: 200, body: geminiReply(GOOD_ARTICLE) })
+  });
+  assert.strictEqual(sb.runNow().stats.drafts, 1);
+  assert.deepStrictEqual(modelsUsed, ['gemini-3.0-flash', 'gemini-3.0-flash']);
 });
 
 let failed = 0;

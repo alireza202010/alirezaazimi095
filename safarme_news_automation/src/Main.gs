@@ -77,7 +77,7 @@ function testGemini() {
     categories: ['Airlines']
   };
   var r = callGemini_(cfg, buildPrompt_(item, ''), new Date());
-  Logger.log('مدل: ' + resolveModel_(cfg, false));
+  Logger.log('مدل‌ها (اصلی، جایگزین): ' + resolveModels_(cfg, false).join('، '));
   Logger.log(r.ok ? JSON.stringify(r.data, null, 2) : 'خطا: ' + r.error);
   Logger.log('فراخوانی‌های امروز: ' + geminiCallsToday_(new Date()) + ' از ' + cfg.maxGeminiCallsPerDay);
   return r;
