@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+  <title>Sample Travel News</title>
+  <link>https://feed.example/</link>
+  <item>
+    <title>Georgia announces new entry rules for Iranian tourists &amp; visitors</title>
+    <link>https://feed.example/georgia-entry-rules/?utm_source=rss&amp;utm_medium=rss</link>
+    <guid isPermaLink="false">https://feed.example/?p=101</guid>
+    <pubDate>{{D1}}</pubDate>
+    <category><![CDATA[Visa]]></category>
+    <category>Georgia</category>
+    <description><![CDATA[<p>The <strong>Ministry of Foreign Affairs</strong> of Georgia said new rules apply from December 1.</p>]]></description>
+  </item>
+  <item>
+    <title>Turkish Airlines adds third daily Tehran&#8211;Istanbul flight</title>
+    <link>https://feed.example/turkish-airlines-tehran/</link>
+    <pubDate>{{D2}}</pubDate>
+    <category>Airlines</category>
+    <description>The carrier will add a new route frequency to Imam Khomeini airport.</description>
+  </item>
+  <item>
+    <title>Old news: Dubai airport passenger record</title>
+    <link>https://feed.example/old-dubai/</link>
+    <pubDate>{{D3}}</pubDate>
+    <description>Dubai airport tourism flights record.</description>
+  </item>
+  <item>
+    <title>Airline to charge passengers for breathing on flights</title>
+    <link>https://feed.example/breathing-fee/</link>
+    <pubDate>{{D4}}</pubDate>
+    <category>Satire</category>
+    <description>Our weekly satire column on airline fees in Dubai.</description>
+  </item>
+  <item>
+    <title>New pizza restaurant opens in Chicago</title>
+    <link>https://feed.example/pizza/</link>
+    <pubDate>{{D5}}</pubDate>
+    <description>Cheese and more cheese.</description>
+  </item>
+  <item>
+    <title>Iranian visitors: Georgia announces entry rules</title>
+    <link>https://other.example/georgia-rules</link>
+    <pubDate>{{D6}}</pubDate>
+    <description>Georgia visa rules for Iranian tourists.</description>
+  </item>
+</channel>
+</rss>

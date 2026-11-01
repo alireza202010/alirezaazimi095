@@ -8,6 +8,8 @@
 پلن کامل محصول: [docs/PLAN.md](docs/PLAN.md)
 
 > این ریپو یک محصول دوم هم دارد: **سفرپلنر** (پیشنهاددهنده سفر) در پوشه [`travel_planner/`](travel_planner/README.md).
+>
+> و سومی: **اتوماسیون خبر گردشگری سفرمی** (RSS → ترجمه با Gemini → پیش‌نویس → ایمیل، روی Google Apps Script) در پوشه [`safarme_news_automation/`](safarme_news_automation/README.md).
 
 ## اجرا
 
